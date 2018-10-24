@@ -1,0 +1,5 @@
+/**
+ * @author humbertmeyers
+ *
+ */
+package mastermind;
