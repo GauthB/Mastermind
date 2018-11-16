@@ -3,8 +3,8 @@ Projet Java
 Number MasterMind 
 
 Membres du groupe
-Hermant Thibaut	2TL1
 
+Hermant Thibaut	2TL1
 Bohyn Gauthier	2TL1
 Meyers Humbert	3TL1 (2TL1 pour les cours de 2ème)
 
@@ -21,8 +21,6 @@ L’autre a un certain nombre de tentatives possibles pour trouver la bonne comb
 Après chaque tentatives le joueur qui a choisi la combinaison met un pion blanc pour chaque couleur étant dans la combinaison mais pas à la bonne place, un pion rouge pour chaque couleur étant dans la combinaison et à la bonne place et si une couleur n’y est pas, on laisse un vide à la place du pion.
 La partie se termine donc lorsque le chercheur possède 4 pions rouge, donc la bonne combinaison.
 S’il n’arrive pas à trouver la combinaison au bout de toutes les tentatives, C’est l’autre joueur qui gagne.
-
-
 
 
 
@@ -47,7 +45,7 @@ Chaque joueur pourra visualiser le jeu de l’autre en direct (donc une possibil
 Affichage en Console/GUI
 La combinaison de couleurs est remplacée par des chiffres
 Les pions rouges deviennent -> O
- Blancs deviennent -> /
+Blancs deviennent -> /
 Si le chiffre n’est pas dans la combinaison -> X
 
 Améliorations possibles
