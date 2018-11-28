@@ -29,9 +29,9 @@ Modes
 . Solo 
 - L’application génère aléatoirement la combinaison de 4 couleurs 
 - Elle corrige elle-même le joueur grâce aux pions de couleurs.
-Il y a 3 modes possibles : → Facile = 16 tentatives
-→ Moyen = 12 tentatives
-→ Difficile = 8 tentatives 
+Il y a 3 modes possibles : → Easy = 12 tentatives
+→ Normal = 9 tentatives
+→ Hard = 5 tentatives 
 
 
 Multi-joueurs 
