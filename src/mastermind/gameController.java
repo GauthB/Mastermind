@@ -47,14 +47,14 @@ public class gameController  {
 				
 				
 				while(choice==0) {
-					System.out.println("Difficult = 'D'   5 chances");
+					System.out.println("Hard = 'H'   5 chances");
 					System.out.println("Normal = 'N'      9 chances");
 					System.out.println("Easy = 'E'        12 chances");
 					System.out.println("Please enter your difficulty:");
 					
 			        level= levelInput.next().charAt(0);
 			        
-			        if(level == 'D' || level == 'd') {
+			        if(level == 'H' || level == 'h') {
 			        	System.out.print("\nYour level is : Difficult	\n");
 			        	difficulty = difficult;
 			        	choice = 1;
