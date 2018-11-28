@@ -6,7 +6,7 @@ public class gamePc {
 
 	
 	public char combi[];
-	public String combiRandom = "123456789";
+	public String combiRandom = "0123456789";
 	
 	public gamePc(){
 		int n=4;							// nombre de chiffre qu'il faut deviner
