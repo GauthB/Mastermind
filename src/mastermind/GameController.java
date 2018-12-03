@@ -14,17 +14,18 @@ public class GameController  {
 	
 			
 	
-	public 	static char[] combiIn = new char[4];	// pour la longueur du tableau qui rÃ©ceptionne la combi qu'on encode
-	private static String combiStr;					
-	private static int easy = 12;
-	private static int normal = 9 ;
-	private static int hard = 5;
-	private static String level;
-	private static int difficulty;
-	private static int choiceL = 0;
-	private static String mode;
-	private static int choiceM = 0;
-	private static int limite;
+	public 	static char[] combiIn = new char[4];	// Pour la longueur du tableau qui rÃ©ceptionne la combi qu'on encode
+	private static String combiStr;			//			
+	private static int easy = 12;			// Mode Easy avec 12 chances
+	private static int normal = 9 ;			// Mode Normal avec 9 chances
+	private static int hard = 5;			// Mode Hard avec 5 chance
+	private static String level;			// Le niveau qu'on desire pour le jeu
+	private static int difficulty;			// La difficulté = le nombre de chance
+	private static int choiceL = 0;			// Choix du niveau
+	private static int limite;			// Nombre de limite
+	private static String mode;			// Le mode qu'on desire
+	private static int choiceM = 0;			// le nombre du mode 1=solo  2=multi
+			
 	
 	
 	public GameController(){
