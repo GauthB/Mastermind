@@ -2,7 +2,7 @@ package mastermind;
 
 import java.util.Scanner;
 
-public class gameController  {
+public class GameController  {
 	
 	//-------------------------------------
 		//Correction de la CombiIn
@@ -13,27 +13,27 @@ public class gameController  {
 	private static char correct = 'V';				// si le chiffre est au bon endroit
 	private static char miCorrect = '/';			// si le chiffre existe mais n'est pas au bon endroit
 	private static char noCorrect = 'X';			// si le chiffre n'existe pas dans la combi
-	private static char result;						// variable pour les résultats 
-	private static char[] combiIn = new char[4];	// pour la longueur du tableau qui réceptionne la combi qu'on encode
+	private static char result;	
+	public static char[] combiIn = new char[4];	// pour la longueur du tableau qui réceptionne la combi qu'on encode
 	private static String combiStr;					
 	private static int easy = 12;
 	private static int normal = 9 ;
-	private static int difficult = 5;
-	private static char level;
+	private static int hard = 5;
+	private static String level;
 	private static int difficulty;
 	private static int choice = 0;
 	
 	
 	
-	public gameController(){
+	public GameController(){
 		
 	}
 	
 	
 		public static void main(String[] args){  
 
-				gamePc game = new gamePc();							// gamePC --> générer la combi
-				gameController gameCtrl = new gameController();		// gameController --> pour la correction 	IDEAL, CHANGER CELA DE CLASSE
+				RandomCombi game = new RandomCombi();							// gamePC --> générer la combi
+				GameController gameCtrl = new GameController();		// gameController --> pour la correction 	IDEAL, CHANGER CELA DE CLASSE
 				Scanner combiInput = new Scanner(System.in);
 				Scanner levelInput = new Scanner(System.in);
 								// pour afficher la solution
@@ -52,19 +52,20 @@ public class gameController  {
 					System.out.println("Easy = 'E'        12 chances");
 					System.out.println("Please enter your difficulty:");
 					
-			        level= levelInput.next().charAt(0);
+			        level= levelInput.next();
+			        level = level.toLowerCase();
 			        
-			        if(level == 'H' || level == 'h') {
-			        	System.out.print("\nYour level is : Difficult	\n");
-			        	difficulty = difficult;
+			        if( level.equals("h")) {
+			        	System.out.print("\nYour level is : Hard	\n");
+			        	difficulty = hard;
 			        	choice = 1;
 			        }
-			        else if(level == 'N' || level == 'n') {
+			        else if(level.equals("n")) {
 			        	System.out.print("\nYour level is : normal  \n");
 			        	difficulty = normal;
 			        	choice = 1;
 			        }
-			        else if(level == 'E' || level == 'e') {
+			        else if(level.equals("e")) {
 			        	System.out.print("\nYour level is : Easy \n");
 			        	difficulty = easy;
 			        	choice = 1;
@@ -72,6 +73,7 @@ public class gameController  {
 			        else{
 			        	System.out.println("\nNo correct \n\n");
 			        	choice = 0;
+			        	System.out.println(level+" \n\n");
 			        }
 				}
 		        
@@ -130,7 +132,35 @@ public class gameController  {
 		}*/
 	    
 			// correction du CombiIn 1
-		public char correction1(gamePc game){
+		/*public char correction69(RandomCombi game) {
+			
+			
+			for(int i = 0; i > 4;i++) {
+				
+				if (combiIn[0] == game.combi[0]) {				// premier chiffre
+		             result = correct;
+		         } else if (combiIn[0] == (char)game.combi[1]) {		// deuxieme chiffre
+		             result = miCorrect; 
+		         } else if (combiIn[0] == (char)game.combi[2]) {		// troisieme chiffre
+		             result = miCorrect;
+		         } else if (combiIn[0] == (char)game.combi[3]) {		// quatrieme chiffre
+		             result = miCorrect;
+		         } else {
+		             result = noCorrect;
+		         }	      
+				
+	         return resultTb[i]=result; 
+			}
+			return resultTb[];
+		}*/
+		
+		
+		
+		
+		
+		
+		
+		public char correction1(RandomCombi game){
 			
 			 if (combiIn[0] == game.combi[0]) {				// premier chiffre
 	             result = correct;
@@ -145,7 +175,7 @@ public class gameController  {
 	         }	         
 	         return result; 
 		}
-		  public char correction2(gamePc game) {
+		  public char correction2(RandomCombi game) {
 				
 		         if (combiIn[1] == game.combi[1]) {				// premier chiffre
 		             result = correct;
@@ -160,7 +190,7 @@ public class gameController  {
 		         }
 		         return result;	         
 		    }
-		  public char correction3(gamePc game) {
+		  public char correction3(RandomCombi game) {
 				
 		         if (combiIn[2] == game.combi[2]) {				// premier chiffre
 		             result = correct;
@@ -175,7 +205,7 @@ public class gameController  {
 		         }
 		         return result;	         
 		    }
-		  public char correction4(gamePc game) {
+		  public char correction4(RandomCombi game) {
 				
 		         if (combiIn[3] == game.combi[3]) {				// premier chiffre
 		             result = correct;
