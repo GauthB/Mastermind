@@ -10,9 +10,7 @@ public class GameController  {
 	
 	
 	
-	private static char correct = 'V';				// si le chiffre est au bon endroit
-	private static char miCorrect = '/';			// si le chiffre existe mais n'est pas au bon endroit
-	private static char noCorrect = 'X';			// si le chiffre n'existe pas dans la combi
+			
 	private static char result;	
 	public 	static char[] combiIn = new char[4];	// pour la longueur du tableau qui rÃ©ceptionne la combi qu'on encode
 	private static String combiStr;					
