@@ -36,6 +36,7 @@ import java.awt.Color;
 public class viewGame1 extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -95,8 +96,8 @@ public class viewGame1 extends JFrame {
 				
 				GridBagLayout gbl_contentPane = new GridBagLayout();
 				gbl_contentPane.columnWidths = new int[]{35, 80, 80, 80, 80, 35, 80, 80, 80, 35};
-				gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-				gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+				gbl_contentPane.rowHeights = new int[]{0, 0, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+				gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 				gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 				contentPane.setLayout(gbl_contentPane);
 		//----------------------------------------------------
@@ -155,50 +156,17 @@ public class viewGame1 extends JFrame {
 			gbc_scrollPane.gridx = 6;
 			gbc_scrollPane.gridy = 2;
 			contentPane.add(scrollPane, gbc_scrollPane);
-		//----------------------------------------------------
-		
-		//Les boutons pour encoder les numéros
-			JButton btnChiffre1 = new JButton("1");
-			GridBagConstraints gbc_btnChiffre1 = new GridBagConstraints();
-			gbc_btnChiffre1.insets = new Insets(0, 0, 5, 5);
-			gbc_btnChiffre1.gridx = 1;
-			gbc_btnChiffre1.gridy = 16;
-			contentPane.add(btnChiffre1, gbc_btnChiffre1);
 			
-			JButton btnChiffre2 = new JButton("2");
-			GridBagConstraints gbc_btnChiffre2 = new GridBagConstraints();
-			gbc_btnChiffre2.insets = new Insets(0, 0, 5, 5);
-			gbc_btnChiffre2.gridx = 2;
-			gbc_btnChiffre2.gridy = 16;
-			contentPane.add(btnChiffre2, gbc_btnChiffre2);
+			textField = new JTextField();
+			GridBagConstraints gbc_textField = new GridBagConstraints();
+			gbc_textField.insets = new Insets(0, 0, 5, 5);
+			gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+			gbc_textField.gridx = 1;
+			gbc_textField.gridy = 15;
+			contentPane.add(textField, gbc_textField);
+			textField.setColumns(10);
 			
-			JButton btnChiffre3 = new JButton("3");
-			GridBagConstraints gbc_btnChiffre3 = new GridBagConstraints();
-			gbc_btnChiffre3.insets = new Insets(0, 0, 5, 5);
-			gbc_btnChiffre3.gridx = 3;
-			gbc_btnChiffre3.gridy = 16;
-			contentPane.add(btnChiffre3, gbc_btnChiffre3);
 			
-			JButton btnChiffre4 = new JButton("4");
-			GridBagConstraints gbc_btnChiffre4 = new GridBagConstraints();
-			gbc_btnChiffre4.insets = new Insets(0, 0, 5, 5);
-			gbc_btnChiffre4.gridx = 1;
-			gbc_btnChiffre4.gridy = 17;
-			contentPane.add(btnChiffre4, gbc_btnChiffre4);
-			
-			JButton btnChiffre5 = new JButton("5");
-			GridBagConstraints gbc_btnChiffre5 = new GridBagConstraints();
-			gbc_btnChiffre5.insets = new Insets(0, 0, 5, 5);
-			gbc_btnChiffre5.gridx = 2;
-			gbc_btnChiffre5.gridy = 17;
-			contentPane.add(btnChiffre5, gbc_btnChiffre5);
-			
-			JButton btnChiffre6 = new JButton("6");
-			GridBagConstraints gbc_btnChiffre6 = new GridBagConstraints();
-			gbc_btnChiffre6.insets = new Insets(0, 0, 5, 5);
-			gbc_btnChiffre6.gridx = 3;
-			gbc_btnChiffre6.gridy = 17;
-			contentPane.add(btnChiffre6, gbc_btnChiffre6);
 		//----------------------------------------------------
 	}
 
