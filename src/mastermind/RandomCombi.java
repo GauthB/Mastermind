@@ -8,8 +8,8 @@ public class RandomCombi {
 	public char combi[];
 	public String combiRandom = "0123456789";
 	
-	public RandomCombi(){
-		int n=4;							// nombre de chiffre qu'il faut deviner
+	public RandomCombi(){	// nombre de chiffre qu'il faut deviner
+		int n = 4;
 	    combi=genererCombi(n);
 	}
 	
@@ -21,7 +21,7 @@ public class RandomCombi {
 		Random r = new Random();
 		int SIZE = combiRandom.length();
 		char combi[] = new char [n];
-		for(int i = 0; i<4; i++) {
+		for(int i = 0; i<n; i++) {
 			combi[i]= combiRandom.charAt(r.nextInt(SIZE));
 			
 			
