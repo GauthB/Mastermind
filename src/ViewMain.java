@@ -33,7 +33,7 @@ import javax.swing.JMenu;
 import java.awt.ScrollPane;
 import java.awt.Font;
 
-public class mainMenu extends JFrame {
+public class ViewMain extends JFrame {
 
 	private JPanel contentPane;
 
@@ -44,7 +44,7 @@ public class mainMenu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					mainMenu frame = new mainMenu();
+					ViewMain frame = new ViewMain();
 					frame.setVisible(true);
 					frame.setTitle("Number MasterMind");
 				} catch (Exception e) {
@@ -57,25 +57,12 @@ public class mainMenu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public mainMenu() {
+	public ViewMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 665, 600);
+		setBounds(100, 100, 665, 589);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
-		//Scroll Menu
-			JMenu menu = new JMenu("Menu");
-			menuBar.add(menu);
-			
-				JButton btnRelges = new JButton("Relges");
-				menu.add(btnRelges);
-				
-				JButton btnSolo = new JButton("Solo");
-				menu.add(btnSolo);
-				
-				JButton btnMulti = new JButton("Multi");
-				menu.add(btnMulti);
 		//----------------------------------------------------
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -94,8 +81,8 @@ public class mainMenu extends JFrame {
 				
 				GridBagLayout gbl_contentPane = new GridBagLayout();
 				gbl_contentPane.columnWidths = new int[]{12, 80, 80, 80, 80, 80, 80, 80, 80, 12};
-				gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-				gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+				gbl_contentPane.rowHeights = new int[]{31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31};
+				gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 				gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 				contentPane.setLayout(gbl_contentPane);
 					
@@ -109,6 +96,27 @@ public class mainMenu extends JFrame {
 					gbc_lblCompetitorsGame.gridy = 2;
 					//gbc_lblCompetitorsGame.setFont("Arial",Font.BOLD,12);
 					contentPane.add(lblCompetitorsGame, gbc_lblCompetitorsGame);
+						
+						JButton btnSolo = new JButton("Solo");
+						GridBagConstraints gbc_btnSolo = new GridBagConstraints();
+						gbc_btnSolo.insets = new Insets(0, 0, 5, 5);
+						gbc_btnSolo.gridx = 1;
+						gbc_btnSolo.gridy = 7;
+						contentPane.add(btnSolo, gbc_btnSolo);
+						
+						JButton btnMulti = new JButton("Multi");
+						GridBagConstraints gbc_btnMulti = new GridBagConstraints();
+						gbc_btnMulti.insets = new Insets(0, 0, 5, 5);
+						gbc_btnMulti.gridx = 1;
+						gbc_btnMulti.gridy = 9;
+						contentPane.add(btnMulti, gbc_btnMulti);
+					
+						JButton btnRelges = new JButton("Relges");
+						GridBagConstraints gbc_btnRelges = new GridBagConstraints();
+						gbc_btnRelges.insets = new Insets(0, 0, 5, 5);
+						gbc_btnRelges.gridx = 1;
+						gbc_btnRelges.gridy = 11;
+						contentPane.add(btnRelges, gbc_btnRelges);
 					
 					JLabel lblBohyn = new JLabel("BOHYN ");
 					GridBagConstraints gbc_lblBohyn = new GridBagConstraints();
