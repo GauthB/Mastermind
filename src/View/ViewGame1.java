@@ -33,7 +33,7 @@ import javax.swing.JMenu;
 import java.awt.ScrollPane;
 import java.awt.Color;
 
-public class viewGame1 extends JFrame {
+public class ViewGame1 extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -45,7 +45,7 @@ public class viewGame1 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					viewGame1 frame = new viewGame1();
+					ViewGame1 frame = new ViewGame1();
 					frame.setVisible(true);
 					frame.setTitle("Number MasterMind");
 				} catch (Exception e) {
@@ -58,7 +58,7 @@ public class viewGame1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public viewGame1() {
+	public ViewGame1() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 665, 600);
 		
