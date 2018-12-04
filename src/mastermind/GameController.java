@@ -103,76 +103,57 @@ public class GameController  {
 		      limite = 5;
 			 int j=1;
 			 while(j<= limite) {
-				 System.out.println("----------------------------------------------------------");
-				 System.out.println("Please enter your numbers:");
-				 combiStr= combiInput.nextLine();
-					 for(int i =0; i < 4;i++) {			//Boucle pour récupérer les 4 chiffres
-						 combiIn[i] = combiStr.charAt(i);	
-					 }						
-				
-						
-						Random r = new Random();
-						int SIZE = game.combiRandom.length();
-						char combiSolo[] = new char [4];
-						for(int i = 0; i<4; i++) {
-							combiSolo[i]= game.combiRandom.charAt(r.nextInt(SIZE));
+				System.out.println("----------------------------------------------------------");
+				System.out.println("Please enter your numbers:");
+				combiStr= combiInput.nextLine();
+				for(int i =0; i < 4;i++) {			//---------
+					combiIn[i] = combiStr.charAt(i);	//Boucle pour récupérer les 4 chiffres
+				}						//---------
+					
+				// --- Random des 4 chiffres pour le PC ---
+				Random r = new Random();
+				int SIZE = game.combiRandom.length();
+				char combiSolo[] = new char [4];
+				for(int i = 0; i<4; i++) {
+					combiSolo[i]= game.combiRandom.charAt(r.nextInt(SIZE));
+				}
 
+				// --- Afficher la combi du PC ---
+				System.out.print("Combi du pc:"); 
+				System.out.print(combiSolo[0]+" ");
+				System.out.print(combiSolo[1]+" ");
+				System.out.print(combiSolo[2]+" ");
+				System.out.println(combiSolo[3]);
 
-						}
-
-
-
-
-						System.out.print("Combi du pc:"); 
-							System.out.print(combiSolo[0]+" ");
-							System.out.print(combiSolo[1]+" ");
-							System.out.print(combiSolo[2]+" ");
-							System.out.println(combiSolo[3]);
-
-
-
-					 //_______ Ã©crire la combi______
-					  System.out.print("\nvotre combi:"); 
-					      System.out.print(combiIn[0]+" ");
-					      System.out.print(combiIn[1]+" ");
-					      System.out.print(combiIn[2]+" ");
-					      System.out.println(combiIn[3]);
-					      System.out.println("----------------------");
-					      //_____________________________
-					      System.out.print("             ");
-						  System.out.print(corr.correction1(combiIn,game.combi)+" ");
-						  System.out.print(corr.correction2(combiIn,game.combi)+" ");
-						  System.out.print(corr.correction3(combiIn,game.combi)+" ");
-						  System.out.println(corr.correction4(combiIn,game.combi)+" \n");
-					      j++;
-					     if ((corr.correction1(combiIn,game.combi)=='V')&& (corr.correction2(combiIn,game.combi)=='V') && (corr.correction3(combiIn,game.combi)=='V') && (corr.correction4(combiIn,game.combi)=='V')) {
-						  System.out.print("BRAVO \nVous avez gagnÃ©!!");
-						  j=limite + 1;
-					      }
-					      else if (j==limite +1) {
-						  System.out.println("Vous avez perdu");
-						  System.out.print("Vous avez deja utiliser vos "+limite+" chances...");
-					      }
+				// --- Afficher la combi de l'utilisateur ---
+				System.out.print("\nvotre combi:"); 
+				System.out.print(combiIn[0]+" ");
+				System.out.print(combiIn[1]+" ");
+				System.out.print(combiIn[2]+" ");
+				System.out.println(combiIn[3]);
+				System.out.println("----------------------");
+					 
+				// --- Afficher la correction X / V --- 	
+				System.out.print("             ");
+				System.out.print(corr.correction1(combiIn,game.combi)+" ");
+				System.out.print(corr.correction2(combiIn,game.combi)+" ");
+				System.out.print(corr.correction3(combiIn,game.combi)+" ");
+				System.out.println(corr.correction4(combiIn,game.combi)+" \n");
+				 
+				// --- Ajouter +1 au nombre d'essai --
+				j++; 
+				 
+				//Gagner si les 4 V
+				if ((corr.correction1(combiIn,game.combi)=='V')&& (corr.correction2(combiIn,game.combi)=='V') && (corr.correction3(combiIn,game.combi)=='V') && (corr.correction4(combiIn,game.combi)=='V')) {
+					System.out.print("BRAVO \nVous avez gagne!!");
+					j=limite + 1;
+				}
+				// Perdu si limite depassee
+				else if (j==limite +1) {
+					System.out.println("Vous avez perdu");
+					System.out.print("Vous avez deja utilise vos "+limite+" chances...");
+				}
 			 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 			}//--------------------------------------------------------------------------------------------------------------------------
 			else {
@@ -241,6 +222,7 @@ public class GameController  {
 						  System.out.print("BRAVO \nVous avez gagnÃ©!!");
 						  j=limite + 1;
 					      }
+				 	// Perdu si limite depassee
 					      else if (j==limite +1) {
 						  System.out.println("Vous avez perdu");
 						  System.out.print("Vous avez deja utiliser vos "+limite+" chances...");
