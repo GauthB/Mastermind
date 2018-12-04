@@ -134,16 +134,13 @@ public class GameController  {
 					 
 				// --- Afficher la correction X / V --- 	
 				System.out.print("             ");
-				System.out.print(corr.correction1(combiIn,game.combi)+" ");
-				System.out.print(corr.correction2(combiIn,game.combi)+" ");
-				System.out.print(corr.correction3(combiIn,game.combi)+" ");
-				System.out.println(corr.correction4(combiIn,game.combi)+" \n");
+				System.out.println(corr.correction(combiIn,game.combi)+" \n");
 				 
 				// --- Ajouter +1 au nombre d'essai --
 				j++; 
 				 
 				//Gagner si les 4 V
-				if ((corr.correction1(combiIn,game.combi)=='V')&& (corr.correction2(combiIn,game.combi)=='V') && (corr.correction3(combiIn,game.combi)=='V') && (corr.correction4(combiIn,game.combi)=='V')) {
+				if ((corr.correction(combiIn,game.combi)=="VVVV")) {
 					System.out.print("BRAVO \nVous avez gagne!!");
 					j=limite + 1;
 				}
@@ -212,12 +209,9 @@ public class GameController  {
 					      System.out.println("----------------------");
 					      //_____________________________
 					      System.out.print("             ");
-						  System.out.print(corr.correction1(combiIn,game.combi)+" ");
-						  System.out.print(corr.correction2(combiIn,game.combi)+" ");
-						  System.out.print(corr.correction3(combiIn,game.combi)+" ");
-						  System.out.println(corr.correction4(combiIn,game.combi)+" \n");
+						  System.out.println(corr.correction(combiIn,game.combi)+" \n");
 					      j++;
-					     if ((corr.correction1(combiIn,game.combi)=='V')&& (corr.correction2(combiIn,game.combi)=='V') && (corr.correction3(combiIn,game.combi)=='V') && (corr.correction4(combiIn,game.combi)=='V')) {
+					     if ((corr.correction(combiIn,game.combi)=="VVVV")) {
 						  System.out.print("BRAVO \nVous avez gagnÃ©!!");
 						  j=limite + 1;
 					      }
