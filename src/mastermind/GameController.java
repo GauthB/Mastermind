@@ -3,11 +3,17 @@ package mastermind;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+* @author BOHYN Gauthier
+* @author HERMANT Thibaut
+* @author MEYERS Humbert
+*/
 public class GameController  {
 	
+	
+	
 	//-------------------------------------
-		//Correction de la CombiIn
+		//Affichage du jeu
 	//-------------------------------------
 	
 	
@@ -53,8 +59,6 @@ public class GameController  {
 			*/
 
 
-
-
 		while(choiceM==0) {
 			System.out.println("Choisir votre mode");
 			System.out.println("Solo = 'S'");
@@ -64,11 +68,10 @@ public class GameController  {
 			mode = mode.toLowerCase();		// Tout transformer en minuscule
 	
 			/**
-			* @param l'utilisateur sera obligé d'encoder comme valeur S ou M
-			* @return 	0 Commence la boucle
-			*		1 Direction mode solo
-			*		2 Direction mode Multi
-			* @exeption Si aucune des valeur entree est S ou M, la boucle recommence a l infinie
+			* l'utilisateur sera obligé d'encoder comme valeur S ou M
+			* 	0 (Re-)commence la boucle
+			*	1 Direction mode solo
+			*	2 Direction mode Multi
 			*/
 				if( mode.equals("s")) {
 					System.out.print("\nMode: Solo\n");
@@ -103,13 +106,11 @@ public class GameController  {
 				 System.out.println("----------------------------------------------------------");
 				 System.out.println("Please enter your numbers:");
 				 combiStr= combiInput.nextLine();
-
-
-					 for(int i =0; i < 4;i++) {
-						 combiIn[i] = combiStr.charAt(i);
-					 }
-
-						//String combiRandomSolo = "0123456789";
+					 for(int i =0; i < 4;i++) {			//Boucle pour récupérer les 4 chiffres
+						 combiIn[i] = combiStr.charAt(i);	
+					 }						
+				
+						
 						Random r = new Random();
 						int SIZE = game.combiRandom.length();
 						char combiSolo[] = new char [4];
