@@ -26,9 +26,8 @@ public class GameController  {
 	private static int normal = 9 ;			// Mode Normal avec 9 chances
 	private static int hard = 5;			// Mode Hard avec 5 chance
 	private static String level;			// Le niveau qu'on desire pour le jeu
-	private static int difficulty;			// La difficulté = le nombre de chance
+	private static int difficulty, limite;		// La difficulté = le nombre de chance / nombre de limite
 	private static int choiceL = 0;			// Choix du niveau
-	private static int limite;			// Nombre de limite
 	private static String mode;			// Le mode qu'on desire
 	private static int choiceM = 0;			// le nombre du mode 1=solo  2=multi
 			
