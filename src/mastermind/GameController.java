@@ -39,10 +39,10 @@ public class GameController  {
 
 	public static void main(String[] args){  
 
-		RandomCombi game = new RandomCombi();			
-		GameController gameCtrl = new GameController();			
-		Correction corr = new Correction();
-		RandomCombiSoloPc solo = new RandomCombiSoloPc();
+		RandomCombi instGame = new RandomCombi();						
+		Correction instCorrection = new Correction();
+		CorrectionPc instCorrectionPc = new CorrectionPc();
+		
 
 		Scanner combiInput = new Scanner(System.in);	//Scanner la combinaison qu'on entre
 		Scanner levelInput = new Scanner(System.in);	//Scanner le level souhait
@@ -51,10 +51,10 @@ public class GameController  {
 		// pour afficher la solution si on le desire
 			/*
 			System.out.print("solution:    "); 
-			System.out.print(game.combi[0]+" ");
-			System.out.print(game.combi[1]+" ");
-			System.out.print(game.combi[2]+" ");
-			System.out.println(game.combi[3]+"\n \n");
+			System.out.print(instGame.combi[0]+" ");
+			System.out.print(instGame.combi[1]+" ");
+			System.out.print(instGame.combi[2]+" ");
+			System.out.println(instGame.combi[3]+"\n \n");
 			*/
 
 
@@ -93,10 +93,10 @@ public class GameController  {
 			// pour afficher la solution si on le desire
 				/*
 				System.out.print("solution:    "); 
-				System.out.print(game.combi[0]+" ");
-				System.out.print(game.combi[1]+" ");
-				System.out.print(game.combi[2]+" ");
-				System.out.println(game.combi[3]+"\n \n");
+				System.out.print(instGame.combi[0]+" ");
+				System.out.print(instGame.combi[1]+" ");
+				System.out.print(instGame.combi[2]+" ");
+				System.out.println(instGame.combi[3]+"\n \n");
 				*/
 
 		      limite = 5;
@@ -111,36 +111,60 @@ public class GameController  {
 					
 				// --- Random des 4 chiffres pour le PC ---
 				Random r = new Random();
-				int SIZE = game.combiRandom.length();
+				int SIZE = instGame.combiRandom.length();
 				char combiSolo[] = new char [4];
 				for(int i = 0; i<4; i++) {
-					combiSolo[i]= game.combiRandom.charAt(r.nextInt(SIZE));
+					combiSolo[i]= instGame.combiRandom.charAt(r.nextInt(SIZE));
 				}
-
+				
+									// -------- Tranforme les String des correction en char
+										char resultCombi[] = new char [4];
+										for(int i = 0; i<4; i++) {
+											resultCombi[i]= instCorrection.correction(combiIn,instGame.combi).charAt(i);
+										}
+										
+										char resultCombiPc[] = new char [4];
+										for(int i = 0; i<4; i++) {
+											resultCombiPc[i]= instCorrectionPc.correctionPc(combiIn,instGame.combi).charAt(i);
+										}
+								
+				
 				// --- Afficher la combi du PC ---
-				System.out.print("Combi du pc:"); 
+				System.out.print("Combi du pc: "); 
 				System.out.print(combiSolo[0]+" ");
 				System.out.print(combiSolo[1]+" ");
 				System.out.print(combiSolo[2]+" ");
 				System.out.println(combiSolo[3]);
+				
+				// --- Afficher la correction X / V --- 	
+				System.out.print("Resultat:   ");
+				System.out.print(resultCombiPc[0]);
+				System.out.print(resultCombiPc[1]);
+				System.out.print(resultCombiPc[2]);
+				System.out.println(resultCombiPc[3]);
 
+				/*
+				if(combiSolo == ) {
+					
+				}
+				*/
+				
 				// --- Afficher la combi de l'utilisateur ---
-				System.out.print("\nvotre combi:"); 
+				System.out.print("\nvotre combi: "); 
 				System.out.print(combiIn[0]+" ");
 				System.out.print(combiIn[1]+" ");
 				System.out.print(combiIn[2]+" ");
 				System.out.println(combiIn[3]);
 				System.out.println("----------------------");
-					 
-				// --- Afficher la correction X / V --- 	
-				System.out.print("             ");
-				System.out.println(corr.correction(combiIn,game.combi)+" \n");
-				 
-				// --- Ajouter +1 au nombre d'essai --
+				
+				System.out.print("Resultat:   ");
+				System.out.print(resultCombi[0]);
+				System.out.print(resultCombi[1]);
+				System.out.print(resultCombi[2]);
+				System.out.println(resultCombi[3]);
+				
 				j++; 
-				 
-				//Gagner si les 4 V
-				if ((corr.correction(combiIn,game.combi)=="VVVV")) {
+				if ((instCorrection.correction(combiIn,instGame.combi)=="VVVV")) {
 					System.out.print("BRAVO \nVous avez gagne!!");
 					j=limite + 1;
 				}
@@ -209,9 +233,9 @@ public class GameController  {
 					      System.out.println("----------------------");
 					      //_____________________________
 					      System.out.print("             ");
-						  System.out.println(corr.correction(combiIn,game.combi)+" \n");
+						  System.out.println(instCorrection.correction(combiIn,instGame.combi)+" \n");
 					      j++;
-					     if ((corr.correction(combiIn,game.combi)=="VVVV")) {
+					     if ((instCorrection.correction(combiIn,instGame.combi)=="V V V V")) {
 						  System.out.print("BRAVO \nVous avez gagnÃ©!!");
 						  j=limite + 1;
 					      }
