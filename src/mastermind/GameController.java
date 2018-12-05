@@ -91,37 +91,40 @@ public class GameController  {
 			if(choiceM==1) { //--------------------------------------------------------------------------------------------------------------------------
 				
 			// pour afficher la solution si on le desire
-				/*
+				
 				System.out.print("solution:    "); 
 				System.out.print(instGame.combi[0]+" ");
 				System.out.print(instGame.combi[1]+" ");
 				System.out.print(instGame.combi[2]+" ");
 				System.out.println(instGame.combi[3]+"\n \n");
-				*/
+				
 
-		      limite = 5;
+		      limite = 100;
 			 int j=1;
 			 while(j<= limite) {
 				System.out.println("----------------------------------------------------------");
 				System.out.println("Please enter your numbers:");
 				combiStr= combiInput.nextLine();
-				for(int i =0; i < 4;i++) {			//---------
+				
+				for(int i =0; i < 4;i++) {				//---------
 					combiIn[i] = combiStr.charAt(i);	//Boucle pour récupérer les 4 chiffres
-				}						//---------
+				}										//---------
 					
 				// --- Random des 4 chiffres pour le PC ---
 				Random r = new Random();
 				int SIZE = instGame.combiRandom.length();
 				char combiSolo[] = new char [4];
 				for(int i = 0; i<4; i++) {
-					combiSolo[i]= instGame.combiRandom.charAt(r.nextInt(SIZE));
+					combiSolo[i]= instGame.combiRandom.charAt(r.nextInt(SIZE)); // transformer le String en tableau char[]
 				}
+				
 				
 									// -------- Tranforme les String des correction en char
 										char resultCombi[] = new char [4];
 										for(int i = 0; i<4; i++) {
 											resultCombi[i]= instCorrection.correction(combiIn,instGame.combi).charAt(i);
 										}
+										
 										
 										char resultCombiPc[] = new char [4];
 										for(int i = 0; i<4; i++) {
@@ -138,16 +141,43 @@ public class GameController  {
 				
 				// --- Afficher la correction X / V --- 	
 				System.out.print("Resultat:   ");
-				System.out.print(resultCombiPc[0]);
+			
+				//--------------------------------------------------------------------------------------
+				
+				int a=0;
+			
+				char TEST[] = new char [4];
+				//----------------------------------------------------------------------
+				if( a==0){
+					System.out.print(resultCombiPc[0]);
+				}
+				else {
+					System.out.print(TEST[0]);
+				}
+				//System.out.print(resultCombiPc[0]);
 				System.out.print(resultCombiPc[1]);
 				System.out.print(resultCombiPc[2]);
 				System.out.println(resultCombiPc[3]);
-
-				/*
-				if(combiSolo == ) {
+				
+				
+				
+				
+				
 					
-				}
-				*/
+					if(resultCombiPc[0] == 'V') {
+						System.out.print("BIEN ");
+						TEST[0]=resultCombiPc[0];
+						a=1;
+					}
+					/*else if(combiIn[i] == .combiRand[0] || combiIn[i] == combiRand[1] || combiIn[i] == combiRand[2] || combiIn[i] == combiRand[3]  ) {
+						instCorrection.result += instCorrection.miCorrect;
+					}
+					
+					else {
+						instCorrection.result += instCorrection.noCorrect;
+					}*/
+				
+				
 				
 				// --- Afficher la combi de l'utilisateur ---
 				System.out.print("\nvotre combi: "); 
@@ -158,9 +188,9 @@ public class GameController  {
 				System.out.println("----------------------");
 				
 				System.out.print("Resultat:   ");
-				System.out.print(resultCombi[0]);
-				System.out.print(resultCombi[1]);
-				System.out.print(resultCombi[2]);
+				System.out.print(resultCombi[0]+" ");
+				System.out.print(resultCombi[1]+" ");
+				System.out.print(resultCombi[2]+" ");
 				System.out.println(resultCombi[3]);
 				
 				j++; 
@@ -175,9 +205,19 @@ public class GameController  {
 				}
 			 }
 
-			}//--------------------------------------------------------------------------------------------------------------------------
+			}
+			//--------------------------------------------------------------------------------------------------------------------------
 			else {
-
+						char resultCombi[] = new char [4];
+						for(int i = 0; i<4; i++) {
+							resultCombi[i]= instCorrection.correction(combiIn,instGame.combi).charAt(i);
+						}
+						
+						
+						char resultCombiPc[] = new char [4];
+						for(int i = 0; i<4; i++) {
+							resultCombiPc[i]= instCorrectionPc.correctionPc(combiIn,instGame.combi).charAt(i);
+						}
 
 
 			while(choiceL==0) {
@@ -232,8 +272,13 @@ public class GameController  {
 					      System.out.println(combiIn[3]);
 					      System.out.println("----------------------");
 					      //_____________________________
-					      System.out.print("             ");
-						  System.out.println(instCorrection.correction(combiIn,instGame.combi)+" \n");
+					   // --- Afficher la combi de l'utilisateur ---
+							System.out.print("Resultat:   ");
+							System.out.print(resultCombi[0]+" ");
+							System.out.print(resultCombi[1]+" ");
+							System.out.print(resultCombi[2]+" ");
+							System.out.println(resultCombi[3]);
+							
 					      j++;
 					     if ((instCorrection.correction(combiIn,instGame.combi)=="V V V V")) {
 						  System.out.print("BRAVO \nVous avez gagnÃ©!!");
