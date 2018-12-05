@@ -37,7 +37,8 @@ public class ViewGame1 extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-
+	JButton btnExit;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -93,7 +94,9 @@ public class ViewGame1 extends JFrame {
 				
 				JButton btnExit = new JButton("EXIT");
 				popup.add(btnExit);
+				buttonBox.add(btnExit);
 				
+			
 				GridBagLayout gbl_contentPane = new GridBagLayout();
 				gbl_contentPane.columnWidths = new int[]{35, 80, 80, 80, 80, 35, 80, 80, 80, 35};
 				gbl_contentPane.rowHeights = new int[]{0, 0, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -193,6 +196,7 @@ public class ViewGame1 extends JFrame {
 			this.dispose();
 		}
 	}
-
+	
+	
 	
 }
