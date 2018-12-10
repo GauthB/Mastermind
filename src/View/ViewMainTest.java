@@ -33,7 +33,7 @@ import javax.swing.JMenu;
 import java.awt.ScrollPane;
 import java.awt.Font;
 
-public class ViewMain extends JFrame {
+public class ViewMainTest extends JFrame {
 
 	private JPanel contentPane;
 
@@ -44,7 +44,7 @@ public class ViewMain extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewMain frame = new ViewMain();
+					ViewMainTest frame = new ViewMainTest();
 					frame.setVisible(true);
 					frame.setTitle("Number MasterMind");
 				} catch (Exception e) {
@@ -57,7 +57,7 @@ public class ViewMain extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ViewMain() {
+	public ViewMainTest() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 665, 589);
 		
@@ -78,6 +78,13 @@ public class ViewMain extends JFrame {
 				
 				JButton btnExit = new JButton("EXIT");
 				popup.add(btnExit);
+				
+				
+				
+				
+				
+				
+				
 				
 				GridBagLayout gbl_contentPane = new GridBagLayout();
 				gbl_contentPane.columnWidths = new int[]{12, 80, 80, 80, 80, 80, 80, 80, 80, 12};
@@ -188,9 +195,13 @@ public class ViewMain extends JFrame {
 		});
 	}
 	public void actionPerformed(ActionEvent e) {
-		switch(e.getActionCommand()){
-		case"EXIT":
-			this.dispose();
+		// TODO Auto-generated method stub
+		switch(e.getActionCommand()){ // par default est le text des bouttons
+			case "SWAP":
+		
+				break;
+			case "EXIT":
+				this.dispose();
 		}
 	}
 }
