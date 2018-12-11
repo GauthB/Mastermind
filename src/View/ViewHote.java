@@ -93,6 +93,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		contentPane.add(btnInvite, gbc_btnInvite);
 		btnInvite.addActionListener(this);
 		
+		
 	}
 
 	@Override
@@ -107,7 +108,7 @@ public class ViewHote extends JFrame implements ActionListener {
 			viewGame.setVisible(true);
 			break;
 		case"Invite":
-			
+		
 			viewIp.setVisible(true);
 			break;
 			
