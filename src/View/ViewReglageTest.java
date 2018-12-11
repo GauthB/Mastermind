@@ -20,7 +20,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class ViewReglage extends JFrame {
+public class ViewReglageTest extends JFrame {
 
 	private JPanel contentPane;
 
@@ -31,7 +31,7 @@ public class ViewReglage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewReglage frame = new ViewReglage();
+					ViewReglageTest frame = new ViewReglageTest();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,7 @@ public class ViewReglage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ViewReglage() {
+	public ViewReglageTest() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 665, 589);
 		
