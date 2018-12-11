@@ -25,17 +25,22 @@ import javax.swing.JScrollPane;
 public class ViewMain extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField textField1;
-	private JTextField textField2;
 	String temp="";
-
-
-	private JLabel label_1;
-	private JLabel label;
-	private JLabel label_2;
 	private JLabel label_3;
 	GameController GameController = new GameController();
+	private JButton BtnRules;
+	private JLabel label;
+	private JLabel lblHermant;
+	private JLabel lblMeryers;
+	private JLabel lblGauthier;
+	private JLabel lblThibaut;
+	private JLabel lblHumbert;
+
+
 	
+	ViewHote viewHote = new ViewHote();
+	ViewRules viewRules = new ViewRules();
+	private JButton btnSoloPc;
 	/**
 	 * Launch the application.
 	 */
@@ -64,7 +69,7 @@ public class ViewMain extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{35, 80, 80, 80, 80, 35, 80, 80, 80, 35};
+		gbl_contentPane.columnWidths = new int[]{50, 100, 80, 80, 80, 35, 80, 80, 80, 0};
 		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -80,114 +85,115 @@ public class ViewMain extends JFrame implements ActionListener {
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
-		label_1 = new JLabel("Your game");
-		GridBagConstraints gbc_label_1 = new GridBagConstraints();
-		gbc_label_1.anchor = GridBagConstraints.WEST;
-		gbc_label_1.gridwidth = 2;
-		gbc_label_1.insets = new Insets(0, 0, 5, 5);
-		gbc_label_1.gridx = 1;
-		gbc_label_1.gridy = 3;
-		contentPane.add(label_1, gbc_label_1);
-		
-		label = new JLabel("Result");
-		GridBagConstraints gbc_label = new GridBagConstraints();
-		gbc_label.anchor = GridBagConstraints.WEST;
-		gbc_label.insets = new Insets(0, 0, 5, 5);
-		gbc_label.gridx = 4;
-		gbc_label.gridy = 3;
-		contentPane.add(label, gbc_label);
-		
-		label_2 = new JLabel("Competitor's game");
-		label_2.setHorizontalAlignment(SwingConstants.LEFT);
-		GridBagConstraints gbc_label_2 = new GridBagConstraints();
-		gbc_label_2.anchor = GridBagConstraints.WEST;
-		gbc_label_2.gridwidth = 3;
-		gbc_label_2.insets = new Insets(0, 0, 5, 5);
-		gbc_label_2.gridx = 6;
-		gbc_label_2.gridy = 3;
-		contentPane.add(label_2, gbc_label_2);
-		
-		textField1 = new JTextField();
-		GridBagConstraints gbc_textField1 = new GridBagConstraints();
-		gbc_textField1.gridwidth = 2;
-		gbc_textField1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField1.gridx = 1;
-		gbc_textField1.gridy = 4;
-		contentPane.add(textField1, gbc_textField1);
-		textField1.setColumns(10);
-		
-		
-		JButton btnSwap = new JButton("Swap");
-		GridBagConstraints gbc_btnSwap = new GridBagConstraints();
-		gbc_btnSwap.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSwap.gridx = 0;
-		gbc_btnSwap.gridy = 16;
-		contentPane.add(btnSwap, gbc_btnSwap);
-		btnSwap.addActionListener(this);
-		
-		textField2 = new JTextField();
-		GridBagConstraints gbc_textField2 = new GridBagConstraints();
-		gbc_textField2.gridwidth = 2;
-		gbc_textField2.insets = new Insets(0, 0, 5, 5);
-		gbc_textField2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField2.gridx = 1;
-		gbc_textField2.gridy = 16;
-		contentPane.add(textField2, gbc_textField2);
-		textField2.setColumns(10);
-		
-		JButton btnClear = new JButton("Clear");
-		GridBagConstraints gbc_btnClear = new GridBagConstraints();
-		gbc_btnClear.insets = new Insets(0, 0, 5, 5);
-		gbc_btnClear.gridx = 0;
-		gbc_btnClear.gridy = 17;
-		contentPane.add(btnClear, gbc_btnClear);
-		btnClear.addActionListener(this);
-		
 		JButton btnExit = new JButton("Exit");
 		GridBagConstraints gbc_btnExit = new GridBagConstraints();
 		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
 		gbc_btnExit.gridx = 0;
 		gbc_btnExit.gridy = 18;
 		btnExit.addActionListener(this);
+		
+		
+		JButton btnSolo = new JButton("Solo");
+		GridBagConstraints gbc_btnSolo = new GridBagConstraints();
+		gbc_btnSolo.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSolo.gridx = 1;
+		gbc_btnSolo.gridy = 5;
+		contentPane.add(btnSolo, gbc_btnSolo);
+		btnSolo.addActionListener(this);
+		
+		btnSoloPc = new JButton("Solo Pc");
+		GridBagConstraints gbc_btnSoloPc = new GridBagConstraints();
+		gbc_btnSoloPc.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSoloPc.gridx = 1;
+		gbc_btnSoloPc.gridy = 7;
+		contentPane.add(btnSoloPc, gbc_btnSoloPc);
+		btnSoloPc.addActionListener(this);
+		
+		JButton btnMulti = new JButton("Multi");
+		GridBagConstraints gbc_btnMulti = new GridBagConstraints();
+		gbc_btnMulti.insets = new Insets(0, 0, 5, 5);
+		gbc_btnMulti.gridx = 1;
+		gbc_btnMulti.gridy = 9;
+		contentPane.add(btnMulti, gbc_btnMulti);
+		btnMulti.addActionListener(this);
+		
+		BtnRules = new JButton("Rules");
+		GridBagConstraints gbc_BtnRules = new GridBagConstraints();
+		gbc_BtnRules.insets = new Insets(0, 0, 5, 5);
+		gbc_BtnRules.gridx = 1;
+		gbc_BtnRules.gridy = 11;
+		contentPane.add(BtnRules, gbc_BtnRules);
+		BtnRules.addActionListener(this);
+		
+		label = new JLabel("BOHYN ");
+		GridBagConstraints gbc_label = new GridBagConstraints();
+		gbc_label.anchor = GridBagConstraints.WEST;
+		gbc_label.insets = new Insets(0, 0, 5, 5);
+		gbc_label.gridx = 0;
+		gbc_label.gridy = 15;
+		contentPane.add(label, gbc_label);
+		
+		lblGauthier = new JLabel("Gauthier");
+		GridBagConstraints gbc_lblGauthier = new GridBagConstraints();
+		gbc_lblGauthier.anchor = GridBagConstraints.WEST;
+		gbc_lblGauthier.insets = new Insets(0, 0, 5, 5);
+		gbc_lblGauthier.gridx = 1;
+		gbc_lblGauthier.gridy = 15;
+		contentPane.add(lblGauthier, gbc_lblGauthier);
+		
+		lblHermant = new JLabel("HERMANT");
+		GridBagConstraints gbc_lblHermant = new GridBagConstraints();
+		gbc_lblHermant.anchor = GridBagConstraints.WEST;
+		gbc_lblHermant.insets = new Insets(0, 0, 5, 5);
+		gbc_lblHermant.gridx = 0;
+		gbc_lblHermant.gridy = 16;
+		contentPane.add(lblHermant, gbc_lblHermant);
+		
+		lblThibaut = new JLabel("Thibaut");
+		GridBagConstraints gbc_lblThibaut = new GridBagConstraints();
+		gbc_lblThibaut.anchor = GridBagConstraints.WEST;
+		gbc_lblThibaut.insets = new Insets(0, 0, 5, 5);
+		gbc_lblThibaut.gridx = 1;
+		gbc_lblThibaut.gridy = 16;
+		contentPane.add(lblThibaut, gbc_lblThibaut);
+		
+		lblMeryers = new JLabel("MEYERS");
+		GridBagConstraints gbc_lblMeryers = new GridBagConstraints();
+		gbc_lblMeryers.anchor = GridBagConstraints.WEST;
+		gbc_lblMeryers.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMeryers.gridx = 0;
+		gbc_lblMeryers.gridy = 17;
+		contentPane.add(lblMeryers, gbc_lblMeryers);
+		
+		lblHumbert = new JLabel("Humbert");
+		GridBagConstraints gbc_lblHumbert = new GridBagConstraints();
+		gbc_lblHumbert.anchor = GridBagConstraints.WEST;
+		gbc_lblHumbert.insets = new Insets(0, 0, 5, 5);
+		gbc_lblHumbert.gridx = 1;
+		gbc_lblHumbert.gridy = 17;
+		contentPane.add(lblHumbert, gbc_lblHumbert);
 		contentPane.add(btnExit, gbc_btnExit);
 		
-		/*textField1 = new JTextArea();
-		GridBagConstraints gbc_textField1 = new GridBagConstraints();
-		gbc_textField1.insets = new Insets(0, 0, 5, 0);
-		gbc_textField1.fill = GridBagConstraints.BOTH;
-		gbc_textField1.gridx = 2;
-		gbc_textField1.gridy = 3;
-		contentPane.add(textField1, gbc_textArea);
-		textField1.setColumns(10);*/
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String textOrigine="";
+		
 		
 		switch(e.getActionCommand()){
-		case"Swap":
-			//String temp = textField1.getText();
-			textOrigine=textField2.getText();
-		
-			temp = temp+"\n"+textOrigine;
+		case"Rules":
 			
-			textField1.setText(temp);
-			textField2.setText("");
+			viewRules.setVisible(true);
+			this.dispose();
 			
-		
-			
-			//textField1.setText(textField2.getText());
-			//textField2.setText("");
-			//textField2.setText(temp);
 			break;
-		case"Clear":
-			textField1.setText("");
-			textField2.setText("");
+		case"Multi":
+			viewHote.setVisible(true);
+			this.dispose();
 			break;
 		case"Exit":
+			
 			this.dispose();
 		}
 	}
