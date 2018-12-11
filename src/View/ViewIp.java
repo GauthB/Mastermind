@@ -29,7 +29,7 @@ public class ViewIp extends JFrame implements ActionListener {
 	private JLabel label_3;
 	GameController GameController = new GameController();
 	private JTextField textField;
-	ViewGame ViewGame = new ViewGame();
+	ViewGameMulti viewGameMulti = new ViewGameMulti();
 	private JLabel lblEncoderLadresseIp;
 	
 	
@@ -113,7 +113,7 @@ public class ViewIp extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 	
 		case"Enter":
-			ViewGame.setVisible(true);
+			viewGameMulti.setVisible(true);
 			
 		case"Exit":
 			
