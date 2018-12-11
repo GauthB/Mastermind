@@ -93,7 +93,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		contentPane.add(btnInvite, gbc_btnInvite);
 		btnInvite.addActionListener(this);
 		
-	
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
