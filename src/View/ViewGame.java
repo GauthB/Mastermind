@@ -152,14 +152,7 @@ public class ViewGame extends JFrame implements ActionListener {
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
 		
-		/*textField1 = new JTextArea();
-		GridBagConstraints gbc_textField1 = new GridBagConstraints();
-		gbc_textField1.insets = new Insets(0, 0, 5, 0);
-		gbc_textField1.fill = GridBagConstraints.BOTH;
-		gbc_textField1.gridx = 2;
-		gbc_textField1.gridy = 3;
-		contentPane.add(textField1, gbc_textArea);
-		textField1.setColumns(10);*/
+	
 	}
 
 	@Override
@@ -169,19 +162,14 @@ public class ViewGame extends JFrame implements ActionListener {
 		
 		switch(e.getActionCommand()){
 		case"Swap":
-			//String temp = textField1.getText();
+			
 			textOrigine=textField2.getText();
 		
 			temp = temp+"\n"+textOrigine;
 			
 			textField1.setText(temp);
 			textField2.setText("");
-			
-		
-			
-			//textField1.setText(textField2.getText());
-			//textField2.setText("");
-			//textField2.setText(temp);
+	
 			break;
 		case"Clear":
 			textField1.setText("");
