@@ -29,7 +29,7 @@ public class ViewHote extends JFrame implements ActionListener {
 	private JLabel label_3;
 	GameController GameController = new GameController();
 	ViewIp viewIp = new ViewIp();
-	ViewGame viewGame = new ViewGame();
+	ViewGameMulti viewGameMulti = new ViewGameMulti();
 	
 	
 	/**
