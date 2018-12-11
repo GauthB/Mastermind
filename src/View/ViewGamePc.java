@@ -21,13 +21,21 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JScrollPane;
+import javax.swing.JEditorPane;
+import javax.swing.JTextPane;
+import javax.swing.JScrollBar;
+import java.awt.Panel;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
+import java.awt.ScrollPane;
+import java.awt.Label;
+import java.awt.Canvas;
+import javax.swing.JInternalFrame;
 
 public class ViewGamePc extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField textField1;
 	private JTextField textField2;
-	String temp="";
+	String temp="----";
 
 
 	private JLabel label_1;
@@ -35,6 +43,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JLabel label_2;
 	private JLabel label_3;
 	GameController GameController = new GameController();
+	private JTextPane combiInTout;
 	
 	/**
 	 * Launch the application.
@@ -67,7 +76,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbl_contentPane.columnWidths = new int[]{35, 80, 80, 80, 80, 35, 80, 80, 80, 35};
 		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
 		label_3 = new JLabel("Number Mastermind");
@@ -107,24 +116,24 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_label_2.gridy = 3;
 		contentPane.add(label_2, gbc_label_2);
 		
-		textField1 = new JTextField();
-		GridBagConstraints gbc_textField1 = new GridBagConstraints();
-		gbc_textField1.gridwidth = 2;
-		gbc_textField1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField1.gridx = 1;
-		gbc_textField1.gridy = 4;
-		contentPane.add(textField1, gbc_textField1);
-		textField1.setColumns(10);
+		combiInTout = new JTextPane();
+		GridBagConstraints gbc_combiInTout = new GridBagConstraints();
+		gbc_combiInTout.gridwidth = 2;
+		gbc_combiInTout.gridheight = 11;
+		gbc_combiInTout.insets = new Insets(0, 0, 5, 5);
+		gbc_combiInTout.fill = GridBagConstraints.BOTH;
+		gbc_combiInTout.gridx = 1;
+		gbc_combiInTout.gridy = 4;
+		contentPane.add(combiInTout, gbc_combiInTout);
 		
 		
-		JButton btnSwap = new JButton("Swap");
-		GridBagConstraints gbc_btnSwap = new GridBagConstraints();
-		gbc_btnSwap.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSwap.gridx = 0;
-		gbc_btnSwap.gridy = 16;
-		contentPane.add(btnSwap, gbc_btnSwap);
-		btnSwap.addActionListener(this);
+		JButton btnEnter = new JButton("Enter");
+		GridBagConstraints gbc_btnEnter = new GridBagConstraints();
+		gbc_btnEnter.insets = new Insets(0, 0, 5, 5);
+		gbc_btnEnter.gridx = 0;
+		gbc_btnEnter.gridy = 16;
+		contentPane.add(btnEnter, gbc_btnEnter);
+		btnEnter.addActionListener(this);
 		
 		textField2 = new JTextField();
 		GridBagConstraints gbc_textField2 = new GridBagConstraints();
@@ -160,20 +169,18 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		String textOrigine="";
 		
 		switch(e.getActionCommand()){
-		case"Swap":
-
+		case"Enter":
+			
 			textOrigine=textField2.getText();
 		
 			temp = temp+"\n"+textOrigine;
+			combiInTout.setText(temp);
 			
-			textField1.setText(temp);
 			textField2.setText("");
-			
-		
-
+	
 			break;
 		case"Clear":
-			textField1.setText("");
+		
 			textField2.setText("");
 			break;
 		case"Exit":
