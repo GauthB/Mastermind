@@ -22,7 +22,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JScrollPane;
 
-public class ViewGame extends JFrame implements ActionListener {
+public class ViewGameMulti extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField1;
@@ -43,7 +43,7 @@ public class ViewGame extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewGame frame = new ViewGame();
+					ViewGameMulti frame = new ViewGameMulti();
 					frame.setVisible(true);
 					frame.setTitle("Number Mastermind");
 				} catch (Exception e) {
@@ -56,7 +56,7 @@ public class ViewGame extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public ViewGame() {
+	public ViewGameMulti() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 665, 589);
 		contentPane = new JPanel();
@@ -172,7 +172,7 @@ public class ViewGame extends JFrame implements ActionListener {
 	
 			break;
 		case"Clear":
-			textField1.setText("");
+	
 			textField2.setText("");
 			break;
 		case"Exit":
