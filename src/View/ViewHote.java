@@ -105,7 +105,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		
 		case"Hote":
 			
-			viewGame.setVisible(true);
+			viewGameMulti.setVisible(true);
 			break;
 		case"Invite":
 		
