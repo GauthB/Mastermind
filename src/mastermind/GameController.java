@@ -194,7 +194,7 @@ public class GameController {
 				j++;
 
 				if (resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') {
-					System.out.print("BRAVO \nVous avez gagnÃƒÂ©!!");
+					System.out.print("BRAVO \nVous avez gagne en " + (j-1) + " essais");
 					j = limite + 1;
 				}
 				// --- Perdu si limite depassee ---
@@ -206,6 +206,8 @@ public class GameController {
 				}
 			}
 		}
+ // --------------------------------------------------------------------------------------------------------------------------
+
 		else if (choiceM == 2) { // --------------------------------------------------------------------------------------------------------------------------
 
 		
@@ -283,9 +285,14 @@ public class GameController {
 
 				j++;
 				
+				if((resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') && (resultCombiPc[0] == 'V' && resultCombiPc[1] == 'V' && resultCombiPc[2] == 'V' && resultCombiPc[3] == 'V')) {
+					System.out.print("Egalite");
+
+				}
+				
 				// --- GAGNER ---
 				if (resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') {
-					System.out.print("BRAVO \nVous avez gagne!!");
+					System.out.print("BRAVO \nVous avez gagne en " + (j-1) + " essais");
 					j = limite + 1;
 				}
 				
