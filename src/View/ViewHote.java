@@ -30,6 +30,7 @@ public class ViewHote extends JFrame implements ActionListener {
 	GameController GameController = new GameController();
 	ViewIp viewIp = new ViewIp();
 	ViewGameMulti viewGameMulti = new ViewGameMulti();
+	private JLabel lblYouAre;
 	
 	
 	/**
@@ -60,7 +61,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
+		gbl_contentPane.columnWidths = new int[]{50, 150,150, 50};
 		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 60, 0, 60, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -70,28 +71,42 @@ public class ViewHote extends JFrame implements ActionListener {
 		label_3.setHorizontalAlignment(SwingConstants.LEFT);
 		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
 		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 3;
-		gbc_label_3.insets = new Insets(0, 0, 5, 0);
+		gbc_label_3.gridwidth = 4;
+		gbc_label_3.insets = new Insets(0, 0, 5, 5);
 		gbc_label_3.gridx = 0;
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
 		
 		JButton btnHote = new JButton("Hote");
+		btnHote.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnHote = new GridBagConstraints();
+		gbc_btnHote.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_btnHote.insets = new Insets(0, 0, 5, 5);
-		gbc_btnHote.gridx = 1;
+		gbc_btnHote.gridx = 2;
 		gbc_btnHote.gridy = 3;
 		contentPane.add(btnHote, gbc_btnHote);
 		btnHote.addActionListener(this);
 		
-		JButton btnInvite = new JButton("Invite");
-		GridBagConstraints gbc_btnInvite = new GridBagConstraints();
-		gbc_btnInvite.insets = new Insets(0, 0, 5, 5);
-		gbc_btnInvite.gridx = 1;
-		gbc_btnInvite.gridy = 5;
-		contentPane.add(btnInvite, gbc_btnInvite);
-		btnInvite.addActionListener(this);
+		lblYouAre = new JLabel("You are:");
+		lblYouAre.setHorizontalAlignment(SwingConstants.LEFT);
+		lblYouAre.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		GridBagConstraints gbc_lblYouAre = new GridBagConstraints();
+		gbc_lblYouAre.anchor = GridBagConstraints.WEST;
+		gbc_lblYouAre.insets = new Insets(0, 0, 5, 5);
+		gbc_lblYouAre.gridx = 1;
+		gbc_lblYouAre.gridy = 4;
+		contentPane.add(lblYouAre, gbc_lblYouAre);
+		
+		JButton btGuest = new JButton("Guest");
+		btGuest.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		GridBagConstraints gbc_btGuest = new GridBagConstraints();
+		gbc_btGuest.anchor = GridBagConstraints.NORTHWEST;
+		gbc_btGuest.insets = new Insets(0, 0, 5, 5);
+		gbc_btGuest.gridx = 2;
+		gbc_btGuest.gridy = 5;
+		contentPane.add(btGuest, gbc_btGuest);
+		btGuest.addActionListener(this);
 		
 		
 	}
@@ -107,7 +122,7 @@ public class ViewHote extends JFrame implements ActionListener {
 			
 			viewGameMulti.setVisible(true);
 			break;
-		case"Invite":
+		case"Guest":
 		
 			viewIp.setVisible(true);
 			break;
