@@ -133,7 +133,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		combiResult.setEditable(false);
 		
 		
-		JButton btnSwap = new JButton("Swap");
+		JButton btnSwap = new JButton("Enter");
 		GridBagConstraints gbc_btnSwap = new GridBagConstraints();
 		gbc_btnSwap.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSwap.gridx = 0;
