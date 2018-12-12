@@ -206,13 +206,8 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 		case"Enter":
 			
-			
-			
 			combiInJframe=textField2.getText();
 			
-			
-		
-		
 			temp2 = temp2 +"\n"+ gameControllerGui.corrige(combiInJframe);
 			temp = temp+"\n"+combiInJframe;
 		
@@ -238,7 +233,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 					numeroEssai++;
 				}
 				else {
-					lbWin.setText("Vous avez perdu ! Nombres d'essais depasse ...");
+					lbWin.setText("Vous avez perdu !");
 					textField2.setEditable(false);
 				}
 				
