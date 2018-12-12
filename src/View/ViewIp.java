@@ -77,16 +77,21 @@ public class ViewIp extends JFrame implements ActionListener {
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
-		lblEncoderLadresseIp = new JLabel("Encoder l'adresse Ip");
+		lblEncoderLadresseIp = new JLabel("Enter the Ip adress:");
+		lblEncoderLadresseIp.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_lblEncoderLadresseIp = new GridBagConstraints();
+		gbc_lblEncoderLadresseIp.gridwidth = 2;
+		gbc_lblEncoderLadresseIp.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_lblEncoderLadresseIp.insets = new Insets(0, 0, 5, 5);
-		gbc_lblEncoderLadresseIp.gridx = 1;
+		gbc_lblEncoderLadresseIp.gridx = 0;
 		gbc_lblEncoderLadresseIp.gridy = 3;
 		contentPane.add(lblEncoderLadresseIp, gbc_lblEncoderLadresseIp);
 		
 		
 		JButton btnIp = new JButton("Enter");
+		btnIp.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		GridBagConstraints gbc_btnIp = new GridBagConstraints();
+		gbc_btnIp.anchor = GridBagConstraints.WEST;
 		gbc_btnIp.insets = new Insets(0, 0, 5, 5);
 		gbc_btnIp.gridx = 0;
 		gbc_btnIp.gridy = 4;
