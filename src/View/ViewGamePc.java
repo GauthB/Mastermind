@@ -39,7 +39,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JTextField textField2;
 	private String temp="----";
 	private String temp2 ="- - - -";
-	private String combiInJframe="";
+	private String textOrigine="";
 
 
 	private JLabel label_1;
@@ -98,7 +98,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		lblGameMultiWith.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		GridBagConstraints gbc_lblGameMultiWith = new GridBagConstraints();
 		gbc_lblGameMultiWith.gridwidth = 11;
-		gbc_lblGameMultiWith.insets = new Insets(0, 0, 5, 5);
+		gbc_lblGameMultiWith.insets = new Insets(0, 0, 5, 0);
 		gbc_lblGameMultiWith.gridx = 0;
 		gbc_lblGameMultiWith.gridy = 2;
 		contentPane.add(lblGameMultiWith, gbc_lblGameMultiWith);
@@ -198,6 +198,17 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
 		
+		lbWin = new JLabel("");
+		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
+		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		GridBagConstraints gbc_lbWin = new GridBagConstraints();
+		gbc_lbWin.gridheight = 2;
+		gbc_lbWin.gridwidth = 6;
+		gbc_lbWin.insets = new Insets(0, 0, 5, 5);
+		gbc_lbWin.gridx = 4;
+		gbc_lbWin.gridy = 16;
+		contentPane.add(lbWin, gbc_lbWin);
+		
 		JButton btnClear = new JButton("Clear");
 		GridBagConstraints gbc_btnClear = new GridBagConstraints();
 		gbc_btnClear.insets = new Insets(0, 0, 5, 5);
@@ -223,6 +234,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JTextPane combiResultCompetitor;
 	private JLabel label_4;
 	private JLabel lblGameMultiWith;
+	private JLabel lbWin;
 	
 	
 	@Override
@@ -235,17 +247,28 @@ public class ViewGamePc extends JFrame implements ActionListener {
 			
 			
 			
-			combiInJframe=textField2.getText();
+			textOrigine=textField2.getText();
 			
-			temp2 = temp2 +"\n"+ gameControllerGui.corrige(combiInJframe);
+			temp2 = temp2 +"\n"+ gameControllerGui.corrige(textOrigine);
 			combiResult.setText(temp2);
 		
+			String reponseSolutionUtilisateur = gameControllerGui.corrige(textOrigine);
+			String reponseSolutionPc = "--";
+			String test="--";
 			
-			temp = temp+"\n"+combiInJframe;
+			temp = temp+"\n"+textOrigine;
 			combiInTout.setText(temp);
 			
 			textField2.setText("");
-			
+			//int lui = 1;
+			if(reponseSolutionUtilisateur == "V V V V ") {
+				lbWin.setText("Vous avez gagné");
+				textField2.setEditable(false);
+			}
+			else if (reponseSolutionPc == "VVVV" ) {
+				lbWin.setText("L'ordinateur a gagné");
+				textField2.setEditable(false);
+			}
 			break;
 		case"Clear":
 		
