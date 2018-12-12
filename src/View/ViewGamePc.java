@@ -94,6 +94,15 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
+		lblGameMultiWith = new JLabel("Game Multi with Computer");
+		lblGameMultiWith.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		GridBagConstraints gbc_lblGameMultiWith = new GridBagConstraints();
+		gbc_lblGameMultiWith.gridwidth = 11;
+		gbc_lblGameMultiWith.insets = new Insets(0, 0, 5, 5);
+		gbc_lblGameMultiWith.gridx = 0;
+		gbc_lblGameMultiWith.gridy = 2;
+		contentPane.add(lblGameMultiWith, gbc_lblGameMultiWith);
+		
 		label_1 = new JLabel("Your game");
 		GridBagConstraints gbc_label_1 = new GridBagConstraints();
 		gbc_label_1.anchor = GridBagConstraints.WEST;
@@ -213,6 +222,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JTextPane combiCompetitor;
 	private JTextPane combiResultCompetitor;
 	private JLabel label_4;
+	private JLabel lblGameMultiWith;
 	
 	
 	@Override
