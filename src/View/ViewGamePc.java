@@ -38,7 +38,8 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JTextField textField2;
 	private String temp="----";
-	private String temp2 ="----";
+	private String temp2 ="- - - -";
+	private String textOrigine="";
 
 
 	private JLabel label_1;
@@ -217,7 +218,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String textOrigine="";
+		
 		
 		switch(e.getActionCommand()){
 		case"Enter":
