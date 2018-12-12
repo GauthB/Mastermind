@@ -39,7 +39,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JTextField textField2;
 	private String temp="----";
 	private String temp2 ="- - - -";
-	private String textOrigine="";
+	private String combiInJframe="";
 
 
 	private JLabel label_1;
@@ -235,13 +235,13 @@ public class ViewGamePc extends JFrame implements ActionListener {
 			
 			
 			
-			textOrigine=textField2.getText();
+			combiInJframe=textField2.getText();
 			
-			temp2 = temp2 +"\n"+ gameControllerGui.corrige(textOrigine);
+			temp2 = temp2 +"\n"+ gameControllerGui.corrige(combiInJframe);
 			combiResult.setText(temp2);
 		
 			
-			temp = temp+"\n"+textOrigine;
+			temp = temp+"\n"+combiInJframe;
 			combiInTout.setText(temp);
 			
 			textField2.setText("");
