@@ -38,12 +38,9 @@ public class ViewMain extends JFrame implements ActionListener {
 
 
 	
-	ViewHote viewHote = new ViewHote();
-	ViewRules viewRules = new ViewRules();
-	ViewGameSolo viewGameSolo = new ViewGameSolo();
-	ViewGamePc viewGamePc = new ViewGamePc();
-	ViewLevel viewLevel = new ViewLevel();
+	
 	private JButton btnSoloPc;
+	private JLabel lbDate;
 	/**
 	 * Launch the application.
 	 */
@@ -73,7 +70,7 @@ public class ViewMain extends JFrame implements ActionListener {
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{50, 100, 80, 80, 80, 35, 80, 80, 80, 0};
-		gbl_contentPane.rowHeights = new int[]{30, 40, 70, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
+		gbl_contentPane.rowHeights = new int[]{30, 40, 50, 50, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
@@ -97,23 +94,32 @@ public class ViewMain extends JFrame implements ActionListener {
 		
 		
 		JButton btnSolo = new JButton("Solo");
+		btnSolo.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnSolo = new GridBagConstraints();
+		gbc_btnSolo.anchor = GridBagConstraints.WEST;
+		gbc_btnSolo.gridwidth = 2;
 		gbc_btnSolo.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSolo.gridx = 1;
 		gbc_btnSolo.gridy = 3;
 		contentPane.add(btnSolo, gbc_btnSolo);
 		btnSolo.addActionListener(this);
 		
-		btnSoloPc = new JButton("Solo Pc");
+		btnSoloPc = new JButton("Solo_Pc");
+		btnSoloPc.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnSoloPc = new GridBagConstraints();
+		gbc_btnSoloPc.gridwidth = 2;
+		gbc_btnSoloPc.anchor = GridBagConstraints.WEST;
 		gbc_btnSoloPc.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSoloPc.gridx = 1;
 		gbc_btnSoloPc.gridy = 5;
 		contentPane.add(btnSoloPc, gbc_btnSoloPc);
 		btnSoloPc.addActionListener(this);
 		
-		JButton btnMulti = new JButton("Multi");
+		JButton btnMulti = new JButton("Multiplayer");
+		btnMulti.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnMulti = new GridBagConstraints();
+		gbc_btnMulti.anchor = GridBagConstraints.WEST;
+		gbc_btnMulti.gridwidth = 2;
 		gbc_btnMulti.insets = new Insets(0, 0, 5, 5);
 		gbc_btnMulti.gridx = 1;
 		gbc_btnMulti.gridy = 7;
@@ -121,7 +127,10 @@ public class ViewMain extends JFrame implements ActionListener {
 		btnMulti.addActionListener(this);
 		
 		BtnRules = new JButton("Rules");
+		BtnRules.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_BtnRules = new GridBagConstraints();
+		gbc_BtnRules.anchor = GridBagConstraints.WEST;
+		gbc_BtnRules.gridwidth = 2;
 		gbc_BtnRules.insets = new Insets(0, 0, 5, 5);
 		gbc_BtnRules.gridx = 1;
 		gbc_BtnRules.gridy = 9;
@@ -177,6 +186,15 @@ public class ViewMain extends JFrame implements ActionListener {
 		contentPane.add(lblHumbert, gbc_lblHumbert);
 		contentPane.add(btnExit, gbc_btnExit);
 		
+		lbDate = new JLabel("Janvier 2019");
+		GridBagConstraints gbc_lbDate = new GridBagConstraints();
+		gbc_lbDate.anchor = GridBagConstraints.SOUTHEAST;
+		gbc_lbDate.gridwidth = 3;
+		gbc_lbDate.insets = new Insets(0, 0, 0, 5);
+		gbc_lbDate.gridx = 7;
+		gbc_lbDate.gridy = 15;
+		contentPane.add(lbDate, gbc_lbDate);
+		
 	}
 
 	@Override
@@ -184,24 +202,28 @@ public class ViewMain extends JFrame implements ActionListener {
 		
 		
 		
+		
+		
+	
+		
 		switch(e.getActionCommand()){
-		case"Solo":
-			
+		case "Solo":
+			ViewLevel viewLevel = new ViewLevel();
 			viewLevel.setVisible(true);
 			this.dispose();
-			
 			break;
-		case"Solo Pc":
-			
+		case"Solo_Pc":
+			ViewGamePc viewGamePc = new ViewGamePc();
 			viewGamePc.setVisible(true);
 			this.dispose();
-			
 			break;
-		case"Multi":
+		case"Multiplayer":
+			ViewHote viewHote = new ViewHote();
 			viewHote.setVisible(true);
 			this.dispose();
 			break;
 		case"Rules":
+			ViewRules viewRules = new ViewRules();
 			viewRules.setVisible(true);
 			this.dispose();
 			break;
