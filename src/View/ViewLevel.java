@@ -27,7 +27,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	String temp="";
 	private JLabel label_3;
-	GameController GameController = new GameController();
+	GameControllerGUI GameControllerGui = new GameControllerGUI();
 	private JTextField textField;
 	ViewGameSolo ViewGameSolo = new ViewGameSolo();
 	private JLabel lblEncoderLadresseIp;
