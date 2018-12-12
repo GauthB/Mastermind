@@ -31,7 +31,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 
 
 	private JLabel label_1;
-	private JLabel label;
+	private JLabel lblYourResult;
 	private JLabel label_2;
 	private JLabel label_3;
 	GameController GameController = new GameController();
@@ -39,6 +39,8 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	private JTextPane combiResult;
 	private JTextPane combiCompetitor;
 	private JLabel lblGameMuli;
+	private JButton btMenu;
+	private JLabel lbWin;
 	
 	/**
 	 * Launch the application.
@@ -74,6 +76,14 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
+		btMenu = new JButton("Menu");
+		GridBagConstraints gbc_btMenu = new GridBagConstraints();
+		gbc_btMenu.insets = new Insets(0, 0, 5, 5);
+		gbc_btMenu.gridx = 0;
+		gbc_btMenu.gridy = 0;
+		contentPane.add(btMenu, gbc_btMenu);
+		btMenu.addActionListener(this);
+		
 		label_3 = new JLabel("Number Mastermind");
 		label_3.setHorizontalAlignment(SwingConstants.LEFT);
 		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
@@ -84,11 +94,11 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
-		lblGameMuli = new JLabel("Game Multi");
+		lblGameMuli = new JLabel("Game Multiplayer");
 		lblGameMuli.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		GridBagConstraints gbc_lblGameMuli = new GridBagConstraints();
 		gbc_lblGameMuli.gridwidth = 10;
-		gbc_lblGameMuli.insets = new Insets(0, 0, 5, 5);
+		gbc_lblGameMuli.insets = new Insets(0, 0, 5, 0);
 		gbc_lblGameMuli.gridx = 0;
 		gbc_lblGameMuli.gridy = 2;
 		contentPane.add(lblGameMuli, gbc_lblGameMuli);
@@ -102,13 +112,14 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		gbc_label_1.gridy = 3;
 		contentPane.add(label_1, gbc_label_1);
 		
-		label = new JLabel("Result");
-		GridBagConstraints gbc_label = new GridBagConstraints();
-		gbc_label.anchor = GridBagConstraints.WEST;
-		gbc_label.insets = new Insets(0, 0, 5, 5);
-		gbc_label.gridx = 4;
-		gbc_label.gridy = 3;
-		contentPane.add(label, gbc_label);
+		lblYourResult = new JLabel("Your result");
+		GridBagConstraints gbc_lblYourResult = new GridBagConstraints();
+		gbc_lblYourResult.gridwidth = 2;
+		gbc_lblYourResult.anchor = GridBagConstraints.WEST;
+		gbc_lblYourResult.insets = new Insets(0, 0, 5, 5);
+		gbc_lblYourResult.gridx = 4;
+		gbc_lblYourResult.gridy = 3;
+		contentPane.add(lblYourResult, gbc_lblYourResult);
 		
 		label_2 = new JLabel("Competitor's game");
 		label_2.setHorizontalAlignment(SwingConstants.LEFT);
@@ -171,6 +182,17 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
 		
+		lbWin = new JLabel("");
+		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
+		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		GridBagConstraints gbc_lbWin = new GridBagConstraints();
+		gbc_lbWin.gridheight = 2;
+		gbc_lbWin.gridwidth = 5;
+		gbc_lbWin.insets = new Insets(0, 0, 5, 5);
+		gbc_lbWin.gridx = 4;
+		gbc_lbWin.gridy = 16;
+		contentPane.add(lbWin, gbc_lbWin);
+		
 		JButton btnClear = new JButton("Clear");
 		GridBagConstraints gbc_btnClear = new GridBagConstraints();
 		gbc_btnClear.insets = new Insets(0, 0, 5, 5);
@@ -207,6 +229,11 @@ public void actionPerformed(ActionEvent e) {
 		case"Clear":
 		
 			textField2.setText("");
+			break;
+		case"Menu":
+			ViewMain viewMain = new ViewMain();
+			viewMain.setVisible(true);
+			this.dispose();
 			break;
 		case"Exit":
 			this.dispose();
