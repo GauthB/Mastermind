@@ -31,7 +31,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JTextField textField2;
 	private String temp="----";
-	private String temp2 ="- - - -";
+	private String temp2 ="----";
 	private String combiInJframe="";
 
 
@@ -72,14 +72,14 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	 */
 	public ViewGameSolo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 420, 589);
+		setBounds(100, 100, 700, 649);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{60, 60, 60, 60, 60, 60, 60};
-		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
+		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 89, 29, 29, 29, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
@@ -129,6 +129,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		contentPane.add(label, gbc_label);
 		
 		combiInTout = new JTextPane();
+		combiInTout.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_combiInTout = new GridBagConstraints();
 		gbc_combiInTout.gridwidth = 2;
 		gbc_combiInTout.gridheight = 11;
@@ -140,6 +141,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		combiInTout.setEditable(false);
 		
 		combiResult = new JTextPane();
+		combiResult.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_combiResult = new GridBagConstraints();
 		gbc_combiResult.gridwidth = 2;
 		gbc_combiResult.gridheight = 11;
