@@ -39,6 +39,8 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	private JLabel lblGameSoloWith;
 	private JTextPane combiInTout;
 	private JTextPane combiResult;
+	private JButton btMenu;
+	private JLabel lbWin;
 	
 	/**
 	 * Launch the application.
@@ -73,6 +75,14 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
+		
+		btMenu = new JButton("Menu");
+		GridBagConstraints gbc_btMenu = new GridBagConstraints();
+		gbc_btMenu.insets = new Insets(0, 0, 5, 5);
+		gbc_btMenu.gridx = 0;
+		gbc_btMenu.gridy = 0;
+		contentPane.add(btMenu, gbc_btMenu);
+		btMenu.addActionListener(this);
 		
 		label_3 = new JLabel("Number Mastermind");
 		label_3.setHorizontalAlignment(SwingConstants.LEFT);
@@ -151,6 +161,17 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
 		
+		lbWin = new JLabel("");
+		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
+		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		GridBagConstraints gbc_lbWin = new GridBagConstraints();
+		gbc_lbWin.gridheight = 2;
+		gbc_lbWin.gridwidth = 4;
+		gbc_lbWin.insets = new Insets(0, 0, 5, 5);
+		gbc_lbWin.gridx = 3;
+		gbc_lbWin.gridy = 16;
+		contentPane.add(lbWin, gbc_lbWin);
+		
 		JButton btnClear = new JButton("Clear");
 		GridBagConstraints gbc_btnClear = new GridBagConstraints();
 		gbc_btnClear.insets = new Insets(0, 0, 5, 5);
@@ -188,6 +209,11 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		case"Clear":
 	
 			textField2.setText("");
+			break;
+		case"Menu":
+			ViewMain viewMain = new ViewMain();
+			viewMain.setVisible(true);
+			this.dispose();
 			break;
 		case"Exit":
 			this.dispose();
