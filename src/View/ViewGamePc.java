@@ -47,7 +47,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JLabel lblComputersGame;
 	private JLabel label_3;
 	private JTextPane combiInTout;
-	GameControllerGUI GameControllerGui = new GameControllerGUI();
+
 
 	
 	/**
@@ -84,17 +84,25 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
+		btnMenu = new JButton("Menu");
+		GridBagConstraints gbc_btnMenu = new GridBagConstraints();
+		gbc_btnMenu.insets = new Insets(0, 0, 5, 5);
+		gbc_btnMenu.gridx = 0;
+		gbc_btnMenu.gridy = 0;
+		contentPane.add(btnMenu, gbc_btnMenu);
+		btnMenu.addActionListener(this);
+		
 		label_3 = new JLabel("Number Mastermind");
 		label_3.setHorizontalAlignment(SwingConstants.LEFT);
 		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
 		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 10;
+		gbc_label_3.gridwidth = 11;
 		gbc_label_3.insets = new Insets(0, 0, 5, 5);
 		gbc_label_3.gridx = 0;
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
-		lblGameMultiWith = new JLabel("Game Multi with Computer");
+		lblGameMultiWith = new JLabel("Game Multiplayer with Computer");
 		lblGameMultiWith.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		GridBagConstraints gbc_lblGameMultiWith = new GridBagConstraints();
 		gbc_lblGameMultiWith.gridwidth = 11;
@@ -235,6 +243,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JLabel label_4;
 	private JLabel lblGameMultiWith;
 	private JLabel lbWin;
+	private JButton btnMenu;
 	
 	
 	@Override
@@ -253,26 +262,31 @@ public class ViewGamePc extends JFrame implements ActionListener {
 			combiResult.setText(temp2);
 		
 			String reponseSolutionUtilisateur = gameControllerGui.corrige(textOrigine);
-			String reponseSolutionPc = "--";
-			String test="--";
+			
 			
 			temp = temp+"\n"+textOrigine;
 			combiInTout.setText(temp);
 			
 			textField2.setText("");
-			//int lui = 1;
-			if(reponseSolutionUtilisateur == "V V V V ") {
+			
+		/*	if(reponseSolutionUtilisateur == "V V V V " ) {
 				lbWin.setText("Vous avez gagné");
+			
 				textField2.setEditable(false);
 			}
 			else if (reponseSolutionUtilisateur == "VVVV" ) {
 				lbWin.setText("L'ordinateur a gagné");
 				textField2.setEditable(false);
-			}
+			}*/
 			break;
 		case"Clear":
 		
 			textField2.setText("");
+			break;
+		case"Menu":
+			ViewMain viewMain = new ViewMain();
+			viewMain.setVisible(true);
+			this.dispose();
 			break;
 		case"Exit":
 			this.dispose();
