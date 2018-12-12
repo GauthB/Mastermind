@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JScrollPane;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+//import com.jgoodies.forms.factories.DefaultComponentFactory;
 import javax.swing.JList;
 import javax.swing.JTextPane;
 
@@ -210,19 +210,19 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 			
 			combiInJframe=textField2.getText();
 			
-			combiResultActuelle = "";
-			combiResultActuelle = gameControllerGui.corrige(combiInJframe);
 			
-			
+		
 		
 			temp2 = temp2 +"\n"+ gameControllerGui.corrige(combiInJframe);
 			temp = temp+"\n"+combiInJframe;
 		
 			
-			if(gameControllerGui.viewCorrection(combiResultActuelle)== true) {
-				System.out.print("Gauthier ce fdp");
-				this.dispose();
-				lbWin.setText("Vous avez gagné");
+			
+			if(gameControllerGui.ifCorrect(combiInJframe) == true) {
+				
+				combiInTout.setText(temp);
+				combiResult.setText(temp2);
+				lbWin.setText("Vous avez gagne");
 				textField2.setEditable(false);
 				
 			}
