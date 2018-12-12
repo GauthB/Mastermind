@@ -30,13 +30,21 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField2;
-	String temp="----";
+	private String temp="----";
+	private String temp2 ="- - - -";
+	private String combiInJframe="";
+
+
+	public int levelSolo;
+	private int numeroEssai = 0;
+	private String combiResultActuelle="";
+	private String cor = "VVVV";
 
 
 	private JLabel label_1;
 	private JLabel label;
 	private JLabel label_3;
-	GameController gameController = new GameController();
+	GameControllerGUI gameControllerGui = new GameControllerGUI();
 	private JLabel lblGameSoloWith;
 	private JTextPane combiInTout;
 	private JTextPane combiResult;
