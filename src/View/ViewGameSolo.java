@@ -1,9 +1,9 @@
 package View;
-import mastermind.GameController;
+
 import mastermind.GameControllerGUI;
 
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,13 +17,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JScrollPane;
+
 //import com.jgoodies.forms.factories.DefaultComponentFactory;
-import javax.swing.JList;
+
 import javax.swing.JTextPane;
 
 public class ViewGameSolo extends JFrame implements ActionListener {
@@ -37,8 +37,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 
 	public int levelSolo;
 	private int numeroEssai = 0;
-	private String combiResultActuelle="";
-	private String cor = "VVVV";
+	
 
 
 	private JLabel label_1;
