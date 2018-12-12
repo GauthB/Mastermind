@@ -1,6 +1,8 @@
 package View;
 import mastermind.GameController;
-
+import mastermind.GameControllerGUI;
+import mastermind.RandomCombi;
+import mastermind.Correction;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -25,7 +27,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JTextPane;
 import javax.swing.JScrollBar;
 import java.awt.Panel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+//import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.ScrollPane;
 import java.awt.Label;
 import java.awt.Canvas;
@@ -42,8 +44,9 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JLabel label;
 	private JLabel label_2;
 	private JLabel label_3;
-	GameController GameController = new GameController();
 	private JTextPane combiInTout;
+	GameControllerGUI GameControllerGui = new GameControllerGUI();
+
 	
 	/**
 	 * Launch the application.
@@ -162,6 +165,10 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		contentPane.add(btnExit, gbc_btnExit);
 		
 	}
+	
+	
+	GameControllerGUI gameControllerGui = new GameControllerGUI();
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -171,7 +178,13 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 		case"Enter":
 			
+			
+			String result = "";
 			textOrigine=textField2.getText();
+			
+			result = gameControllerGui.corrige(textOrigine);
+			
+			label.setText(result);
 		
 			temp = temp+"\n"+textOrigine;
 			combiInTout.setText(temp);
