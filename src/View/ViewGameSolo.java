@@ -38,7 +38,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	GameController gameController = new GameController();
 	private JLabel lblGameSoloWith;
 	private JTextPane combiInTout;
-	private JTextPane textPane;
+	private JTextPane combiResult;
 	
 	/**
 	 * Launch the application.
@@ -62,15 +62,15 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	 */
 	public ViewGameSolo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 585, 589);
+		setBounds(100, 100, 420, 589);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{35, 80, 80, 35, 80, 80, 80, 80, 35};
+		gbl_contentPane.columnWidths = new int[]{60, 60, 60, 60, 60, 60, 60};
 		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
@@ -78,16 +78,16 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		label_3.setHorizontalAlignment(SwingConstants.LEFT);
 		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
 		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 10;
+		gbc_label_3.gridwidth = 7;
 		gbc_label_3.insets = new Insets(0, 0, 5, 0);
 		gbc_label_3.gridx = 0;
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
-		lblGameSoloWith = new JLabel("Game Solo with PC");
+		lblGameSoloWith = new JLabel("Game Solo ");
 		lblGameSoloWith.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		GridBagConstraints gbc_lblGameSoloWith = new GridBagConstraints();
-		gbc_lblGameSoloWith.gridwidth = 10;
+		gbc_lblGameSoloWith.gridwidth = 7;
 		gbc_lblGameSoloWith.insets = new Insets(0, 0, 5, 0);
 		gbc_lblGameSoloWith.gridx = 0;
 		gbc_lblGameSoloWith.gridy = 2;
@@ -119,15 +119,18 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbc_combiInTout.gridx = 1;
 		gbc_combiInTout.gridy = 4;
 		contentPane.add(combiInTout, gbc_combiInTout);
+		combiInTout.setEditable(false);
 		
-		textPane = new JTextPane();
-		GridBagConstraints gbc_textPane = new GridBagConstraints();
-		gbc_textPane.gridheight = 11;
-		gbc_textPane.insets = new Insets(0, 0, 5, 5);
-		gbc_textPane.fill = GridBagConstraints.BOTH;
-		gbc_textPane.gridx = 4;
-		gbc_textPane.gridy = 4;
-		contentPane.add(textPane, gbc_textPane);
+		combiResult = new JTextPane();
+		GridBagConstraints gbc_combiResult = new GridBagConstraints();
+		gbc_combiResult.gridwidth = 2;
+		gbc_combiResult.gridheight = 11;
+		gbc_combiResult.insets = new Insets(0, 0, 5, 5);
+		gbc_combiResult.fill = GridBagConstraints.BOTH;
+		gbc_combiResult.gridx = 4;
+		gbc_combiResult.gridy = 4;
+		contentPane.add(combiResult, gbc_combiResult);
+		combiResult.setEditable(false);
 		
 		
 		JButton btnSwap = new JButton("Swap");
