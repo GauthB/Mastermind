@@ -144,7 +144,9 @@ public class ViewLevel extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 	
 		case"Enter":
+			ViewGameSolo.levelSolo = GameControllerGui.levelSolo(textField.getText());
 			ViewGameSolo.setVisible(true);
+			
 			
 		case"Exit":
 			
