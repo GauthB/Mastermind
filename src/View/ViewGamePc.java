@@ -265,7 +265,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				lbWin.setText("Vous avez gagné");
 				textField2.setEditable(false);
 			}
-			else if (reponseSolutionPc == "VVVV" ) {
+			else if (reponseSolutionUtilisateur == "VVVV" ) {
 				lbWin.setText("L'ordinateur a gagné");
 				textField2.setEditable(false);
 			}
