@@ -172,7 +172,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		
 		lbWin = new JLabel("");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
-		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
 		gbc_lbWin.gridheight = 2;
 		gbc_lbWin.gridwidth = 4;
@@ -245,6 +245,11 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		case"Clear":
 	
 			textField2.setText("");
+			break;
+		case"Menu":
+			ViewMain viewMain = new ViewMain();
+			viewMain.setVisible(true);
+			this.dispose();
 			break;
 		case"Exit":
 			this.dispose();
