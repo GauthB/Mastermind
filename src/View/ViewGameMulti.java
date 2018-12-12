@@ -1,6 +1,6 @@
 package View;
-import mastermind.GameController;
 
+import mastermind.GameControllerGUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -28,13 +28,17 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JTextField textField2;
 	String temp="----";
+	String temp2="- - - -";
+	
+	String textOrigine="";
 
 
 	private JLabel label_1;
 	private JLabel lblYourResult;
 	private JLabel label_2;
 	private JLabel label_3;
-	GameController GameController = new GameController();
+	
+	GameControllerGUI gameControllerGui = new GameControllerGUI();
 	private JTextPane combiInTout;
 	private JTextPane combiResult;
 	private JTextPane combiCompetitor;
@@ -213,18 +217,25 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	@Override
 public void actionPerformed(ActionEvent e) {
 		
-		String textOrigine="";
+		
 		
 		switch(e.getActionCommand()){
 		case"Enter":
 			
-			textOrigine=textField2.getText();
+textOrigine=textField2.getText();
+			
+			temp2 = temp2 +"\n"+ gameControllerGui.corrige(textOrigine);
+			combiResult.setText(temp2);
 		
+			String reponseSolutionUtilisateur = gameControllerGui.corrige(textOrigine);
+			
+			
 			temp = temp+"\n"+textOrigine;
 			combiInTout.setText(temp);
 			
 			textField2.setText("");
-	
+			
+			
 			break;
 		case"Clear":
 		
