@@ -1,5 +1,6 @@
 package View;
 import mastermind.GameController;
+import mastermind.GameControllerGUI;
 
 
 import java.awt.BorderLayout;
@@ -194,26 +195,53 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String textOrigine="";
 		switch(e.getActionCommand()){
 		case"Enter":
 			
-			textOrigine=textField2.getText();
-		
-			temp = temp+"\n"+textOrigine;
-			combiInTout.setText(temp);
 			
-			textField2.setText("");
+			
+			combiInJframe=textField2.getText();
+			
+			combiResultActuelle = "";
+			combiResultActuelle = gameControllerGui.corrige(combiInJframe);
+			
+			
+		
+			temp2 = temp2 +"\n"+ gameControllerGui.corrige(combiInJframe);
+			temp = temp+"\n"+combiInJframe;
+		
+			
+			if(gameControllerGui.viewCorrection(combiResultActuelle)== true) {
+				System.out.print("Gauthier ce fdp");
+				this.dispose();
+				lbWin.setText("Vous avez gagné");
+				textField2.setEditable(false);
+				
+			}
+			else {
+				if(numeroEssai < levelSolo) {
+					
+					combiResult.setText(temp2);
+				
+					combiInTout.setText(temp);
+					
+					textField2.setText("");
+					
+					numeroEssai++;
+				}
+				else {
+					lbWin.setText("Vous avez perdu ! Nombres d'essais depasse ...");
+					textField2.setEditable(false);
+				}
+				
+			}
+			
+			
 	
 			break;
 		case"Clear":
 	
 			textField2.setText("");
-			break;
-		case"Menu":
-			ViewMain viewMain = new ViewMain();
-			viewMain.setVisible(true);
-			this.dispose();
 			break;
 		case"Exit":
 			this.dispose();
