@@ -81,16 +81,18 @@ public class ViewLevel extends JFrame implements ActionListener {
 		contentPane.add(label_3, gbc_label_3);
 		
 		lblEncoderLadresseIp = new JLabel("Please enter your difficulty:");
+		lblEncoderLadresseIp.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_lblEncoderLadresseIp = new GridBagConstraints();
-		gbc_lblEncoderLadresseIp.anchor = GridBagConstraints.WEST;
-		gbc_lblEncoderLadresseIp.gridwidth = 2;
+		gbc_lblEncoderLadresseIp.anchor = GridBagConstraints.SOUTHWEST;
+		gbc_lblEncoderLadresseIp.gridwidth = 3;
 		gbc_lblEncoderLadresseIp.insets = new Insets(0, 0, 5, 0);
-		gbc_lblEncoderLadresseIp.gridx = 1;
+		gbc_lblEncoderLadresseIp.gridx = 0;
 		gbc_lblEncoderLadresseIp.gridy = 3;
 		contentPane.add(lblEncoderLadresseIp, gbc_lblEncoderLadresseIp);
 		
 		
 		JButton btnIp = new JButton("Enter");
+		btnIp.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		GridBagConstraints gbc_btnIp = new GridBagConstraints();
 		gbc_btnIp.insets = new Insets(0, 0, 5, 5);
 		gbc_btnIp.gridx = 0;
@@ -107,7 +109,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 		gbc_textField.gridy = 4;
 		contentPane.add(textField, gbc_textField);
 		
-		lblHardh = new JLabel("Hard = 'H'        5 chances");
+		lblHardh = new JLabel("Hard = 'H'          5 chances");
 		GridBagConstraints gbc_lblHardh = new GridBagConstraints();
 		gbc_lblHardh.anchor = GridBagConstraints.WEST;
 		gbc_lblHardh.insets = new Insets(0, 0, 5, 5);
@@ -123,7 +125,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 		gbc_lblNormaln.gridy = 6;
 		contentPane.add(lblNormaln, gbc_lblNormaln);
 		
-		lblEasye = new JLabel("Easy = 'E'        12 chances");
+		lblEasye = new JLabel("Easy = 'E'           12 chances");
 		GridBagConstraints gbc_lblEasye = new GridBagConstraints();
 		gbc_lblEasye.anchor = GridBagConstraints.WEST;
 		gbc_lblEasye.insets = new Insets(0, 0, 5, 5);
