@@ -37,12 +37,13 @@ public class ViewGamePc extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField2;
-	String temp="----";
+	private String temp="----";
+	private String temp2 ="----";
 
 
 	private JLabel label_1;
 	private JLabel label;
-	private JLabel label_2;
+	private JLabel lblComputersGame;
 	private JLabel label_3;
 	private JTextPane combiInTout;
 	GameControllerGUI GameControllerGui = new GameControllerGUI();
@@ -70,15 +71,15 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	 */
 	public ViewGamePc() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 665, 589);
+		setBounds(100, 100, 670, 589);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{35, 80, 80, 80, 80, 35, 80, 80, 80, 35};
+		gbl_contentPane.columnWidths = new int[]{70, 70, 70, 20, 70, 70, 70, 70, 20,70,70};
 		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
@@ -87,7 +88,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
 		GridBagConstraints gbc_label_3 = new GridBagConstraints();
 		gbc_label_3.gridwidth = 10;
-		gbc_label_3.insets = new Insets(0, 0, 5, 0);
+		gbc_label_3.insets = new Insets(0, 0, 5, 5);
 		gbc_label_3.gridx = 0;
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
@@ -109,15 +110,22 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_label.gridy = 3;
 		contentPane.add(label, gbc_label);
 		
-		label_2 = new JLabel("Competitor's game");
-		label_2.setHorizontalAlignment(SwingConstants.LEFT);
-		GridBagConstraints gbc_label_2 = new GridBagConstraints();
-		gbc_label_2.anchor = GridBagConstraints.WEST;
-		gbc_label_2.gridwidth = 3;
-		gbc_label_2.insets = new Insets(0, 0, 5, 5);
-		gbc_label_2.gridx = 6;
-		gbc_label_2.gridy = 3;
-		contentPane.add(label_2, gbc_label_2);
+		lblComputersGame = new JLabel("Computer's game");
+		lblComputersGame.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_lblComputersGame = new GridBagConstraints();
+		gbc_lblComputersGame.anchor = GridBagConstraints.WEST;
+		gbc_lblComputersGame.gridwidth = 3;
+		gbc_lblComputersGame.insets = new Insets(0, 0, 5, 5);
+		gbc_lblComputersGame.gridx = 6;
+		gbc_lblComputersGame.gridy = 3;
+		contentPane.add(lblComputersGame, gbc_lblComputersGame);
+		
+		label_4 = new JLabel("Result");
+		GridBagConstraints gbc_label_4 = new GridBagConstraints();
+		gbc_label_4.insets = new Insets(0, 0, 5, 5);
+		gbc_label_4.gridx = 9;
+		gbc_label_4.gridy = 3;
+		contentPane.add(label_4, gbc_label_4);
 		
 		combiInTout = new JTextPane();
 		GridBagConstraints gbc_combiInTout = new GridBagConstraints();
@@ -128,6 +136,38 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_combiInTout.gridx = 1;
 		gbc_combiInTout.gridy = 4;
 		contentPane.add(combiInTout, gbc_combiInTout);
+		combiInTout.setEditable(false);
+		
+		combiResult = new JTextPane();
+		GridBagConstraints gbc_combiResult = new GridBagConstraints();
+		gbc_combiResult.gridheight = 11;
+		gbc_combiResult.insets = new Insets(0, 0, 5, 5);
+		gbc_combiResult.fill = GridBagConstraints.BOTH;
+		gbc_combiResult.gridx = 4;
+		gbc_combiResult.gridy = 4;
+		contentPane.add(combiResult, gbc_combiResult);
+		combiResult.setEditable(false);
+		
+		combiCompetitor = new JTextPane();
+		GridBagConstraints gbc_combiCompetitor = new GridBagConstraints();
+		gbc_combiCompetitor.gridheight = 11;
+		gbc_combiCompetitor.gridwidth = 2;
+		gbc_combiCompetitor.insets = new Insets(0, 0, 5, 5);
+		gbc_combiCompetitor.fill = GridBagConstraints.BOTH;
+		gbc_combiCompetitor.gridx = 6;
+		gbc_combiCompetitor.gridy = 4;
+		contentPane.add(combiCompetitor, gbc_combiCompetitor);
+		combiCompetitor.setEditable(false);
+		
+		combiResultCompetitor = new JTextPane();
+		GridBagConstraints gbc_combiResultCompetitor = new GridBagConstraints();
+		gbc_combiResultCompetitor.gridheight = 11;
+		gbc_combiResultCompetitor.insets = new Insets(0, 0, 5, 5);
+		gbc_combiResultCompetitor.fill = GridBagConstraints.BOTH;
+		gbc_combiResultCompetitor.gridx = 9;
+		gbc_combiResultCompetitor.gridy = 4;
+		contentPane.add(combiResultCompetitor, gbc_combiResultCompetitor);
+		combiResultCompetitor.setEditable(false);
 		
 		
 		JButton btnEnter = new JButton("Enter");
@@ -168,8 +208,12 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	
 	
 	GameControllerGUI gameControllerGui = new GameControllerGUI();
+	private JTextPane combiResult;
+	private JTextPane combiCompetitor;
+	private JTextPane combiResultCompetitor;
+	private JLabel label_4;
 	
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -179,18 +223,18 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		case"Enter":
 			
 			
-			String result = "";
+			
 			textOrigine=textField2.getText();
 			
-			result = gameControllerGui.corrige(textOrigine);
-			
-			label.setText(result);
+			temp2 = temp2 +"\n"+ gameControllerGui.corrige(textOrigine);
+			combiResult.setText(temp2);
 		
+			
 			temp = temp+"\n"+textOrigine;
 			combiInTout.setText(temp);
 			
 			textField2.setText("");
-	
+			
 			break;
 		case"Clear":
 		
