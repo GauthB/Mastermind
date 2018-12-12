@@ -1,5 +1,6 @@
 package View;
 import mastermind.GameController;
+import mastermind.GameControllerGUI;
 
 
 import java.awt.BorderLayout;
