@@ -43,14 +43,22 @@ public class GameControllerGUI {
 		return txt;	
 	}
 	
-	public boolean viewCorrection(String txt) {
-		if(txt == "VVVV") {
+	
+	public boolean ifCorrect(String combi) {
+		
+		String test = "";
+		for(int i = 0; i<4;i++) {
+			test+=instCombiRandom.combi[i];
+		}
+		
+		if(combi.equals(test)) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
+	
 	
 	public int levelSolo(String txt) {
 		
