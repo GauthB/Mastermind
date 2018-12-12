@@ -3,7 +3,6 @@
  */
 package mastermind;
 
-import java.util.Scanner;
 
 /**
  * @author USER1
@@ -12,6 +11,7 @@ import java.util.Scanner;
 public class GameControllerGUI {
 	
 	public char[] combiIn = new char[4]; 
+	
 	
 	Correction instCorr = new Correction();
 	RandomCombi instCombiRandom = new RandomCombi();
@@ -25,6 +25,7 @@ public class GameControllerGUI {
 		
 		char tab[] = new char[4];
 		
+		
 		for(int i=0;i < 4;i++) {
 			tab[i] = txt.charAt(i);
 		}
@@ -34,11 +35,54 @@ public class GameControllerGUI {
 		
 		txt ="";
 		for(int i=0;i < 4;i++) {
-			txt += correct[i]+" ";
+			txt += correct[i];
 		}
+		
+		
 		
 		return txt;	
 	}
 	
+	public boolean viewCorrection(String txt) {
+		if(txt == "VVVV") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public int levelSolo(String txt) {
+		
+		char lettre = txt.charAt(0);
+		int lvl = 0;
+		
+		if(lettre == 'H' || lettre == 'h') {
+			lvl= 5;
+		}
+		else if(lettre == 'N' || lettre == 'n') {
+			lvl= 9; 
+		}
+		else if(lettre == 'E' || lettre == 'e') {
+			lvl= 12; 
+		}
+		else {
+			System.out.print("Level incorrect");
+		}
+		return lvl;
+		
+	}
+	
+	public String convertWithoutSpaces(String txt) {
+		String txt2 = "";
+		int i = 0;
+		while (i <= 6) {
+			txt2+= txt.charAt(i);
+			i=i+2;
+		}
+		return txt2;
+		
+		
+	}
 	
 }
