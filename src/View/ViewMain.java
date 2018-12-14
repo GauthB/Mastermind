@@ -3,12 +3,15 @@ import mastermind.GameController;
 
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -41,6 +44,8 @@ public class ViewMain extends JFrame implements ActionListener {
 	
 	private JButton btnSoloPc;
 	private JLabel lbDate;
+	private JPanel pan;
+	private JLabel lbImage;
 	/**
 	 * Launch the application.
 	 */
@@ -71,7 +76,7 @@ public class ViewMain extends JFrame implements ActionListener {
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{50, 100, 80, 80, 80, 35, 80, 80, 80, 0};
 		gbl_contentPane.rowHeights = new int[]{30, 40, 50, 50, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
-		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
@@ -94,6 +99,7 @@ public class ViewMain extends JFrame implements ActionListener {
 		
 		
 		JButton btnSolo = new JButton("Solo");
+		btnSolo.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSolo.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnSolo = new GridBagConstraints();
 		gbc_btnSolo.anchor = GridBagConstraints.WEST;
@@ -103,8 +109,29 @@ public class ViewMain extends JFrame implements ActionListener {
 		gbc_btnSolo.gridy = 3;
 		contentPane.add(btnSolo, gbc_btnSolo);
 		btnSolo.addActionListener(this);
+		btnSolo.setMaximumSize(new Dimension(200, 40));
+		btnSolo.setMinimumSize(new Dimension(200, 40));
 		
+		// pour l'image
+		/*
+		
+		String imgUrl="8761974.jpg";
+	    ImageIcon icone = new ImageIcon(imgUrl);
+		
+		JLabel lbImage = new JLabel(icone, JLabel.CENTER);
+		GridBagConstraints gbc_lbImage = new GridBagConstraints();
+		gbc_lbImage.gridwidth = 4;
+		gbc_lbImage.gridheight = 7;
+		gbc_lbImage.insets = new Insets(0, 0, 5, 5);
+		gbc_lbImage.gridx = 4;
+		gbc_lbImage.gridy = 3;
+		contentPane.add(lbImage, gbc_lbImage);
+		
+		*/
+		
+	
 		btnSoloPc = new JButton("Solo_Pc");
+		btnSoloPc.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSoloPc.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnSoloPc = new GridBagConstraints();
 		gbc_btnSoloPc.gridwidth = 2;
@@ -114,8 +141,12 @@ public class ViewMain extends JFrame implements ActionListener {
 		gbc_btnSoloPc.gridy = 5;
 		contentPane.add(btnSoloPc, gbc_btnSoloPc);
 		btnSoloPc.addActionListener(this);
+		btnSoloPc.setMaximumSize(new Dimension(200, 40));
+		btnSoloPc.setMinimumSize(new Dimension(200, 40));
+		
 		
 		JButton btnMulti = new JButton("Multiplayer");
+		btnMulti.setHorizontalAlignment(SwingConstants.LEFT);
 		btnMulti.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnMulti = new GridBagConstraints();
 		gbc_btnMulti.anchor = GridBagConstraints.WEST;
@@ -125,8 +156,11 @@ public class ViewMain extends JFrame implements ActionListener {
 		gbc_btnMulti.gridy = 7;
 		contentPane.add(btnMulti, gbc_btnMulti);
 		btnMulti.addActionListener(this);
+		btnMulti.setMaximumSize(new Dimension(200, 40));
+		btnMulti.setMinimumSize(new Dimension(200, 40));
 		
 		BtnRules = new JButton("Rules");
+		BtnRules.setHorizontalAlignment(SwingConstants.LEFT);
 		BtnRules.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_BtnRules = new GridBagConstraints();
 		gbc_BtnRules.anchor = GridBagConstraints.WEST;
@@ -136,6 +170,8 @@ public class ViewMain extends JFrame implements ActionListener {
 		gbc_BtnRules.gridy = 9;
 		contentPane.add(BtnRules, gbc_BtnRules);
 		BtnRules.addActionListener(this);
+		BtnRules.setMaximumSize(new Dimension(200, 40));
+		BtnRules.setMinimumSize(new Dimension(200, 40));
 		
 		label = new JLabel("BOHYN ");
 		GridBagConstraints gbc_label = new GridBagConstraints();
@@ -190,7 +226,6 @@ public class ViewMain extends JFrame implements ActionListener {
 		GridBagConstraints gbc_lbDate = new GridBagConstraints();
 		gbc_lbDate.anchor = GridBagConstraints.SOUTHEAST;
 		gbc_lbDate.gridwidth = 3;
-		gbc_lbDate.insets = new Insets(0, 0, 0, 5);
 		gbc_lbDate.gridx = 7;
 		gbc_lbDate.gridy = 15;
 		contentPane.add(lbDate, gbc_lbDate);
