@@ -75,9 +75,9 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{70, 70, 70, 70, 70, 70, 70, 70, 70};
-		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
+		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
 		btMenu = new JButton("Menu");
@@ -168,13 +168,13 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		combiCompetitor.setEditable(false);
 		
 		
-		JButton btnSwap = new JButton("Enter");
-		GridBagConstraints gbc_btnSwap = new GridBagConstraints();
-		gbc_btnSwap.insets = new Insets(0, 0, 5, 5);
-		gbc_btnSwap.gridx = 0;
-		gbc_btnSwap.gridy = 16;
-		contentPane.add(btnSwap, gbc_btnSwap);
-		btnSwap.addActionListener(this);
+		JButton btnEnter = new JButton("Enter");
+		GridBagConstraints gbc_btnEnter = new GridBagConstraints();
+		gbc_btnEnter.insets = new Insets(0, 0, 5, 5);
+		gbc_btnEnter.gridx = 0;
+		gbc_btnEnter.gridy = 16;
+		contentPane.add(btnEnter, gbc_btnEnter);
+		btnEnter.addActionListener(this);
 		
 		textField2 = new JTextField();
 		GridBagConstraints gbc_textField2 = new GridBagConstraints();
@@ -190,26 +190,17 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
 		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
-		gbc_lbWin.gridheight = 2;
 		gbc_lbWin.gridwidth = 5;
 		gbc_lbWin.insets = new Insets(0, 0, 5, 5);
 		gbc_lbWin.gridx = 4;
 		gbc_lbWin.gridy = 16;
 		contentPane.add(lbWin, gbc_lbWin);
 		
-		JButton btnClear = new JButton("Clear");
-		GridBagConstraints gbc_btnClear = new GridBagConstraints();
-		gbc_btnClear.insets = new Insets(0, 0, 5, 5);
-		gbc_btnClear.gridx = 0;
-		gbc_btnClear.gridy = 17;
-		contentPane.add(btnClear, gbc_btnClear);
-		btnClear.addActionListener(this);
-		
 		JButton btnExit = new JButton("Exit");
 		GridBagConstraints gbc_btnExit = new GridBagConstraints();
 		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
 		gbc_btnExit.gridx = 0;
-		gbc_btnExit.gridy = 18;
+		gbc_btnExit.gridy = 17;
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
 	}
@@ -235,11 +226,6 @@ textOrigine=textField2.getText();
 			
 			textField2.setText("");
 			
-			
-			break;
-		case"Clear":
-		
-			textField2.setText("");
 			break;
 		case"Menu":
 			ViewMain viewMain = new ViewMain();
