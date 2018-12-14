@@ -39,6 +39,8 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JTextField textField2;
 	private String temp="----";
 	private String temp2 ="- - - -";
+	private String temp3="----";
+	private String temp4 ="- - - -";
 	private String textOrigine="";
 
 
@@ -244,6 +246,10 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JLabel lblGameMultiWith;
 	private JLabel lbWin;
 	private JButton btnMenu;
+	private String combiInJframe="////";
+	private int numeroEssai = 0;
+	private char positionCorrect[] = {'f','f','f','f'};
+	private char numeroCorrect[] = new char[4] ;
 	
 	
 	@Override
@@ -254,30 +260,76 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 		case"Enter":
 			
+			// --- Variables Pour la generation et la correction du Pc ---
+			String combiPc = "";
+			String combiPcCorrect2 = "";
+			char[][] resultCombiPcCorrige =new char[3][4];
+			char[] combiPcCorrect = new char[4];
 			
 			
-			textOrigine=textField2.getText();
 			
-			temp2 = temp2 +"\n"+ gameControllerGui.corrige(textOrigine);
-			combiResult.setText(temp2);
+			combiInJframe=textField2.getText();//recupere le texte entre
+			
+			temp2 = temp2 +"\n"+ gameControllerGui.corrige(combiInJframe);
+			temp = temp+"\n"+combiInJframe;
+			
+			
+			if(gameControllerGui.ifCorrect(combiInJframe) == true) {//Test si la combi est correcte
+				
+				combiInTout.setText(temp);//affiche la combi
+				combiResult.setText(temp2);//affiche la correction
+				lbWin.setText("Vous avez gagne");
+				textField2.setEditable(false);
+				
+			}
+			else {
+				if(numeroEssai < 12) {//12 chances max
+					
+					combiResult.setText(temp2);//affiche la combi
+					combiInTout.setText(temp);//affiche la correction
+					textField2.setText("");				
+					numeroEssai++;
+				}
+				else {
+					lbWin.setText("Vous avez perdu !");
+					textField2.setEditable(false);
+				}
+				
+			}
+			
+			
+			// --- Generation de la combi du pc ---
+			combiPc = gameControllerGui.newCombiPc(positionCorrect,numeroCorrect);
+			
+			resultCombiPcCorrige = gameControllerGui.corrigePc(positionCorrect,numeroCorrect,combiPc,combiInJframe);
+			
+			positionCorrect = resultCombiPcCorrige[0];
+			numeroCorrect = resultCombiPcCorrige[1];
+			combiPcCorrect = resultCombiPcCorrige[2];
 		
-			String reponseSolutionUtilisateur = gameControllerGui.corrige(textOrigine);
 			
+			for(int i=0;i < 4;i++) {
+				combiPcCorrect2 += combiPcCorrect[i];
+			}
 			
-			temp = temp+"\n"+textOrigine;
-			combiInTout.setText(temp);
+			temp3 = temp3+"\n"+combiPc;
+			temp4 = temp4 +"\n"+combiPcCorrect2;
 			
-			textField2.setText("");
-			
-		/*	if(reponseSolutionUtilisateur == "V V V V " ) {
-				lbWin.setText("Vous avez gagné");
-			
+			if(gameControllerGui.ifCorrect(combiPc) == true) {
+				
+				combiCompetitor.setText(temp3);
+				combiResultCompetitor.setText(temp4);
+				lbWin.setText("Le pc a gagne !");
 				textField2.setEditable(false);
 			}
-			else if (reponseSolutionUtilisateur == "VVVV" ) {
-				lbWin.setText("L'ordinateur a gagné");
-				textField2.setEditable(false);
-			}*/
+			else {
+				combiCompetitor.setText(temp3);
+				combiResultCompetitor.setText(temp4);
+			}
+			
+			
+			
+			
 			break;
 		case"Clear":
 		
