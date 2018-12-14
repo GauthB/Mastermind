@@ -3,6 +3,7 @@
  */
 package mastermind;
 
+import java.util.Random;
 
 /**
  * @author USER1
@@ -92,5 +93,82 @@ public class GameControllerGUI {
 		
 		
 	}
+	
+	
+	
+	public String newCombiPc(char positionCorrect[],char numeroCorrect[]){
+		
+		char[] combiPc = new char[4];
+		String retour = "";				
+		
+		Random r = new Random();
+		int size = instCombiRandom.combiRandom.length();
+		
+		
+		for (int i = 0; i < 4; i++) {
+			combiPc[i] = instCombiRandom.combiRandom.charAt(r.nextInt(size)); // transformer le String en tableau
+			
+			if(positionCorrect[i] == 't') {
+				combiPc[i] = numeroCorrect[i];
+			}
+		}
+		
+		for(int i=0;i < 4;i++) {
+			retour += combiPc[i];
+		}
+		
+		
+		
+		return retour;
+		
+		
+	}
+	
+	
+	
+	public char[][] corrigePc(char positionCorrect[],char numeroCorrect[],String combiPc,String combiUti) {
+		
+		char correctPc[] = new char[4];
+		char correctUti[] = new char[4];
+
+		char combiUti2[] = new char[4];
+		char combiPc2[] = new char[4];
+		char retour[][]= new char[3][4];
+		
+	
+		
+		
+		for(int i=0;i < 4;i++) {
+			combiUti2[i] = combiUti.charAt(i);
+			combiPc2[i] = combiPc.charAt(i);
+		}
+		
+		correctPc = instCorr.correction(combiPc2,instCombiRandom.combi);
+		correctUti = instCorr.correction(combiUti2,instCombiRandom.combi);
+		
+		
+		for(int i = 0; i < 4; i++) {
+			if(correctPc[i] == 'V'){
+				positionCorrect[i] = 't';
+				numeroCorrect[i] = combiPc2[i];
+			}
+			if(correctUti[i] == 'V'){
+				positionCorrect[i] = 't';
+				numeroCorrect[i] = combiUti2[i];
+			}
+			
+				
+		}
+	
+	
+		retour[0] = positionCorrect;
+		retour[1] = numeroCorrect;
+		retour[2] = correctPc;
+		
+		return retour;
+		
+	}
+	
+	
 	
 }
