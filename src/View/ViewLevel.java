@@ -35,6 +35,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 	private JLabel lblHardh;
 	private JLabel lblNormaln;
 	private JLabel lblEasye;
+	private JLabel lbErreur;
 	
 	
 	/**
@@ -133,6 +134,14 @@ public class ViewLevel extends JFrame implements ActionListener {
 		gbc_lblEasye.gridx = 1;
 		gbc_lblEasye.gridy = 7;
 		contentPane.add(lblEasye, gbc_lblEasye);
+		
+		lbErreur = new JLabel("");
+		GridBagConstraints gbc_lbErreur = new GridBagConstraints();
+		gbc_lbErreur.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lbErreur.insets = new Insets(0, 0, 0, 5);
+		gbc_lbErreur.gridx = 1;
+		gbc_lbErreur.gridy = 8;
+		contentPane.add(lbErreur, gbc_lbErreur);
 		
 		
 	}
