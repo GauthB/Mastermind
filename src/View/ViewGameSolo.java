@@ -34,12 +34,9 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	private String temp2 ="----";
 	private String combiInJframe="";
 
-
 	public int levelSolo;
 	private int numeroEssai = 0;
 	
-
-
 	private JLabel label_1;
 	private JLabel label;
 	private JLabel label_3;
@@ -223,19 +220,22 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 				
 			}
 			else {
-				if(numeroEssai < levelSolo) {
+				if((numeroEssai +1 >= levelSolo) && (gameControllerGui.ifCorrect(combiInJframe) == false)) {
+					
+					combiInTout.setText(temp);
+					combiResult.setText(temp2);
+					lbWin.setText("Vous avez perdu !");
+					textField2.setEditable(false);
+				}
+				else if(numeroEssai < levelSolo) {
 					
 					combiResult.setText(temp2);
-				
+					
 					combiInTout.setText(temp);
 					
 					textField2.setText("");
 					
 					numeroEssai++;
-				}
-				else {
-					lbWin.setText("Vous avez perdu !");
-					textField2.setEditable(false);
 				}
 				
 			}
