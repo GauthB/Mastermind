@@ -41,7 +41,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private String temp2 ="- - - -";
 	private String temp3="----";
 	private String temp4 ="- - - -";
-	private String textOrigine="";
+	
 
 
 	private JLabel label_1;
