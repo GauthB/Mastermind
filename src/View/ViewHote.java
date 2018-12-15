@@ -3,6 +3,7 @@ import mastermind.GameController;
 
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -87,6 +88,8 @@ public class ViewHote extends JFrame implements ActionListener {
 		gbc_btnHote.gridy = 3;
 		contentPane.add(btnHote, gbc_btnHote);
 		btnHote.addActionListener(this);
+		btnHote.setMaximumSize(new Dimension(150, 40));
+		btnHote.setMinimumSize(new Dimension(150, 40));
 		
 		lblYouAre = new JLabel("You are:");
 		lblYouAre.setHorizontalAlignment(SwingConstants.LEFT);
@@ -107,7 +110,8 @@ public class ViewHote extends JFrame implements ActionListener {
 		gbc_btGuest.gridy = 5;
 		contentPane.add(btGuest, gbc_btGuest);
 		btGuest.addActionListener(this);
-		
+		btGuest.setMaximumSize(new Dimension(150, 40));
+		btGuest.setMinimumSize(new Dimension(150, 40));
 		
 	}
 
