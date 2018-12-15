@@ -125,10 +125,12 @@ public class ViewHote extends JFrame implements ActionListener {
 		case"Hote":
 			
 			viewGameMulti.setVisible(true);
+			this.dispose();
 			break;
 		case"Guest":
 		
 			viewIp.setVisible(true);
+			this.dispose();
 			break;
 			
 		case"Exit":
