@@ -212,7 +212,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
 		
-		lbWin = new JLabel("");
+		lbWin = new JLabel("you have 12 chances");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
 		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
@@ -282,7 +282,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				
 				combiInTout.setText(temp);//affiche la combi
 				combiResult.setText(temp2);//affiche la correction
-				lbWin.setText("Vous avez gagne");
+				lbWin.setText("You win");
 				textField2.setEditable(false);
 				
 			}
@@ -295,7 +295,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 					numeroEssai++;
 				}
 				else {
-					lbWin.setText("Vous avez perdu !");
+					lbWin.setText("You lose");
 					textField2.setText("");
 					textField2.setEditable(false);
 				}
@@ -324,7 +324,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				
 				combiCompetitor.setText(temp3);
 				combiResultCompetitor.setText(temp4);
-				lbWin.setText("Le pc a gagne !");
+				lbWin.setText("the computer wins!");
 				textField2.setText("");
 				textField2.setEditable(false);
 			}
