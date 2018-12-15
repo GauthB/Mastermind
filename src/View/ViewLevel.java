@@ -136,6 +136,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 		contentPane.add(lblEasye, gbc_lblEasye);
 		
 		lbErreur = new JLabel("");
+		lbErreur.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		GridBagConstraints gbc_lbErreur = new GridBagConstraints();
 		gbc_lbErreur.anchor = GridBagConstraints.WEST;
 		gbc_lbErreur.insets = new Insets(0, 0, 0, 5);
