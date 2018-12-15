@@ -137,7 +137,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 		
 		lbErreur = new JLabel("");
 		GridBagConstraints gbc_lbErreur = new GridBagConstraints();
-		gbc_lbErreur.anchor = GridBagConstraints.NORTHWEST;
+		gbc_lbErreur.anchor = GridBagConstraints.WEST;
 		gbc_lbErreur.insets = new Insets(0, 0, 0, 5);
 		gbc_lbErreur.gridx = 1;
 		gbc_lbErreur.gridy = 8;
@@ -149,18 +149,22 @@ public class ViewLevel extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		String textOrigine="";
 		
 		switch(e.getActionCommand()){
 	
 		case"Enter":
-			ViewGameSolo.levelSolo = GameControllerGui.levelSolo(textField.getText());
-			ViewGameSolo.setVisible(true);
 			
+			if(!(GameControllerGui.isLevelCorrect(textField.getText()))){
+				lbErreur.setText("Value no correct");
+				textField.setText("");
+				
+				
+			}
+			else {
+				ViewGameSolo.levelSolo = GameControllerGui.levelSolo(textField.getText());
+				ViewGameSolo.setVisible(true);
+			}
 			
-		case"Exit":
-			
-			this.dispose();
 		}
 	}
 
