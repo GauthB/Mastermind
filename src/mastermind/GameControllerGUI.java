@@ -82,6 +82,27 @@ public class GameControllerGUI {
 		
 	}
 	
+	public boolean isLevelCorrect(String txt) {
+		
+		if(txt.equals("")) {//Si l'utilisateur ne rentre rien
+			return false;
+		}
+		
+		if(txt.length() >= 2) {//Si l'utilisateur rentre plus que 1 caractere
+			return false;
+		}
+		
+		else if((txt.charAt(0) == 'H') || (txt.charAt(0) == 'h') || (txt.charAt(0) == 'N') || (txt.charAt(0) == 'n') || (txt.charAt(0) == 'E') || (txt.charAt(0) == 'e')) {
+			return true;
+		}
+		
+		
+		else {
+			return false;
+		}
+		
+	}
+	
 	public String convertWithoutSpaces(String txt) {
 		String txt2 = "";
 		int i = 0;
