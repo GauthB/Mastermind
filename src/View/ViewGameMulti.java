@@ -27,8 +27,8 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField2;
-	String temp="----";
-	String temp2="- - - -";
+	String temp="";
+	String temp2="";
 	
 	String textOrigine="";
 
@@ -136,6 +136,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		contentPane.add(label_2, gbc_label_2);
 		
 		combiInTout = new JTextPane();
+		combiInTout.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_combiInTout = new GridBagConstraints();
 		gbc_combiInTout.gridwidth = 2;
 		gbc_combiInTout.gridheight = 11;
@@ -147,6 +148,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		combiInTout.setEditable(false);
 		
 		combiResult = new JTextPane();
+		combiResult.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_combiResult = new GridBagConstraints();
 		gbc_combiResult.gridheight = 11;
 		gbc_combiResult.insets = new Insets(0, 0, 5, 5);
@@ -157,6 +159,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		combiResult.setEditable(false);
 		
 		combiCompetitor = new JTextPane();
+		combiCompetitor.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_combiCompetitor = new GridBagConstraints();
 		gbc_combiCompetitor.gridheight = 11;
 		gbc_combiCompetitor.gridwidth = 2;
@@ -215,13 +218,13 @@ public void actionPerformed(ActionEvent e) {
 			
 textOrigine=textField2.getText();
 			
-			temp2 = temp2 +"\n"+ gameControllerGui.corrige(textOrigine);
+			temp2 = temp2 + gameControllerGui.corrige(textOrigine)+"\n";
 			combiResult.setText(temp2);
 		
 			String reponseSolutionUtilisateur = gameControllerGui.corrige(textOrigine);
 			
 			
-			temp = temp+"\n"+textOrigine;
+			temp = temp+textOrigine+"\n";
 			combiInTout.setText(temp);
 			
 			textField2.setText("");
