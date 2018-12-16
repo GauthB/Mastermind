@@ -1,11 +1,8 @@
 package View;
 import mastermind.GameController;
 
-
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,23 +12,25 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JScrollPane;
 
 public class ViewHote extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
-	String temp="";
-	private JLabel label_3;
+	
 	GameController GameController = new GameController();
 	ViewIp viewIp = new ViewIp();
 	ViewGameMulti viewGameMulti = new ViewGameMulti();
+	
+	/**
+	 * Variable
+	 */
+	private JPanel contentPane;
+	private JLabel label_3;
 	private JLabel lblYouAre;
+	private JButton btnHote;
+	private JButton btGuest;
 	
 	
 	/**
@@ -79,7 +78,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		contentPane.add(label_3, gbc_label_3);
 		
 		
-		JButton btnHote = new JButton("Hote");
+		btnHote = new JButton("Hote");
 		btnHote.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnHote = new GridBagConstraints();
 		gbc_btnHote.anchor = GridBagConstraints.SOUTHWEST;
@@ -101,7 +100,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		gbc_lblYouAre.gridy = 4;
 		contentPane.add(lblYouAre, gbc_lblYouAre);
 		
-		JButton btGuest = new JButton("Guest");
+		btGuest = new JButton("Guest");
 		btGuest.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btGuest = new GridBagConstraints();
 		gbc_btGuest.anchor = GridBagConstraints.NORTHWEST;
@@ -118,23 +117,19 @@ public class ViewHote extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
-		
 		switch(e.getActionCommand()){
 		
 		case"Hote":
-			
 			viewGameMulti.setVisible(true);
 			this.dispose();
 			break;
+			
 		case"Guest":
-		
 			viewIp.setVisible(true);
 			this.dispose();
 			break;
-			
+		
 		case"Exit":
-			
 			this.dispose();
 		}
 		
