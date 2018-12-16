@@ -13,8 +13,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * @author humbertmeyers
- *
+ * @author Bohyn Gauthier
+ * @author Hermant Thibaut
+ * @author Meyers Humbert
+ * Une classe représentant un chat avec un socket de connexion
  */
 public class Chat {
 	BufferedReader in;
