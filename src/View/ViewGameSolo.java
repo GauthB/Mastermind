@@ -1,9 +1,9 @@
 package View;
 
 import mastermind.GameControllerGUI;
+import mastermind.RandomCombi;
 
-
-
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -41,11 +41,14 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	private JLabel label;
 	private JLabel label_3;
 	GameControllerGUI gameControllerGui = new GameControllerGUI();
+	RandomCombi instCombiRandom = new RandomCombi();
 	private JLabel lblGameSoloWith;
 	private JTextPane combiInTout;
 	private JTextPane combiResult;
 	private JButton btMenu;
 	private JLabel lbWin;
+	private JLabel lbResult;
+	private JLabel lblResult;
 	
 	/**
 	 * Launch the application.
@@ -76,9 +79,9 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{60, 30, 30, 60, 30, 30, 60,0};
-		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 89, 29, 0};
+		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 89, 29, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
 		btMenu = new JButton("Menu");
@@ -182,8 +185,24 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		GridBagConstraints gbc_btnExit = new GridBagConstraints();
 		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
 		gbc_btnExit.gridx = 0;
-		gbc_btnExit.gridy = 16;
+		gbc_btnExit.gridy = 17;
 		btnExit.addActionListener(this);
+		
+		lblResult = new JLabel("Result:");
+		GridBagConstraints gbc_lblResult = new GridBagConstraints();
+		gbc_lblResult.insets = new Insets(0, 0, 5, 5);
+		gbc_lblResult.gridx = 0;
+		gbc_lblResult.gridy = 16;
+		contentPane.add(lblResult, gbc_lblResult);
+		lblResult.setVisible(false); 
+		
+		lbResult = new JLabel("");
+		GridBagConstraints gbc_lbResult = new GridBagConstraints();
+		gbc_lbResult.gridwidth = 2;
+		gbc_lbResult.insets = new Insets(0, 0, 5, 5);
+		gbc_lbResult.gridx = 1;
+		gbc_lbResult.gridy = 16;
+		contentPane.add(lbResult, gbc_lbResult);
 		contentPane.add(btnExit, gbc_btnExit);
 		
 		JButton btnReplay = new JButton("Replay");
@@ -191,7 +210,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbc_btnReplay.gridwidth = 4;
 		gbc_btnReplay.insets = new Insets(0, 0, 0, 5);
 		gbc_btnReplay.gridx = 3;
-		gbc_btnReplay.gridy = 16;
+		gbc_btnReplay.gridy = 17;
 		contentPane.add(btnReplay, gbc_btnReplay);
 		btnReplay.addActionListener(this);
 		
@@ -210,12 +229,19 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 			temp2 = temp2 + gameControllerGui.corrige(combiInJframe)+"\n";
 			temp = temp+combiInJframe+"\n";
 		
+			/*
+				String combi="";
+				for(int i=0;i < 4;i++) {
+					combi += instCombiRandom.combi[i];
+				}
+			*/
 			
 			
 			if(gameControllerGui.ifCorrect(combiInJframe) == true) {
 				
 				combiInTout.setText(temp);
 				combiResult.setText(temp2);
+				textField2.setText("");
 				lbWin.setText("You win !");
 				textField2.setEditable(false);
 			//	btnReplay.setEnabled(false);
@@ -229,7 +255,11 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 					combiInTout.setText(temp);
 					combiResult.setText(temp2);
 					lbWin.setText("You lose !");
+					textField2.setText("");
+					//afficher la reponse
+					//lbResult.setText(combi);
 					textField2.setEditable(false);
+					lblResult.setVisible(true); 
 				}
 				else if(numeroEssai < levelSolo) {
 					
