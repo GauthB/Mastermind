@@ -8,6 +8,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -20,6 +21,8 @@ import javax.swing.JTextField;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.Font;
 
 //import com.jgoodies.forms.factories.DefaultComponentFactory;
@@ -162,6 +165,10 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbc_btnEnter.gridy = 15;
 		contentPane.add(btnEnter, gbc_btnEnter);
 		btnEnter.addActionListener(this);
+		
+		JRootPane rootPane = SwingUtilities.getRootPane(btnEnter);
+		rootPane.setDefaultButton(btnEnter);
+		rootPane.setVisible(true);
 		
 		textField2 = new JTextField();
 		GridBagConstraints gbc_textField2 = new GridBagConstraints();
