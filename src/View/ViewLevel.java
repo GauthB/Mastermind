@@ -15,6 +15,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -36,6 +37,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 	private JLabel lblNormaln;
 	private JLabel lblEasye;
 	private JLabel lbErreur;
+	private JButton btnEnter;
 	
 	
 	/**
@@ -93,14 +95,16 @@ public class ViewLevel extends JFrame implements ActionListener {
 		contentPane.add(lblEncoderLadresseIp, gbc_lblEncoderLadresseIp);
 		
 		
-		JButton btnIp = new JButton("Enter");
-		btnIp.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		GridBagConstraints gbc_btnIp = new GridBagConstraints();
-		gbc_btnIp.insets = new Insets(0, 0, 5, 5);
-		gbc_btnIp.gridx = 0;
-		gbc_btnIp.gridy = 4;
-		contentPane.add(btnIp, gbc_btnIp);
-		btnIp.addActionListener(this);
+		JButton btnEnter = new JButton("Enter");
+		btnEnter.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		GridBagConstraints gbc_btnEnter = new GridBagConstraints();
+		gbc_btnEnter.insets = new Insets(0, 0, 5, 5);
+		gbc_btnEnter.gridx = 0;
+		gbc_btnEnter.gridy = 4;
+		contentPane.add(btnEnter, gbc_btnEnter);
+		btnEnter.addActionListener(this);
+		
+		btnEnter.setMnemonic(KeyEvent.VK_ENTER);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
