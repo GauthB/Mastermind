@@ -331,7 +331,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				btnEnter.setEnabled(false);
 			}
 			
-		
+			
 			break;
 		case"Clear":
 		
