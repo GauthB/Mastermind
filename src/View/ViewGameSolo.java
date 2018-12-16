@@ -46,6 +46,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	private JTextPane combiInTout;
 	private JTextPane combiResult;
 	private JButton btMenu;
+	private JButton btnEnter;
 	private JLabel lbWin;
 	private JLabel lbResult;
 	private JLabel lblResult;
@@ -153,7 +154,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		combiResult.setEditable(false);
 		
 		
-		JButton btnEnter = new JButton("Enter");
+		btnEnter = new JButton("Enter");
 		GridBagConstraints gbc_btnEnter = new GridBagConstraints();
 		gbc_btnEnter.insets = new Insets(0, 0, 5, 5);
 		gbc_btnEnter.gridx = 0;
@@ -228,13 +229,6 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 			
 			temp2 = temp2 + gameControllerGui.corrige(combiInJframe)+"\n";
 			temp = temp+combiInJframe+"\n";
-		
-			/*
-				String combi="";
-				for(int i=0;i < 4;i++) {
-					combi += instCombiRandom.combi[i];
-				}
-			*/
 			
 			
 			if(gameControllerGui.ifCorrect(combiInJframe) == true) {
@@ -244,6 +238,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 				textField2.setText("");
 				lbWin.setText("You win !");
 				textField2.setEditable(false);
+				btnEnter.setEnabled(false);
 			//	btnReplay.setEnabled(false);
 				
 				
@@ -256,10 +251,10 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 					combiResult.setText(temp2);
 					lbWin.setText("You lose !");
 					textField2.setText("");
-					//afficher la reponse
-					//lbResult.setText(combi);
+					lbResult.setText(gameControllerGui.convertTab2String(gameControllerGui.getCombiRandom()));
 					textField2.setEditable(false);
 					lblResult.setVisible(true); 
+					btnEnter.setEnabled(false);
 				}
 				else if(numeroEssai < levelSolo) {
 					
