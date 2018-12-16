@@ -36,6 +36,7 @@ Il y a 3 modes possibles : → Easy = 12 tentatives
 
 Multi-joueurs 
 Les 2 joueurs sont connectés en réseau sur 2 appareils différents
+
 L’application génère aléatoirement la combinaison de 4 couleurs (elle est la même pour les 2 joueurs)
 Chaque joueur doit trouver la combinaison le plus rapidement possible car le gagnant est le premier à l’avoir trouvé mais si aucun ne trouve c’est celui qui a finit toutes ces tentatives en premier qui gagne.
 Le nombre de tentatives est fixé à 12. 
