@@ -168,6 +168,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 			else {
 				ViewGameSolo.levelSolo = GameControllerGui.levelSolo(textField.getText());
 				ViewGameSolo.setVisible(true);
+				this.dispose();
 			}
 			
 		}
