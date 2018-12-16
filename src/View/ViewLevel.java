@@ -8,6 +8,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -21,6 +22,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.Font;
 import javax.swing.JScrollPane;
 
@@ -104,7 +107,9 @@ public class ViewLevel extends JFrame implements ActionListener {
 		contentPane.add(btnEnter, gbc_btnEnter);
 		btnEnter.addActionListener(this);
 		
-		btnEnter.setMnemonic(KeyEvent.VK_ENTER);
+		JRootPane rootPane = SwingUtilities.getRootPane(btnEnter);
+		rootPane.setDefaultButton(btnEnter);
+		rootPane.setVisible(true);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
