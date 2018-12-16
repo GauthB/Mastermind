@@ -47,6 +47,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	private JTextPane combiResult;
 	private JButton btMenu;
 	private JButton btnEnter;
+	private JButton btnReplay;
 	private JLabel lbWin;
 	private JLabel lbResult;
 	private JLabel lblResult;
@@ -206,7 +207,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		contentPane.add(lbResult, gbc_lbResult);
 		contentPane.add(btnExit, gbc_btnExit);
 		
-		JButton btnReplay = new JButton("Replay");
+		btnReplay = new JButton("Replay");
 		GridBagConstraints gbc_btnReplay = new GridBagConstraints();
 		gbc_btnReplay.gridwidth = 4;
 		gbc_btnReplay.insets = new Insets(0, 0, 0, 5);
@@ -214,6 +215,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbc_btnReplay.gridy = 17;
 		contentPane.add(btnReplay, gbc_btnReplay);
 		btnReplay.addActionListener(this);
+		btnReplay.setVisible(false);
 		
 		
 	
@@ -239,6 +241,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 				lbWin.setText("You win !");
 				textField2.setEditable(false);
 				btnEnter.setEnabled(false);
+				btnReplay.setVisible(true);
 			//	btnReplay.setEnabled(false);
 				
 				
@@ -255,6 +258,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 					textField2.setEditable(false);
 					lblResult.setVisible(true); 
 					btnEnter.setEnabled(false);
+					btnReplay.setVisible(true);
 				}
 				else if(numeroEssai < levelSolo) {
 					
@@ -272,17 +276,15 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 			
 	
 			break;
-		case"Replay":
-			
-	
-			// Pour rejouer
-			
-			break;
 		case"Menu":
 			ViewMain viewMain = new ViewMain();
 			viewMain.setVisible(true);
 			this.dispose();
 			break;
+		case"Replay":
+			ViewLevel viewLevel = new ViewLevel();
+			viewLevel.setVisible(true);
+			this.dispose();
 		case"Exit":
 			this.dispose();
 		}
