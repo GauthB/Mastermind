@@ -331,50 +331,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				btnEnter.setEnabled(false);
 			}
 			
-			/*
-			if(gameControllerGui.ifCorrect(combiInJframe) == true) {//Test si la combi est correcte
-				
-				combiInTout.setText(temp);//affiche la combi
-				combiResult.setText(temp2);//affiche la correction
-				lbWin.setText("You win");
-				textField2.setEditable(false);
-				
-			}
-			else {
-				if(numeroEssai < 12) {//12 chances max
-					
-					combiResult.setText(temp2);//affiche la combi
-					combiInTout.setText(temp);//affiche la correction
-					textField2.setText("");				
-					
-				}
-				else {
-					lbWin.setText("You lose");
-					textField2.setText("");
-					textField2.setEditable(false);
-				}
-				
-			}
-			
-			
-			
-			
-			if(gameControllerGui.ifCorrect(combiPc) == true) {
-				
-				
-				lbWin.setText("the computer wins!");
-				textField2.setText("");
-				textField2.setEditable(false);
-			}
-			else {
-				combiCompetitor.setText(temp3);
-				combiResultCompetitor.setText(temp4);
-			}
-			
-			nbrChances--;
-			lbWin.setText("you have " + nbrChances + " chances");
-			
-			*/
+		
 			break;
 		case"Clear":
 		
