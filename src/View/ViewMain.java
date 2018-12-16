@@ -2,50 +2,44 @@ package View;
 import mastermind.GameController;
 
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JScrollPane;
 
 public class ViewMain extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
-	String temp="";
-	private JLabel label_3;
 	GameController GameController = new GameController();
-	private JButton BtnRules;
+	
+	/**
+	 * Variable
+	 */
+	private JPanel contentPane;
+	private JLabel label_3;
 	private JLabel label;
 	private JLabel lblHermant;
 	private JLabel lblMeryers;
 	private JLabel lblGauthier;
 	private JLabel lblThibaut;
 	private JLabel lblHumbert;
-
-
-	
-	
-	private JButton btnSoloPc;
 	private JLabel lbDate;
-	private JPanel pan;
-	private JLabel lbImage;
+	private JButton btnSolo;
+	private JButton btnSoloPc;
+	private JButton btnMulti;
+	private JButton BtnRules;
+	private JButton btnExit;
+	
+
 	/**
 	 * Launch the application.
 	 */
@@ -90,15 +84,14 @@ public class ViewMain extends JFrame implements ActionListener {
 		gbc_label_3.gridy = 1;
 		contentPane.add(label_3, gbc_label_3);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		GridBagConstraints gbc_btnExit = new GridBagConstraints();
 		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
 		gbc_btnExit.gridx = 0;
 		gbc_btnExit.gridy = 15;
 		btnExit.addActionListener(this);
 		
-		
-		JButton btnSolo = new JButton("Solo");
+		btnSolo = new JButton("Solo");
 		btnSolo.setHorizontalAlignment(SwingConstants.LEFT);
 		btnSolo.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnSolo = new GridBagConstraints();
@@ -111,24 +104,6 @@ public class ViewMain extends JFrame implements ActionListener {
 		btnSolo.addActionListener(this);
 		btnSolo.setMaximumSize(new Dimension(200, 40));
 		btnSolo.setMinimumSize(new Dimension(200, 40));
-		
-		// pour l'image
-		/*
-		
-		String imgUrl="8761974.jpg";
-	    ImageIcon icone = new ImageIcon(imgUrl);
-		
-		JLabel lbImage = new JLabel(icone, JLabel.CENTER);
-		GridBagConstraints gbc_lbImage = new GridBagConstraints();
-		gbc_lbImage.gridwidth = 4;
-		gbc_lbImage.gridheight = 7;
-		gbc_lbImage.insets = new Insets(0, 0, 5, 5);
-		gbc_lbImage.gridx = 4;
-		gbc_lbImage.gridy = 3;
-		contentPane.add(lbImage, gbc_lbImage);
-		
-		*/
-		
 	
 		btnSoloPc = new JButton("Solo_Pc");
 		btnSoloPc.setHorizontalAlignment(SwingConstants.LEFT);
@@ -144,8 +119,7 @@ public class ViewMain extends JFrame implements ActionListener {
 		btnSoloPc.setMaximumSize(new Dimension(200, 40));
 		btnSoloPc.setMinimumSize(new Dimension(200, 40));
 		
-		
-		JButton btnMulti = new JButton("Multiplayer");
+		btnMulti = new JButton("Multiplayer");
 		btnMulti.setHorizontalAlignment(SwingConstants.LEFT);
 		btnMulti.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnMulti = new GridBagConstraints();
@@ -235,35 +209,32 @@ public class ViewMain extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
-		
-		
-		
-	
-		
 		switch(e.getActionCommand()){
 		case "Solo":
 			ViewLevel viewLevel = new ViewLevel();
 			viewLevel.setVisible(true);
 			this.dispose();
 			break;
+			
 		case"Solo_Pc":
 			ViewGamePc viewGamePc = new ViewGamePc();
 			viewGamePc.setVisible(true);
 			this.dispose();
 			break;
+			
 		case"Multiplayer":
 			ViewHote viewHote = new ViewHote();
 			viewHote.setVisible(true);
 			this.dispose();
 			break;
+			
 		case"Rules":
 			ViewRules viewRules = new ViewRules();
 			viewRules.setVisible(true);
 			this.dispose();
 			break;
-		case"Exit":
 			
+		case"Exit":
 			this.dispose();
 		}
 	}
