@@ -245,7 +245,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		contentPane.add(lbResult, gbc_lbResult);
 		contentPane.add(btnExit, gbc_btnExit);
 		
-		JButton btnReplay = new JButton("Replay");
+		btnReplay = new JButton("Replay");
 		GridBagConstraints gbc_btnReplay = new GridBagConstraints();
 		gbc_btnReplay.gridwidth = 6;
 		gbc_btnReplay.insets = new Insets(0, 0, 0, 5);
@@ -253,6 +253,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_btnReplay.gridy = 17;
 		contentPane.add(btnReplay, gbc_btnReplay);
 		btnReplay.addActionListener(this);
+		btnReplay.setVisible(false);
 		
 	}
 	
@@ -266,6 +267,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private JLabel lbWin;
 	private JButton btnMenu;
 	private JButton btnEnter;
+	private JButton btnReplay;
 	private String combiInJframe="////";
 	private int numeroEssai = 0;
 	private char positionCorrect[] = {'f','f','f','f'};
@@ -326,17 +328,20 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				lbWin.setText("Equality !");
 				textField2.setEditable(false);
 				btnEnter.setEnabled(false);
+				btnReplay.setVisible(true);
 			}
 			
 			else if (gameControllerGui.ifCorrect(combiInJframe) == true) {
 				lbWin.setText("You win !");
 				textField2.setEditable(false);
 				btnEnter.setEnabled(false);
+				btnReplay.setVisible(true);
 			}
 			else if (gameControllerGui.ifCorrect(combiPc) == true) {
 				lbWin.setText("the computer wins");
 				textField2.setEditable(false);
 				btnEnter.setEnabled(false);
+				btnReplay.setVisible(true);
 			}
 			
 			else if(numeroEssai < 12) {
@@ -350,6 +355,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				lbResult.setVisible(true);
 				lbResult.setText(gameControllerGui.convertTab2String(gameControllerGui.getCombiRandom()));
 				btnEnter.setEnabled(false);
+				btnReplay.setVisible(true);
 			}
 			
 			
@@ -363,6 +369,10 @@ public class ViewGamePc extends JFrame implements ActionListener {
 			viewMain.setVisible(true);
 			this.dispose();
 			break;
+		case"Replay":
+			ViewGamePc viewGamePc = new ViewGamePc();
+			viewGamePc.setVisible(true);
+			this.dispose();
 		case"Exit":
 			this.dispose();
 		}
