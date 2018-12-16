@@ -2,9 +2,8 @@ package View;
 import mastermind.GameController;
 
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
+import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,31 +13,25 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JScrollPane;
+
 
 public class ViewRules extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
-	String temp="";
-	private JLabel label_3;
+	
 	GameController GameController = new GameController();
+	ViewHote viewHote = new ViewHote();
+	
+	private JPanel contentPane;
+	private JLabel label_3;
 	private JLabel label;
 	private JLabel lblHermant;
 	private JLabel lblMeryers;
 	private JLabel lblGauthier;
 	private JLabel lblThibaut;
 	private JLabel lblHumbert;
-
-
-	
-	ViewHote viewHote = new ViewHote();
-	
 	private JLabel label_1;
 	private JLabel lblLapplicationGnre_1;
 	private JLabel lblElleCorrigeEllemme;
@@ -65,8 +58,6 @@ public class ViewRules extends JFrame implements ActionListener {
 	private JLabel lblVoirVosRsultats;
 	private JLabel lblVousAvez;
 	private JLabel lblJoueurs;
-	
-
 	
 	/**
 	 * Launch the application.
@@ -127,13 +118,6 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_label_1.gridx = 1;
 		gbc_label_1.gridy = 3;
 		contentPane.add(label_1, gbc_label_1);
-		
-		JButton btnExit = new JButton("Exit");
-		GridBagConstraints gbc_btnExit = new GridBagConstraints();
-		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
-		gbc_btnExit.gridx = 0;
-		gbc_btnExit.gridy = 34;
-		btnExit.addActionListener(this);
 		
 		lblLapplicationGnre_1 = new JLabel("- L’application génère aléatoirement la combinaison de 4 couleurs");
 		GridBagConstraints gbc_lblLapplicationGnre_1 = new GridBagConstraints();
@@ -394,16 +378,20 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_lblHumbert.gridx = 1;
 		gbc_lblHumbert.gridy = 33;
 		contentPane.add(lblHumbert, gbc_lblHumbert);
+		
+		
+		JButton btnExit = new JButton("Exit");
+		GridBagConstraints gbc_btnExit = new GridBagConstraints();
+		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
+		gbc_btnExit.gridx = 0;
+		gbc_btnExit.gridy = 34;
+		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
-		
-		
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
-		
 		switch(e.getActionCommand()){
 		case"Return":
 			ViewMain viewMain = new ViewMain();
@@ -411,7 +399,6 @@ public class ViewRules extends JFrame implements ActionListener {
 			this.dispose();
 			break;
 		case"Exit":
-			
 			this.dispose();
 		}
 	}
