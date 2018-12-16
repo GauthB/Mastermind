@@ -21,6 +21,25 @@ public class GameControllerGUI {
 			
 	}
 	
+	public char[] getCombiRandom() {
+		return instCombiRandom.combi;
+	}
+	
+	public String convertTab2String(char tab []) {
+		String txt ="";
+		for(int i = 0; i< tab.length;i++) {
+			txt += tab[i];
+		}
+		return txt;
+	}
+	
+	public char[] convertString2Tab(String txt) {
+		char tab[] =new char[txt.length()];
+		for(int i = 0; i< txt.length();i++) {
+			tab[i] = txt.charAt(i);
+		}
+		return tab;
+	}
 	
 	public String corrige(String txt) {
 		
