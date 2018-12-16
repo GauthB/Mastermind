@@ -24,6 +24,10 @@ public class ViewRules extends JFrame implements ActionListener {
 	GameController GameController = new GameController();
 	ViewHote viewHote = new ViewHote();
 	
+	/**
+	 * Variable
+	 */
+	
 	private JPanel contentPane;
 	private JLabel label_3;
 	private JLabel label;
