@@ -81,9 +81,9 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{70, 70, 70, 20, 70, 70, 70, 70, 20,70,70};
-		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
+		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
 		btnMenu = new JButton("Menu");
@@ -212,7 +212,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
 		
-		lbWin = new JLabel("You have 12 chances");
+		lbWin = new JLabel("you have 12 chances");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
 		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
@@ -226,8 +226,23 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		GridBagConstraints gbc_btnExit = new GridBagConstraints();
 		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
 		gbc_btnExit.gridx = 0;
-		gbc_btnExit.gridy = 16;
+		gbc_btnExit.gridy = 17;
 		btnExit.addActionListener(this);
+		
+		lblResult = new JLabel("Result:");
+		GridBagConstraints gbc_lblResult = new GridBagConstraints();
+		gbc_lblResult.insets = new Insets(0, 0, 5, 5);
+		gbc_lblResult.gridx = 0;
+		gbc_lblResult.gridy = 16;
+		contentPane.add(lblResult, gbc_lblResult);
+		
+		lbResult = new JLabel("");
+		GridBagConstraints gbc_lbResult = new GridBagConstraints();
+		gbc_lbResult.anchor = GridBagConstraints.WEST;
+		gbc_lbResult.insets = new Insets(0, 0, 5, 5);
+		gbc_lbResult.gridx = 1;
+		gbc_lbResult.gridy = 16;
+		contentPane.add(lbResult, gbc_lbResult);
 		contentPane.add(btnExit, gbc_btnExit);
 		
 		JButton btnReplay = new JButton("Replay");
@@ -235,7 +250,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_btnReplay.gridwidth = 6;
 		gbc_btnReplay.insets = new Insets(0, 0, 0, 5);
 		gbc_btnReplay.gridx = 4;
-		gbc_btnReplay.gridy = 16;
+		gbc_btnReplay.gridy = 17;
 		contentPane.add(btnReplay, gbc_btnReplay);
 		btnReplay.addActionListener(this);
 		
@@ -256,6 +271,9 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private char positionCorrect[] = {'f','f','f','f'};
 	private char numeroCorrect[] = new char[4] ;
 	private int nbrChances = 12;
+	private JLabel lbResult;
+	private JLabel lblResult;
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -328,6 +346,9 @@ public class ViewGamePc extends JFrame implements ActionListener {
 			else if((numeroEssai >= 12)){
 				lbWin.setText("You lose !");
 				textField2.setEditable(false);
+				lblResult.setVisible(true);
+				lbResult.setVisible(true);
+				lbResult.setText(gameControllerGui.convertTab2String(gameControllerGui.getCombiRandom()));
 				btnEnter.setEnabled(false);
 			}
 			
