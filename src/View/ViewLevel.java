@@ -22,9 +22,6 @@ public class ViewLevel extends JFrame implements ActionListener {
 
 	ViewGameSolo ViewGameSolo = new ViewGameSolo();
 	GameControllerGUI GameControllerGui = new GameControllerGUI();
-	/**
-	* Variables
-	*/
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel Title,lblEncoderLadresseIp,lblHardh,lblNormaln,lblEasye,lbErreur;
@@ -107,6 +104,8 @@ public class ViewLevel extends JFrame implements ActionListener {
 		gbc_textField.gridx = 1;
 		gbc_textField.gridy = 4;
 		contentPane.add(textField, gbc_textField);
+		setVisible(true);
+		textField.requestFocus();
 		
 		lblHardh = new JLabel("Hard = 'H'          5 chances");
 		GridBagConstraints gbc_lblHardh = new GridBagConstraints();
