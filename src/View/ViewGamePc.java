@@ -230,6 +230,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_lblResult.gridx = 0;
 		gbc_lblResult.gridy = 16;
 		contentPane.add(lblResult, gbc_lblResult);
+		lblResult.setVisible(false);
 		
 		lbResult = new JLabel("");
 		GridBagConstraints gbc_lbResult = new GridBagConstraints();
