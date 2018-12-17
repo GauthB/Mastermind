@@ -1,15 +1,18 @@
 /**
  * 
  */
-package controller;
+package model;
 
 import java.util.Random;
+
+import controller.Correction;
+import controller.RandomCombi;
 
 /**
  * @author USER1
  *
  */
-public class GameControllerGUI {
+public class ModelGameGUI {
 	
 	public char[] combiIn = new char[4]; 
 	
@@ -17,7 +20,7 @@ public class GameControllerGUI {
 	Correction instCorr = new Correction();
 	RandomCombi instCombiRandom = new RandomCombi();
 
-	public GameControllerGUI() {
+	public ModelGameGUI() {
 			
 	}
 	
