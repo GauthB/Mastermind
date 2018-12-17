@@ -26,17 +26,9 @@ public class ViewMain extends JFrame implements ActionListener {
 	 */
 	private JPanel contentPane;
 	private JLabel label_3;
-	private JLabel label;
-	private JLabel lblHermant;
-	private JLabel lblMeryers;
-	private JLabel lblGauthier;
-	private JLabel lblThibaut;
-	private JLabel lblHumbert;
+	private JLabel lblBohyn,lblGauthier,lblHermant,lblThibaut,lblMeryers,lblHumbert;
+	private JButton btnSolo,btnSoloPc,btnMulti,BtnRules;
 	private JLabel lbDate;
-	private JButton btnSolo;
-	private JButton btnSoloPc;
-	private JButton btnMulti;
-	private JButton BtnRules;
 	private JButton btnExit;
 	
 
@@ -147,13 +139,13 @@ public class ViewMain extends JFrame implements ActionListener {
 		BtnRules.setMaximumSize(new Dimension(200, 40));
 		BtnRules.setMinimumSize(new Dimension(200, 40));
 		
-		label = new JLabel("BOHYN ");
-		GridBagConstraints gbc_label = new GridBagConstraints();
-		gbc_label.anchor = GridBagConstraints.WEST;
-		gbc_label.insets = new Insets(0, 0, 5, 5);
-		gbc_label.gridx = 0;
-		gbc_label.gridy = 12;
-		contentPane.add(label, gbc_label);
+		lblBohyn = new JLabel("BOHYN ");
+		GridBagConstraints gbc_lblBohyn = new GridBagConstraints();
+		gbc_lblBohyn.anchor = GridBagConstraints.WEST;
+		gbc_lblBohyn.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBohyn.gridx = 0;
+		gbc_lblBohyn.gridy = 12;
+		contentPane.add(lblBohyn, gbc_lblBohyn);
 		
 		lblGauthier = new JLabel("Gauthier");
 		GridBagConstraints gbc_lblGauthier = new GridBagConstraints();
