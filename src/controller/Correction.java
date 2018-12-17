@@ -4,7 +4,7 @@ package controller;
  * @author Bohyn Gauthier
  * @author Hermand Thibaut
  * @author Meyers Humbert
- * Une classe reprÃ©sentant l'outil de correction de la combinaison envoyÃ©e
+ * Une classe représentant l'outil de correction de la combinaison envoyée
  */
 public class Correction {
 
