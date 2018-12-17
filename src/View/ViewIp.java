@@ -24,7 +24,7 @@ public class ViewIp extends JFrame implements ActionListener {
 	 */
 	private JPanel contentPane;
 	private JTextField textField;
-	private JLabel title,lblEncoderLadresseIp;
+	private JLabel title,lblIpAddress;
 	private JButton btnIp;
 	String temp="";
 	
@@ -72,15 +72,15 @@ public class ViewIp extends JFrame implements ActionListener {
 		gbc_title.gridy = 1;
 		contentPane.add(title, gbc_title);
 		
-		lblEncoderLadresseIp = new JLabel("Enter the Ip adress:");
-		lblEncoderLadresseIp.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		GridBagConstraints gbc_lblEncoderLadresseIp = new GridBagConstraints();
-		gbc_lblEncoderLadresseIp.gridwidth = 2;
-		gbc_lblEncoderLadresseIp.anchor = GridBagConstraints.SOUTHWEST;
-		gbc_lblEncoderLadresseIp.insets = new Insets(0, 0, 5, 5);
-		gbc_lblEncoderLadresseIp.gridx = 0;
-		gbc_lblEncoderLadresseIp.gridy = 3;
-		contentPane.add(lblEncoderLadresseIp, gbc_lblEncoderLadresseIp);
+		lblIpAddress = new JLabel("Enter the Ip address:");
+		lblIpAddress.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		GridBagConstraints gbc_lblIpAddress = new GridBagConstraints();
+		gbc_lblIpAddress.gridwidth = 2;
+		gbc_lblIpAddress.anchor = GridBagConstraints.SOUTHWEST;
+		gbc_lblIpAddress.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIpAddress.gridx = 0;
+		gbc_lblIpAddress.gridy = 3;
+		contentPane.add(lblIpAddress, gbc_lblIpAddress);
 		
 		btnIp = new JButton("Enter");
 		btnIp.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
