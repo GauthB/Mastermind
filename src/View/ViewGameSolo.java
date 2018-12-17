@@ -3,9 +3,7 @@ package View;
 import mastermind.GameControllerGUI;
 import mastermind.RandomCombi;
 
-import java.awt.Color;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
@@ -16,44 +14,33 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
-
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-
 import java.awt.Font;
-
-//import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import javax.swing.JTextPane;
 
 public class ViewGameSolo extends JFrame implements ActionListener {
 
+
+	GameControllerGUI gameControllerGui = new GameControllerGUI();
+	RandomCombi instCombiRandom = new RandomCombi();
+	/**
+	 * Variables
+	 */
 	private JPanel contentPane;
 	private JTextField textField2;
 	private String temp="";
 	private String temp2 ="";
 	private String combiInJframe="";
-
 	public int levelSolo;
 	private int numeroEssai = 0;
-	
-	private JLabel label_1;
-	private JLabel label;
-	private JLabel label_3;
-	GameControllerGUI gameControllerGui = new GameControllerGUI();
-	RandomCombi instCombiRandom = new RandomCombi();
-	private JLabel lblGameSoloWith;
-	private JTextPane combiInTout;
-	private JTextPane combiResult;
-	private JButton btMenu;
-	private JButton btnEnter;
-	private JButton btnReplay;
-	private JLabel lbWin;
-	private JLabel lbResult;
-	private JLabel lblResult;
+	private JLabel title,label,label_1,label_2;
+	private JTextPane combiInTout,combiResult;
+	private JButton btMenu,btnEnter,btnReplay,btnExit;
+	private JLabel lbWin,lbResult,lblResult;
 	
 	/**
 	 * Launch the application.
@@ -97,24 +84,24 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		contentPane.add(btMenu, gbc_btMenu);
 		btMenu.addActionListener(this);
 		
-		label_3 = new JLabel("Number Mastermind");
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 7;
-		gbc_label_3.insets = new Insets(0, 0, 5, 5);
-		gbc_label_3.gridx = 0;
-		gbc_label_3.gridy = 1;
-		contentPane.add(label_3, gbc_label_3);
+		title = new JLabel("Number Mastermind");
+		title.setHorizontalAlignment(SwingConstants.LEFT);
+		title.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
+		GridBagConstraints gbc_title = new GridBagConstraints();
+		gbc_title.gridwidth = 7;
+		gbc_title.insets = new Insets(0, 0, 5, 5);
+		gbc_title.gridx = 0;
+		gbc_title.gridy = 1;
+		contentPane.add(title, gbc_title);
 		
-		lblGameSoloWith = new JLabel("Game Solo ");
-		lblGameSoloWith.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		GridBagConstraints gbc_lblGameSoloWith = new GridBagConstraints();
-		gbc_lblGameSoloWith.gridwidth = 7;
-		gbc_lblGameSoloWith.insets = new Insets(0, 0, 5, 5);
-		gbc_lblGameSoloWith.gridx = 0;
-		gbc_lblGameSoloWith.gridy = 2;
-		contentPane.add(lblGameSoloWith, gbc_lblGameSoloWith);
+		label = new JLabel("Game Solo ");
+		label.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		GridBagConstraints gbc_label = new GridBagConstraints();
+		gbc_label.gridwidth = 7;
+		gbc_label.insets = new Insets(0, 0, 5, 5);
+		gbc_label.gridx = 0;
+		gbc_label.gridy = 2;
+		contentPane.add(label, gbc_label);
 		
 		label_1 = new JLabel("Your game");
 		GridBagConstraints gbc_label_1 = new GridBagConstraints();
@@ -125,13 +112,13 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbc_label_1.gridy = 3;
 		contentPane.add(label_1, gbc_label_1);
 		
-		label = new JLabel("Result");
-		GridBagConstraints gbc_label = new GridBagConstraints();
-		gbc_label.anchor = GridBagConstraints.WEST;
-		gbc_label.insets = new Insets(0, 0, 5, 5);
-		gbc_label.gridx = 4;
-		gbc_label.gridy = 3;
-		contentPane.add(label, gbc_label);
+		label_2 = new JLabel("Result");
+		GridBagConstraints gbc_label_2 = new GridBagConstraints();
+		gbc_label_2.anchor = GridBagConstraints.WEST;
+		gbc_label_2.insets = new Insets(0, 0, 5, 5);
+		gbc_label_2.gridx = 4;
+		gbc_label_2.gridy = 3;
+		contentPane.add(label_2, gbc_label_2);
 		
 		combiInTout = new JTextPane();
 		combiInTout.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
@@ -190,7 +177,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbc_lbWin.gridy = 15;
 		contentPane.add(lbWin, gbc_lbWin);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		GridBagConstraints gbc_btnExit = new GridBagConstraints();
 		gbc_btnExit.insets = new Insets(0, 0, 0, 5);
 		gbc_btnExit.gridx = 0;
@@ -223,8 +210,6 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		contentPane.add(btnReplay, gbc_btnReplay);
 		btnReplay.addActionListener(this);
 		btnReplay.setVisible(false);
-		
-		
 	
 	}
 
