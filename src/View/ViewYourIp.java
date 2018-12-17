@@ -101,7 +101,6 @@ public class ViewYourIp extends JFrame implements ActionListener {
 		btnOk.setMaximumSize(new Dimension(100, 40));
 		btnOk.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_btnOk = new GridBagConstraints();
-		gbc_btnOk.gridheight = 2;
 		gbc_btnOk.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_btnOk.gridwidth = 2;
 		gbc_btnOk.insets = new Insets(0, 0, 5, 5);
