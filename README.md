@@ -26,21 +26,32 @@ S’il n’arrive pas à trouver la combinaison au bout de toutes les tentatives
 
 Modes
 
-. Solo 
-- L’application génère aléatoirement la combinaison de 4 couleurs 
-- Elle corrige elle-même le joueur grâce aux pions de couleurs.
-Il y a 3 modes possibles : → Easy = 12 tentatives
-→ Normal = 9 tentatives
-→ Hard = 5 tentatives 
+Solo 
+
+-	L’application génère aléatoirement la combinaison de 4 chiffres.
+-	L’ordinateur corrige lui-même le joueur grâce aux résultats qu’il renvoi, il répond par V (Chiffre bonne place), / (Chiffre existant mais pas à la bonne place), X(Chiffre n’existant pas) . 
+-	Il y a 3 modes possibles :
+o	Easy = 12 tentatives  
+o	Normal = 9 tentatives 
+o	Hard = 5 tentatives
 
 
-Multi-joueurs 
-Les 2 joueurs sont connectés en réseau sur 2 appareils différents
+Solo with PC
 
-L’application génère aléatoirement la combinaison de 4 couleurs (elle est la même pour les 2 joueurs)
-Chaque joueur doit trouver la combinaison le plus rapidement possible car le gagnant est le premier à l’avoir trouvé mais si aucun ne trouve c’est celui qui a finit toutes ces tentatives en premier qui gagne.
-Le nombre de tentatives est fixé à 12. 
-Chaque joueur pourra visualiser le jeu de l’autre en direct (donc une possibilité de tricherie 😊)
+-	L’application génère aléatoirement la combinaison de 4 chiffres.
+-	L’ordinateur corrige lui-même le joueur et la combinaison imaginée par l’ordinateur grâce aux résultats qu’il renvoi, il répond par V (Chiffre bonne place), / (Chiffre existant mais pas à la bonne place), X(Chiffre n’existant pas) . 
+-	Attention, vous voyez les résultats de l’ordinateur, cela veut dire que l’ordinateur peut aussi voir vos résultats !
+-	Vous avez 12 chances maximum.
+
+
+Multi
+
+-	Les 2 joueurs sont connectés en réseau sur 2 appareils différents mais sur le même réseau.
+-	L’application génère aléatoirement la combinaison de 4 chiffres (elle est la même pour les 2 joueurs !!) 
+-	Chaque joueur doit trouver la combinaison le plus rapidement possible car le gagnant est le premier à l’avoir trouvé !
+-	Le nombre de tentatives est fixé à 12. Chaque joueur pourra visualiser le jeu de l’autre en direct (donc une possibilité de tricherie … ).
+-	Arrivé à la fin des 12 coups, la partie est finie pour ce joueur.
+
 
 
 Affichage en Console/GUI
