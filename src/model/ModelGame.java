@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author HERMANT Thibaut
  * @author MEYERS Humbert
  */
-public class GameController {
+public class ModelGame {
 
 	// -------------------------------------
 	// Affichage du jeu
@@ -26,7 +26,7 @@ public class GameController {
 	public static String mode; // Le mode qu'on desire
 	
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
-	public GameController() {
+	public ModelGame() {
 
 	}
 //_________________METHODES____________________________________________________________________________________________________
