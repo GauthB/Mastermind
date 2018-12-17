@@ -4,7 +4,7 @@ import java.util.Random;
 
 import controller.Correction;
 import controller.RandomCombi;
-import controller.GameController;
+import model.ModelGame;
 
 public class ViewConsole {
 
@@ -15,7 +15,7 @@ public class ViewConsole {
 		RandomCombi instGame = new RandomCombi();
 		Correction instCorrection = new Correction();
 		Correction instCorrectionPc = new Correction();
-		GameController gameController = new GameController();
+		ModelGame gameController = new ModelGame();
 
 		
 		// Pour afficher la solution si on le desire
