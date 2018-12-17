@@ -18,12 +18,12 @@ public class GameController {
 //_______________VARIABLES___________________________________________________________________________________________________________
 	
 	public static char[] combiIn = new char[4]; // Pour la longueur du tableau qui receptionne la combi qu'on encode
-	private static int easy = 12; // Mode Easy avec 12 chances
-	private static int normal = 9; // Mode Normal avec 9 chances
-	private static int hard = 5; // Mode Hard avec 5 chance
-	private static String level; // Le niveau qu'on desire pour le jeu
-	private static int limite; // La difficulte = le nombre de chance / nombre de limite
-	private static String mode; // Le mode qu'on desire
+	public static int easy = 12; // Mode Easy avec 12 chances
+	public static int normal = 9; // Mode Normal avec 9 chances
+	public static int hard = 5; // Mode Hard avec 5 chance
+	public static String level; // Le niveau qu'on desire pour le jeu
+	public static int limite; // La difficulte = le nombre de chance / nombre de limite
+	public static String mode; // Le mode qu'on desire
 	
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
 	public GameController() {
@@ -146,177 +146,6 @@ public class GameController {
 			System.out.print(combi[i] + " ");
 		}
 		System.out.print("\n");
-	}
-
-//__________________MAIN__________________________________________________________________________________________________________
-
-	public static void main(String[] args) {
-
-		// Instances
-		RandomCombi instGame = new RandomCombi();
-		Correction instCorrection = new Correction();
-		Correction instCorrectionPc = new Correction();
-
-		
-		// Pour afficher la solution si on le desire
-		/* 
-		  System.out.print("solution:    "); 
-		  afficheCombi(instGame.combi);
-		 */ 
-		 
-
-		int choiceM = chooseMode();
-		if(choiceM == 1) {
-			limite = chooseLevel();
-
-			int j = 1;
-			while (j <= limite) {
-
-				char resultCombi[] = new char[4];
-
-				System.out.println("----------------------------------------------------------");
-				System.out.println("Please enter your numbers:");
-
-				combiIn = enterCombi();
-
-				System.out.print("\nvotre combi: ");
-
-				afficheCombi(combiIn);
-
-				System.out.println("----------------------");
-
-				resultCombi = instCorrection.correction(combiIn, instGame.combi);
-
-				// --- Afficher la combi de l'utilisateur ---
-				System.out.print("Resultat:    ");
-				afficheCombi(resultCombi);
-
-				j++;
-
-				if (resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') {
-					System.out.print("BRAVO \nVous avez gagne en " + (j-1) + " essais");
-					j = limite + 1;
-				}
-				// --- Perdu si limite depassee ---
-				else if (j == limite + 1) {
-					System.out.println("Vous avez perdu");
-					System.out.print("Vous avez deja utiliser vos " + limite + " chances...");
-					System.out.print("La combinaison etait : ");
-					afficheCombi(instGame.combi);
-				}
-			}
-		}
- // --------------------------------------------------------------------------------------------------------------------------
-
-		else if (choiceM == 2) { // --------------------------------------------------------------------------------------------------------------------------
-
-		
-			limite = 100;
-			
-			boolean positionCorrect[] = {false,false,false,false};
-			char numeroCorrect[] = new char[4] ;
-			
-			
-			
-
-			int j = 1;
-			while (j <= limite) {
-
-				char resultCombiPc[] = new char[4]; //Resultat de la combi du PC
-				char resultCombi[] = new char[4];   //Resultat de la combi de l utilisateur
-				char combiPc[] = new char[4];     //Combi du PC
-				
-				
-				System.out.println("----------------------------------------------------------");
-				System.out.println("Please enter your numbers:");
-
-				combiIn = enterCombi(); // l'utilisateur entre sa combi
-
-				// --- Random des 4 chiffres pour le PC ---
-				Random r = new Random();
-				int size = instGame.combiRandom.length();// nombre de chiffre possible (ici de 0-9)
-				
-				for (int i = 0; i < 4; i++) {
-					combiPc[i] = instGame.combiRandom.charAt(r.nextInt(size)); // transformer le String en tableau
-					
-					if(positionCorrect[i] == true) {
-						combiPc[i] = numeroCorrect[i];
-					}
-					
-				}
-				
-				
-				// --- Tranforme les String des correction en char ---
-				resultCombi = instCorrection.correction(combiIn, instGame.combi);
-				resultCombiPc = instCorrectionPc.correction(combiPc, instGame.combi);
-				
-				// --- Verifie si le pc a trouver des bonnes reponses ---
-				for(int i = 0; i < 4; i++) {
-					if(resultCombiPc[i] == 'V'){
-						positionCorrect[i] = true;
-						numeroCorrect[i] = combiPc[i];
-					}
-					if(resultCombi[i] == 'V'){
-						positionCorrect[i] = true;
-						numeroCorrect[i] = combiIn[i];
-					}
-					
-						
-				}
-			
-				// --- Afficher la combi du PC ---
-				System.out.print("Combi du pc: ");
-				afficheCombi(combiPc);
-				System.out.println("----------------------");
-
-				// --- Afficher la correction du PC ---
-				System.out.print("Resultat:    ");
-
-				afficheCombi(resultCombiPc);
-
-				// --- Afficher la combi de l'utilisateur ---
-				System.out.print("\nvotre combi: ");
-				afficheCombi(combiIn);
-				System.out.println("----------------------");
-
-				// --- Afficher la correction de l'utilisateur ---
-				System.out.print("Resultat:    ");
-				afficheCombi(resultCombi);
-
-				j++;
-				
-				if((resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') && (resultCombiPc[0] == 'V' && resultCombiPc[1] == 'V' && resultCombiPc[2] == 'V' && resultCombiPc[3] == 'V')) {
-					System.out.print("Egalite");
-
-				}
-				
-				// --- GAGNER ---
-				if (resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') {
-					System.out.print("BRAVO \nVous avez gagne en " + (j-1) + " essais");
-					j = limite + 1;
-				}
-				
-				// --- PERDU ---
-				else if(resultCombiPc[0] == 'V' && resultCombiPc[1] == 'V' && resultCombiPc[2] == 'V' && resultCombiPc[3] == 'V') {
-					System.out.print("Le pc a gagne...");
-					j = limite + 1;
-				}
-				else if (j == limite + 1) {
-					System.out.println("Vous avez perdu");
-					System.out.print("Vous avez deja utilise vos " + limite + " chances...");
-					System.out.print("La combinaison etait : ");
-					afficheCombi(instGame.combi);
-				}
-			}
-
-		}
-//--------------------------------------------------------------------------------------------------------------------------
-		else if (choiceM == 3) {
-
-			System.out.println("Coming soon ...");
-			
-		}
-
 	}
 	
 }
