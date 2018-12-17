@@ -22,6 +22,7 @@ public class ViewHote extends JFrame implements ActionListener {
 	GameController GameController = new GameController();
 	ViewIp viewIp = new ViewIp();
 	ViewGameMulti viewGameMulti = new ViewGameMulti();
+	ViewYourIp viewYourIp = new ViewYourIp();
 	
 	/**
 	 * Variable
@@ -116,7 +117,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 		
 		case"Hote":
-			viewGameMulti.setVisible(true);
+			viewYourIp.setVisible(true);
 			this.dispose();
 			break;
 			
