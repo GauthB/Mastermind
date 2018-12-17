@@ -1,12 +1,6 @@
 package View;
-import mastermind.GameController;
 import mastermind.GameControllerGUI;
-import mastermind.RandomCombi;
-import mastermind.Correction;
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
@@ -17,43 +11,34 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-
 import java.awt.Font;
-import javax.swing.JScrollPane;
-import javax.swing.JEditorPane;
 import javax.swing.JTextPane;
-import javax.swing.JScrollBar;
-import java.awt.Panel;
-//import com.jgoodies.forms.factories.DefaultComponentFactory;
-import java.awt.ScrollPane;
-import java.awt.Label;
-import java.awt.Canvas;
-import javax.swing.JInternalFrame;
 
 public class ViewGamePc extends JFrame implements ActionListener {
 
+	GameControllerGUI gameControllerGui = new GameControllerGUI();
+	
 	private JPanel contentPane;
 	private JTextField textField2;
 	private String temp="";
 	private String temp2 ="";
 	private String temp3="";
 	private String temp4 ="";
+	private String combiInJframe="////";
+	private JLabel title,label_1,label_2,label_3,label_4;
+	private JTextPane combiResultCompetitor,combiCompetitor,combiResult,combiInTout;
+	private JLabel lbWin,lblMode,lbResult,lblResult;
+	private JButton btnReplay,btnEnter,btnMenu;
+	private int numeroEssai = 0;
+	private int nbrChances = 12;
+	private char positionCorrect[] = {'f','f','f','f'};
+	private char numeroCorrect[] = new char[4] ;
 	
-
-
-	private JLabel label_1;
-	private JLabel label;
-	private JLabel lblComputersGame;
-	private JLabel label_3;
-	private JTextPane combiInTout;
+	
 
 
 	
@@ -100,24 +85,24 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		contentPane.add(btnMenu, gbc_btnMenu);
 		btnMenu.addActionListener(this);
 		
-		label_3 = new JLabel("Number Mastermind");
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 11;
-		gbc_label_3.insets = new Insets(0, 0, 5, 0);
-		gbc_label_3.gridx = 0;
-		gbc_label_3.gridy = 1;
-		contentPane.add(label_3, gbc_label_3);
+		title = new JLabel("Number Mastermind");
+		title.setHorizontalAlignment(SwingConstants.LEFT);
+		title.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
+		GridBagConstraints gbc_title = new GridBagConstraints();
+		gbc_title.gridwidth = 11;
+		gbc_title.insets = new Insets(0, 0, 5, 0);
+		gbc_title.gridx = 0;
+		gbc_title.gridy = 1;
+		contentPane.add(title, gbc_title);
 		
-		lblGameMultiWith = new JLabel("Game Multiplayer with Computer");
-		lblGameMultiWith.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
-		GridBagConstraints gbc_lblGameMultiWith = new GridBagConstraints();
-		gbc_lblGameMultiWith.gridwidth = 11;
-		gbc_lblGameMultiWith.insets = new Insets(0, 0, 5, 0);
-		gbc_lblGameMultiWith.gridx = 0;
-		gbc_lblGameMultiWith.gridy = 2;
-		contentPane.add(lblGameMultiWith, gbc_lblGameMultiWith);
+		lblMode = new JLabel("Game Multiplayer with Computer");
+		lblMode.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		GridBagConstraints gbc_lblMode = new GridBagConstraints();
+		gbc_lblMode.gridwidth = 11;
+		gbc_lblMode.insets = new Insets(0, 0, 5, 0);
+		gbc_lblMode.gridx = 0;
+		gbc_lblMode.gridy = 2;
+		contentPane.add(lblMode, gbc_lblMode);
 		
 		label_1 = new JLabel("Your game");
 		GridBagConstraints gbc_label_1 = new GridBagConstraints();
@@ -128,23 +113,23 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_label_1.gridy = 3;
 		contentPane.add(label_1, gbc_label_1);
 		
-		label = new JLabel("Result");
-		GridBagConstraints gbc_label = new GridBagConstraints();
-		gbc_label.anchor = GridBagConstraints.WEST;
-		gbc_label.insets = new Insets(0, 0, 5, 5);
-		gbc_label.gridx = 4;
-		gbc_label.gridy = 3;
-		contentPane.add(label, gbc_label);
+		label_2 = new JLabel("Result");
+		GridBagConstraints gbc_label_2 = new GridBagConstraints();
+		gbc_label_2.anchor = GridBagConstraints.WEST;
+		gbc_label_2.insets = new Insets(0, 0, 5, 5);
+		gbc_label_2.gridx = 4;
+		gbc_label_2.gridy = 3;
+		contentPane.add(label_2, gbc_label_2);
 		
-		lblComputersGame = new JLabel("Computer's game");
-		lblComputersGame.setHorizontalAlignment(SwingConstants.LEFT);
-		GridBagConstraints gbc_lblComputersGame = new GridBagConstraints();
-		gbc_lblComputersGame.anchor = GridBagConstraints.WEST;
-		gbc_lblComputersGame.gridwidth = 3;
-		gbc_lblComputersGame.insets = new Insets(0, 0, 5, 5);
-		gbc_lblComputersGame.gridx = 6;
-		gbc_lblComputersGame.gridy = 3;
-		contentPane.add(lblComputersGame, gbc_lblComputersGame);
+		label_3 = new JLabel("Computer's game");
+		label_3.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_label_3 = new GridBagConstraints();
+		gbc_label_3.anchor = GridBagConstraints.WEST;
+		gbc_label_3.gridwidth = 3;
+		gbc_label_3.insets = new Insets(0, 0, 5, 5);
+		gbc_label_3.gridx = 6;
+		gbc_label_3.gridy = 3;
+		contentPane.add(label_3, gbc_label_3);
 		
 		label_4 = new JLabel("Result");
 		GridBagConstraints gbc_label_4 = new GridBagConstraints();
@@ -270,23 +255,6 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	}
 	
 	
-	GameControllerGUI gameControllerGui = new GameControllerGUI();
-	private JTextPane combiResult;
-	private JTextPane combiCompetitor;
-	private JTextPane combiResultCompetitor;
-	private JLabel label_4;
-	private JLabel lblGameMultiWith;
-	private JLabel lbWin;
-	private JButton btnMenu;
-	private JButton btnEnter;
-	private JButton btnReplay;
-	private String combiInJframe="////";
-	private int numeroEssai = 0;
-	private char positionCorrect[] = {'f','f','f','f'};
-	private char numeroCorrect[] = new char[4] ;
-	private int nbrChances = 12;
-	private JLabel lbResult;
-	private JLabel lblResult;
 	
 	
 	@Override
@@ -296,13 +264,14 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		
 		switch(e.getActionCommand()){
 		case"Enter":
-			
-			// --- Variables Pour la generation et la correction du Pc ---
+			/**
+			 * Variables Pour la generation et la correction du Pc
+			 */
 			String combiPc = "";
 			String combiPcCorrect2 = "";
 			char[][] resultCombiPcCorrige =new char[3][4];
 			char[] combiPcCorrect = new char[4];
-			
+			//------------------
 			
 			numeroEssai++;
 			combiInJframe=textField2.getText();//recupere le texte entre
@@ -369,22 +338,23 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				btnEnter.setEnabled(false);
 				btnReplay.setVisible(true);
 			}
-			
-			
 			break;
+
 		case"Clear":
-		
 			textField2.setText("");
 			break;
+			
 		case"Menu":
 			ViewMain viewMain = new ViewMain();
 			viewMain.setVisible(true);
 			this.dispose();
 			break;
+			
 		case"Replay":
 			ViewGamePc viewGamePc = new ViewGamePc();
 			viewGamePc.setVisible(true);
 			this.dispose();
+			
 		case"Exit":
 			this.dispose();
 		}
