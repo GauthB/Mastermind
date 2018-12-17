@@ -1,6 +1,8 @@
 package View;
 import mastermind.GameController;
 
+
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,8 +27,7 @@ public class ViewRules extends JFrame implements ActionListener {
 	 * Variable
 	 */
 	private JPanel contentPane;
-	private JLabel label_3;
-	private JLabel lblBohyn,lblGauthier,lblHermant,lblThibaut,lblMeryers,lblHumbert;
+	private JLabel title,lblBohyn,lblGauthier,lblHermant,lblThibaut,lblMeryers,lblHumbert;
 	private JLabel solo,solo1,solo2,solo3,solo4,solo5,solo6,solo7;
 	private JLabel soloPc,soloPc1,soloPc2,soloPc3,soloPc4,soloPc5,soloPc6,soloPc7;
 	private JLabel multi,multi1,multi2,multi3,multi4,multi5,multi6,multi7,multi8;
@@ -75,15 +76,15 @@ public class ViewRules extends JFrame implements ActionListener {
 		contentPane.add(btnReturn, gbc_btnReturn);
 		btnReturn.addActionListener(this);
 		
-		label_3 = new JLabel("Number Mastermind");
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 11;
-		gbc_label_3.insets = new Insets(0, 0, 5, 0);
-		gbc_label_3.gridx = 1;
-		gbc_label_3.gridy = 2;
-		contentPane.add(label_3, gbc_label_3);
+		title = new JLabel("Number Mastermind");
+		title.setHorizontalAlignment(SwingConstants.LEFT);
+		title.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
+		GridBagConstraints gbc_title = new GridBagConstraints();
+		gbc_title.gridwidth = 11;
+		gbc_title.insets = new Insets(0, 0, 5, 0);
+		gbc_title.gridx = 1;
+		gbc_title.gridy = 2;
+		contentPane.add(title, gbc_title);
 		
 		solo = new JLabel("Solo");
 		GridBagConstraints gbc_solo = new GridBagConstraints();
