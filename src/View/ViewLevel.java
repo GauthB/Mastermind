@@ -22,6 +22,9 @@ public class ViewLevel extends JFrame implements ActionListener {
 
 	ViewGameSolo ViewGameSolo = new ViewGameSolo();
 	GameControllerGUI GameControllerGui = new GameControllerGUI();
+	/**
+	* Variables
+	*/
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel Title,lblEncoderLadresseIp,lblHardh,lblNormaln,lblEasye,lbErreur;
