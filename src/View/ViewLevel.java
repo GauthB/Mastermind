@@ -1,9 +1,5 @@
 package View;
-import mastermind.GameController;
 import mastermind.GameControllerGUI;
-
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,32 +12,21 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-
 import java.awt.Font;
-import javax.swing.JScrollPane;
 
 public class ViewLevel extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
-	String temp="";
-	private JLabel label_3;
-	GameControllerGUI GameControllerGui = new GameControllerGUI();
-	private JTextField textField;
 	ViewGameSolo ViewGameSolo = new ViewGameSolo();
-	private JLabel lblEncoderLadresseIp;
-	private JLabel lblHardh;
-	private JLabel lblNormaln;
-	private JLabel lblEasye;
-	private JLabel lbErreur;
+	GameControllerGUI GameControllerGui = new GameControllerGUI();
+	private JPanel contentPane;
+	private JTextField textField;
+	private JLabel Title,lblEncoderLadresseIp,lblHardh,lblNormaln,lblEasye,lbErreur;
 	private JButton btnEnter;
-	
+	String temp="";
 	
 	/**
 	 * Launch the application.
@@ -77,15 +62,15 @@ public class ViewLevel extends JFrame implements ActionListener {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
-		label_3 = new JLabel("Number Mastermind");
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 3;
-		gbc_label_3.insets = new Insets(0, 0, 5, 0);
-		gbc_label_3.gridx = 0;
-		gbc_label_3.gridy = 1;
-		contentPane.add(label_3, gbc_label_3);
+		Title = new JLabel("Number Mastermind");
+		Title.setHorizontalAlignment(SwingConstants.LEFT);
+		Title.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
+		GridBagConstraints gbc_Title = new GridBagConstraints();
+		gbc_Title.gridwidth = 3;
+		gbc_Title.insets = new Insets(0, 0, 5, 0);
+		gbc_Title.gridx = 0;
+		gbc_Title.gridy = 1;
+		contentPane.add(Title, gbc_Title);
 		
 		lblEncoderLadresseIp = new JLabel("Please enter your difficulty:");
 		lblEncoderLadresseIp.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
@@ -98,7 +83,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 		contentPane.add(lblEncoderLadresseIp, gbc_lblEncoderLadresseIp);
 		
 		
-		JButton btnEnter = new JButton("Enter");
+		btnEnter = new JButton("Enter");
 		btnEnter.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		GridBagConstraints gbc_btnEnter = new GridBagConstraints();
 		gbc_btnEnter.insets = new Insets(0, 0, 5, 5);
@@ -153,7 +138,6 @@ public class ViewLevel extends JFrame implements ActionListener {
 		gbc_lbErreur.gridy = 8;
 		contentPane.add(lbErreur, gbc_lbErreur);
 		
-		
 	}
 
 	@Override
@@ -162,13 +146,10 @@ public class ViewLevel extends JFrame implements ActionListener {
 		
 		switch(e.getActionCommand()){
 	
-		case"Enter":
-			
+		case"Enter":	
 			if(!(GameControllerGui.isLevelCorrect(textField.getText()))){
 				lbErreur.setText("Value no correct");
 				textField.setText("");
-				
-				
 			}
 			else {
 				ViewGameSolo.levelSolo = GameControllerGui.levelSolo(textField.getText());
