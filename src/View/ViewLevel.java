@@ -20,7 +20,6 @@ import java.awt.Font;
 
 public class ViewLevel extends JFrame implements ActionListener {
 
-	ViewGameSolo ViewGameSolo = new ViewGameSolo();
 	GameControllerGUI GameControllerGui = new GameControllerGUI();
 	private JPanel contentPane;
 	private JTextField textField;
@@ -148,7 +147,10 @@ public class ViewLevel extends JFrame implements ActionListener {
 		
 		switch(e.getActionCommand()){
 	
-		case"Enter":	
+		case"Enter":
+				
+			ViewGameSolo ViewGameSolo = new ViewGameSolo();
+
 			if(!(GameControllerGui.isLevelCorrect(textField.getText()))){
 				lbErreur.setText("Value no correct");
 				textField.setText("");
