@@ -206,6 +206,8 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		gbc_textField2.gridy = 15;
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
+		setVisible(true);
+		textField2.requestFocus();
 		
 		lbWin = new JLabel("you have 12 chances");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
@@ -318,12 +320,14 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				textField2.setEditable(false);
 				btnEnter.setEnabled(false);
 				btnReplay.setVisible(true);
+				btnReplay.requestFocus();
 			}
 			else if (gameControllerGui.ifCorrect(combiPc) == true) {
 				lbWin.setText("the computer wins");
 				textField2.setEditable(false);
 				btnEnter.setEnabled(false);
 				btnReplay.setVisible(true);
+				btnReplay.requestFocus();
 			}
 			
 			else if(numeroEssai < 12) {
@@ -338,6 +342,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 				lbResult.setText(gameControllerGui.convertTab2String(gameControllerGui.getCombiRandom()));
 				btnEnter.setEnabled(false);
 				btnReplay.setVisible(true);
+				btnReplay.requestFocus();
 			}
 			break;
 
