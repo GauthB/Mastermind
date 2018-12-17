@@ -27,11 +27,8 @@ public class ViewHote extends JFrame implements ActionListener {
 	 * Variable
 	 */
 	private JPanel contentPane;
-	private JLabel label_3;
-	private JLabel lblYouAre;
-	private JButton btnHote;
-	private JButton btGuest;
-	
+	private JLabel title,lblYouAre;
+	private JButton btnHote,btGuest;
 	
 	/**
 	 * Launch the application.
@@ -67,16 +64,15 @@ public class ViewHote extends JFrame implements ActionListener {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
-		label_3 = new JLabel("Number Mastermind");
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 4;
-		gbc_label_3.insets = new Insets(0, 0, 5, 5);
-		gbc_label_3.gridx = 0;
-		gbc_label_3.gridy = 1;
-		contentPane.add(label_3, gbc_label_3);
-		
+		title = new JLabel("Number Mastermind");
+		title.setHorizontalAlignment(SwingConstants.LEFT);
+		title.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
+		GridBagConstraints gbc_title = new GridBagConstraints();
+		gbc_title.gridwidth = 4;
+		gbc_title.insets = new Insets(0, 0, 5, 5);
+		gbc_title.gridx = 0;
+		gbc_title.gridy = 1;
+		contentPane.add(title, gbc_title);
 		
 		btnHote = new JButton("Hote");
 		btnHote.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
