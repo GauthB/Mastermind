@@ -1,13 +1,14 @@
-package View;
-
-import mastermind.GameControllerGUI;
-import mastermind.RandomCombi;
+package view;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
+
+import controller.GameControllerGUI;
+import controller.RandomCombi;
+
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
