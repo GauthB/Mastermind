@@ -166,6 +166,8 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		gbc_textField2.gridy = 15;
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
+		setVisible(true);
+		textField2.requestFocus();
 		
 		lbWin = new JLabel("");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
@@ -251,6 +253,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 					lblResult.setVisible(true); 
 					btnEnter.setEnabled(false);
 					btnReplay.setVisible(true);
+					btnReplay.requestFocus();
 				}
 				else if(numeroEssai < levelSolo) {
 					
