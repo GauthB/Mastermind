@@ -5,6 +5,7 @@ import network.AddressIp;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -15,6 +16,8 @@ import java.net.InetAddress;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Dimension;
@@ -33,6 +36,7 @@ public class ViewYourIp extends JFrame implements ActionListener {
 	private JLabel lblIp;
 	public  InetAddress LocaleAdresse ;
 	private JButton btnOk;
+	private JRootPane rootPane;
 	
 	/**
 	 * Launch the application.
@@ -112,6 +116,10 @@ public class ViewYourIp extends JFrame implements ActionListener {
 		btnOk.requestFocus();
 		//lblIp.setText(adressIp.Transfo());
 		//lblIp.setText(Transfo());
+		
+		rootPane = SwingUtilities.getRootPane(btnOk);
+		rootPane.setDefaultButton(btnOk);
+		rootPane.setVisible(true);
 		
 	}
 
