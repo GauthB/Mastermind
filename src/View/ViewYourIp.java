@@ -1,5 +1,4 @@
-package View;
-import mastermind.GameController;
+package view;
 import network.AddressIp;
 
 import java.awt.EventQueue;
@@ -7,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
+
+import controller.GameController;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
