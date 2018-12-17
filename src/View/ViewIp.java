@@ -19,7 +19,6 @@ import java.awt.Font;
 public class ViewIp extends JFrame implements ActionListener {
 
 	GameController GameController = new GameController();
-	ViewGameMulti viewGameMulti = new ViewGameMulti();
 	/**
 	 * Variables
 	 */
@@ -110,6 +109,7 @@ public class ViewIp extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 	
 		case"Enter":
+			ViewGameMulti viewGameMulti = new ViewGameMulti();
 			viewGameMulti.setVisible(true);
 			
 		case"Exit":	
