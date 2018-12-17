@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
-import controller.GameController;
+import model.ModelGame;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -26,7 +26,7 @@ import java.awt.Dimension;
 
 public class ViewYourIp extends JFrame implements ActionListener {
 
-	GameController GameController = new GameController();
+	ModelGame GameController = new ModelGame();
 	AddressIp adressIp = new AddressIp();
 	
 	/**
