@@ -1,10 +1,7 @@
 package View;
 import mastermind.GameController;
 
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,24 +11,23 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JScrollPane;
 
 public class ViewIp extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
-	String temp="";
-	private JLabel label_3;
 	GameController GameController = new GameController();
-	private JTextField textField;
 	ViewGameMulti viewGameMulti = new ViewGameMulti();
-	private JLabel lblEncoderLadresseIp;
-	
+	/**
+	 * Variables
+	 */
+	private JPanel contentPane;
+	private JTextField textField;
+	private JLabel title,lblEncoderLadresseIp;
+	private JButton btnIp;
+	String temp="";
 	
 	/**
 	 * Launch the application.
@@ -67,15 +63,15 @@ public class ViewIp extends JFrame implements ActionListener {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
 		
-		label_3 = new JLabel("Number Mastermind");
-		label_3.setHorizontalAlignment(SwingConstants.LEFT);
-		label_3.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
-		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.gridwidth = 3;
-		gbc_label_3.insets = new Insets(0, 0, 5, 0);
-		gbc_label_3.gridx = 0;
-		gbc_label_3.gridy = 1;
-		contentPane.add(label_3, gbc_label_3);
+		title = new JLabel("Number Mastermind");
+		title.setHorizontalAlignment(SwingConstants.LEFT);
+		title.setFont(new Font("Lucida Grande", Font.PLAIN, 37));
+		GridBagConstraints gbc_title = new GridBagConstraints();
+		gbc_title.gridwidth = 3;
+		gbc_title.insets = new Insets(0, 0, 5, 0);
+		gbc_title.gridx = 0;
+		gbc_title.gridy = 1;
+		contentPane.add(title, gbc_title);
 		
 		lblEncoderLadresseIp = new JLabel("Enter the Ip adress:");
 		lblEncoderLadresseIp.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
@@ -87,8 +83,7 @@ public class ViewIp extends JFrame implements ActionListener {
 		gbc_lblEncoderLadresseIp.gridy = 3;
 		contentPane.add(lblEncoderLadresseIp, gbc_lblEncoderLadresseIp);
 		
-		
-		JButton btnIp = new JButton("Enter");
+		btnIp = new JButton("Enter");
 		btnIp.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		GridBagConstraints gbc_btnIp = new GridBagConstraints();
 		gbc_btnIp.anchor = GridBagConstraints.WEST;
@@ -107,21 +102,17 @@ public class ViewIp extends JFrame implements ActionListener {
 		gbc_textField.gridy = 4;
 		contentPane.add(textField, gbc_textField);
 		
-		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		String textOrigine="";
 		
 		switch(e.getActionCommand()){
 	
 		case"Enter":
 			viewGameMulti.setVisible(true);
 			
-		case"Exit":
-			
+		case"Exit":	
 			this.dispose();
 		}
 	}
