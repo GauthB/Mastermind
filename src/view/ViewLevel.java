@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
-import controller.GameControllerGUI;
+import model.ModelGameGUI;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -22,7 +22,7 @@ import java.awt.Font;
 
 public class ViewLevel extends JFrame implements ActionListener {
 
-	GameControllerGUI GameControllerGui = new GameControllerGUI();
+	ModelGameGUI GameControllerGui = new ModelGameGUI();
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel Title,lblEncoderLadresseIp,lblHardh,lblNormaln,lblEasye,lbErreur;
