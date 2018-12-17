@@ -1,5 +1,6 @@
 /**
+ * @author bohyn Gauhtier
+ * @author Hermant Thibaut
  * @author humbertmeyers
- *
  */
-package mastermind;
+package controller;
