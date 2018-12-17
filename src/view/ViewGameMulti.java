@@ -1,13 +1,12 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.GameControllerGUI;
+import model.ModelGameGUI;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -17,11 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
 public class ViewGameMulti extends JFrame implements ActionListener {
@@ -39,7 +36,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	private JLabel label_2;
 	private JLabel label_3;
 	
-	GameControllerGUI gameControllerGui = new GameControllerGUI();
+	ModelGameGUI gameControllerGui = new ModelGameGUI();
 	private JTextPane combiInTout;
 	private JTextPane combiResult;
 	private JTextPane combiCompetitor;
