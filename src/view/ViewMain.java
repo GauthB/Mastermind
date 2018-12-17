@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.GameController;
+import model.ModelGame;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -19,7 +19,7 @@ import java.awt.Font;
 
 public class ViewMain extends JFrame implements ActionListener {
 
-	GameController GameController = new GameController();
+	ModelGame GameController = new ModelGame();
 	
 	/**
 	 * Variable
