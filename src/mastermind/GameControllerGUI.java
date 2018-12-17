@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mastermind;
+package controller;
 
 import java.util.Random;
 
