@@ -1,10 +1,10 @@
-package mastermind;
+package controller;
 /**
  * 
  * @author Bohyn Gauthier
  * @author Hermand Thibaut
  * @author Meyers Humbert
- * Une classe représentant l'outil de correction de la combinaison envoyée
+ * Une classe reprÃ©sentant l'outil de correction de la combinaison envoyÃ©e
  */
 public class Correction {
 
