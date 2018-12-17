@@ -17,13 +17,13 @@ public class ModelGame {
 	
 //_______________VARIABLES___________________________________________________________________________________________________________
 	
-	public static char[] combiIn = new char[4]; // Pour la longueur du tableau qui receptionne la combi qu'on encode
-	public static int easy = 12; // Mode Easy avec 12 chances
-	public static int normal = 9; // Mode Normal avec 9 chances
-	public static int hard = 5; // Mode Hard avec 5 chance
-	public static String level; // Le niveau qu'on desire pour le jeu
-	public static int limite; // La difficulte = le nombre de chance / nombre de limite
-	public static String mode; // Le mode qu'on desire
+	public char[] combiIn = new char[4]; // Pour la longueur du tableau qui receptionne la combi qu'on encode
+	public int easy = 12; // Mode Easy avec 12 chances
+	public int normal = 9; // Mode Normal avec 9 chances
+	public int hard = 5; // Mode Hard avec 5 chance
+	public String level; // Le niveau qu'on desire pour le jeu
+	public int limite; // La difficulte = le nombre de chance / nombre de limite
+	public String mode; // Le mode qu'on desire
 	
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
 	public ModelGame() {
@@ -37,7 +37,7 @@ public class ModelGame {
 	/**  
 	 * @return combiIn tableau contenant la combinaison entree
 	 */
-	public static char[] enterCombi() {
+	public char[] enterCombi() {
 
 		String combiStr = "";
 		
@@ -58,7 +58,7 @@ public class ModelGame {
 	/**
 	 * @return difficulty (int) niveau de difficulte (5 ou 9 ou 12)
 	 */
-	public static int chooseLevel() {
+	public int chooseLevel() {
 
 		Scanner levelInput = new Scanner(System.in);
 		int choiceL = 0;
@@ -98,7 +98,7 @@ public class ModelGame {
 	/**
 	 * @return choiceM (int) mode de jeu (0 ou 1 ou 2 ou 3)
 	 */
-	public static int chooseMode() {
+	public int chooseMode() {
 
 		Scanner modeInput = new Scanner(System.in);
 		int choiceM = 0;
@@ -140,7 +140,7 @@ public class ModelGame {
 	/**
 	 * @param combi combinaison a affiche
 	 */
-	public static void afficheCombi(char[] combi) {
+	public void afficheCombi(char[] combi) {
 
 		for (int i = 0; i < combi.length; i++) {
 			System.out.print(combi[i] + " ");
