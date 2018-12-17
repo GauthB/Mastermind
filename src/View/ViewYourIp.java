@@ -1,6 +1,6 @@
 package View;
 import mastermind.GameController;
-import network.AdressIp;
+import network.AddressIp;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -22,7 +22,7 @@ import java.awt.Dimension;
 public class ViewYourIp extends JFrame implements ActionListener {
 
 	GameController GameController = new GameController();
-	AdressIp adressIp = new AdressIp();
+	AddressIp adressIp = new AddressIp();
 	
 	/**
 	 * Variables
