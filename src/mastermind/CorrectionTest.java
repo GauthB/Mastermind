@@ -1,7 +1,7 @@
 /**
  * 
  */
-package mastermind;
+package controller;
 
 import static org.junit.Assert.*;
 
@@ -49,7 +49,7 @@ public class CorrectionTest {
 	}
 
 	/**
-	 * Test method for {@link mastermind.Correction#correction(char[], char[])}.
+	 * Test method for {@link controller.Correction#correction(char[], char[])}.
 	 */
 	@Test
 	public void testCorrectionNotNull() {
