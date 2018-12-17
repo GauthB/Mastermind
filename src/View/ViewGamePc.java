@@ -37,6 +37,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 	private int nbrChances = 12;
 	private char positionCorrect[] = {'f','f','f','f'};
 	private char numeroCorrect[] = new char[4] ;
+	private JRootPane rootPane;
 	
 	
 
@@ -193,7 +194,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		contentPane.add(btnEnter, gbc_btnEnter);
 		btnEnter.addActionListener(this);
 		
-		JRootPane rootPane = SwingUtilities.getRootPane(btnEnter);
+		rootPane = SwingUtilities.getRootPane(btnEnter);
 		rootPane.setDefaultButton(btnEnter);
 		rootPane.setVisible(true);
 		
