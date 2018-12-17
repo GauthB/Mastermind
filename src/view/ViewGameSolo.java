@@ -6,8 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
-import controller.GameControllerGUI;
 import controller.RandomCombi;
+import model.ModelGameGUI;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -26,7 +26,7 @@ import javax.swing.JTextPane;
 public class ViewGameSolo extends JFrame implements ActionListener {
 
 
-	GameControllerGUI gameControllerGui = new GameControllerGUI();
+	ModelGameGUI gameControllerGui = new ModelGameGUI();
 	RandomCombi instCombiRandom = new RandomCombi();
 	/**
 	 * Variables
