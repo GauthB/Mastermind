@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controller.GameController;
+import model.ModelGame;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -20,7 +20,7 @@ import java.awt.Font;
 public class ViewRules extends JFrame implements ActionListener {
 
 	
-	GameController GameController = new GameController();
+	ModelGame GameController = new ModelGame();
 	ViewHote viewHote = new ViewHote();
 	/**
 	 * Variable
@@ -93,7 +93,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_solo.gridy = 3;
 		contentPane.add(solo, gbc_solo);
 		
-		solo1 = new JLabel("- Lâ€™application gÃ©nÃ¨re alÃ©atoirement la combinaison de 4 couleurs");
+		solo1 = new JLabel("- L’application génère aléatoirement la combinaison de 4 couleurs");
 		GridBagConstraints gbc_solo1 = new GridBagConstraints();
 		gbc_solo1.anchor = GridBagConstraints.WEST;
 		gbc_solo1.gridwidth = 8;
@@ -102,7 +102,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_solo1.gridy = 4;
 		contentPane.add(solo1, gbc_solo1);
 		
-		solo2 = new JLabel("- Lâ€™ordinateur corrige lui-mÃªme le joueur grÃ¢ce aux rÃ©sultats quâ€™il renvoi, il rÃ©pond par:");
+		solo2 = new JLabel("- L’ordinateur corrige lui-même le joueur grâce aux résultats qu’il renvoi, il répond par:");
 		GridBagConstraints gbc_solo2 = new GridBagConstraints();
 		gbc_solo2.anchor = GridBagConstraints.WEST;
 		gbc_solo2.gridwidth = 10;
@@ -111,7 +111,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_solo2.gridy = 5;
 		contentPane.add(solo2, gbc_solo2);
 		
-		solo3 = new JLabel("  \tV (Chiffre bonne place), / (Chiffre existant mais pas Ã  la bonne place), X(Chiffre nâ€™existant pas) . \n");
+		solo3 = new JLabel("  \tV (Chiffre bonne place), / (Chiffre existant mais pas à la bonne place), X(Chiffre n’existant pas) . \n");
 		GridBagConstraints gbc_solo3 = new GridBagConstraints();
 		gbc_solo3.gridwidth = 10;
 		gbc_solo3.anchor = GridBagConstraints.WEST;
@@ -163,7 +163,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_soloPc.gridy = 12;
 		contentPane.add(soloPc, gbc_soloPc);
 		
-		soloPc1 = new JLabel("-\tLâ€™application gÃ©nÃ¨re alÃ©atoirement la combinaison de 4 chiffres.\n");
+		soloPc1 = new JLabel("-\tL’application génère aléatoirement la combinaison de 4 chiffres.\n");
 		GridBagConstraints gbc_soloPc1 = new GridBagConstraints();
 		gbc_soloPc1.anchor = GridBagConstraints.WEST;
 		gbc_soloPc1.gridwidth = 10;
@@ -172,7 +172,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_soloPc1.gridy = 13;
 		contentPane.add(soloPc1, gbc_soloPc1);
 		
-		soloPc2 = new JLabel("- Lâ€™ordinateur corrige lui-mÃªme le joueur et la combinaison imaginÃ©e par lâ€™ordinateur grÃ¢ce ");
+		soloPc2 = new JLabel("- L’ordinateur corrige lui-même le joueur et la combinaison imaginée par l’ordinateur grâce ");
 		GridBagConstraints gbc_soloPc2 = new GridBagConstraints();
 		gbc_soloPc2.anchor = GridBagConstraints.WEST;
 		gbc_soloPc2.gridwidth = 10;
@@ -181,7 +181,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_soloPc2.gridy = 14;
 		contentPane.add(soloPc2, gbc_soloPc2);
 		
-		soloPc3 = new JLabel("   aux rÃ©sultats quâ€™il renvoi, il rÃ©pond par V (Chiffre bonne place), / (Chiffre existant mais pas Ã  ");
+		soloPc3 = new JLabel("   aux résultats qu’il renvoi, il répond par V (Chiffre bonne place), / (Chiffre existant mais pas à ");
 		GridBagConstraints gbc_soloPc3 = new GridBagConstraints();
 		gbc_soloPc3.anchor = GridBagConstraints.WEST;
 		gbc_soloPc3.gridwidth = 10;
@@ -190,7 +190,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_soloPc3.gridy = 15;
 		contentPane.add(soloPc3, gbc_soloPc3);
 		
-		soloPc4 = new JLabel("   la bonne place), X(Chiffre nâ€™existant pas) . ");
+		soloPc4 = new JLabel("   la bonne place), X(Chiffre n’existant pas) . ");
 		GridBagConstraints gbc_soloPc4 = new GridBagConstraints();
 		gbc_soloPc4.anchor = GridBagConstraints.WEST;
 		gbc_soloPc4.gridwidth = 10;
@@ -199,7 +199,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_soloPc4.gridy = 16;
 		contentPane.add(soloPc4, gbc_soloPc4);
 		
-		soloPc5 = new JLabel("- Attention, vous voyez les rÃ©sultats de lâ€™ordinateur, cela veut dire que lâ€™ordinateur peut aussi ");
+		soloPc5 = new JLabel("- Attention, vous voyez les résultats de l’ordinateur, cela veut dire que l’ordinateur peut aussi ");
 		GridBagConstraints gbc_soloPc5 = new GridBagConstraints();
 		gbc_soloPc5.anchor = GridBagConstraints.WEST;
 		gbc_soloPc5.gridwidth = 10;
@@ -208,7 +208,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_soloPc5.gridy = 17;
 		contentPane.add(soloPc5, gbc_soloPc5);
 		
-		soloPc6 = new JLabel("   voir vos rÃ©sultatsÂ !");
+		soloPc6 = new JLabel("   voir vos résultats !");
 		GridBagConstraints gbc_soloPc6 = new GridBagConstraints();
 		gbc_soloPc6.anchor = GridBagConstraints.WEST;
 		gbc_soloPc6.gridwidth = 10;
@@ -234,7 +234,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_multi.gridy = 21;
 		contentPane.add(multi, gbc_multi);
 		
-		multi1 = new JLabel("-\tLes 2 joueurs sont connectÃ©s en rÃ©seau sur 2 appareils diffÃ©rents mais sur le mÃªme rÃ©seau.\n");
+		multi1 = new JLabel("-\tLes 2 joueurs sont connectés en réseau sur 2 appareils différents mais sur le même réseau.\n");
 		GridBagConstraints gbc_multi1 = new GridBagConstraints();
 		gbc_multi1.anchor = GridBagConstraints.WEST;
 		gbc_multi1.gridwidth = 8;
@@ -243,7 +243,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_multi1.gridy = 22;
 		contentPane.add(multi1, gbc_multi1);
 		
-		multi2 = new JLabel("- Lâ€™application gÃ©nÃ¨re alÃ©atoirement la combinaison de 4 chiffres (elle est la mÃªme pour les 2 ");
+		multi2 = new JLabel("- L’application génère aléatoirement la combinaison de 4 chiffres (elle est la même pour les 2 ");
 		GridBagConstraints gbc_multi2 = new GridBagConstraints();
 		gbc_multi2.anchor = GridBagConstraints.WEST;
 		gbc_multi2.gridwidth = 7;
@@ -252,7 +252,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_multi2.gridy = 23;
 		contentPane.add(multi2, gbc_multi2);
 		
-		multi3 = new JLabel("   joueursÂ !!) ");
+		multi3 = new JLabel("   joueurs !!) ");
 		GridBagConstraints gbc_multi3 = new GridBagConstraints();
 		gbc_multi3.anchor = GridBagConstraints.WEST;
 		gbc_multi3.insets = new Insets(0, 0, 5, 5);
@@ -269,7 +269,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_multi4.gridy = 25;
 		contentPane.add(multi4, gbc_multi4);
 		
-		multi5 = new JLabel("   premier Ã  lâ€™avoir trouvÃ©Â !");
+		multi5 = new JLabel("   premier à l’avoir trouvé !");
 		GridBagConstraints gbc_multi5 = new GridBagConstraints();
 		gbc_multi5.anchor = GridBagConstraints.WEST;
 		gbc_multi5.gridwidth = 7;
@@ -278,7 +278,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_multi5.gridy = 26;
 		contentPane.add(multi5, gbc_multi5);
 		
-		multi6 = new JLabel("- Le nombre de tentatives est fixÃ© Ã  12. Chaque joueur pourra visualiser le jeu de lâ€™autre en ");
+		multi6 = new JLabel("- Le nombre de tentatives est fixé à 12. Chaque joueur pourra visualiser le jeu de l’autre en ");
 		GridBagConstraints gbc_multi6 = new GridBagConstraints();
 		gbc_multi6.anchor = GridBagConstraints.WEST;
 		gbc_multi6.gridwidth = 8;
@@ -287,7 +287,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_multi6.gridy = 27;
 		contentPane.add(multi6, gbc_multi6);
 		
-		multi7 = new JLabel("   direct (donc une possibilitÃ© de tricherieÂ â€¦ ).");
+		multi7 = new JLabel("   direct (donc une possibilité de tricherie … ).");
 		GridBagConstraints gbc_multi7 = new GridBagConstraints();
 		gbc_multi7.anchor = GridBagConstraints.WEST;
 		gbc_multi7.gridwidth = 7;
@@ -296,7 +296,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_multi7.gridy = 28;
 		contentPane.add(multi7, gbc_multi7);
 		
-		multi8 = new JLabel("-\tArrivÃ© Ã  la fin des 12 coups, la partie est finie pour ce joueur.\n");
+		multi8 = new JLabel("-\tArrivé à la fin des 12 coups, la partie est finie pour ce joueur.\n");
 		GridBagConstraints gbc_multi8 = new GridBagConstraints();
 		gbc_multi8.anchor = GridBagConstraints.WEST;
 		gbc_multi8.gridwidth = 6;
