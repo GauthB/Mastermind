@@ -6,17 +6,16 @@ import java.util.Scanner;
 /**
  * @author BOHYN Gauthier
  * @author HERMANT Thibaut
- * @author MEYERS Humbert
+ * @author MEYERS Humbert Une classe qui représente le mastermind
  */
 public class ModelGame {
 
 	// -------------------------------------
 	// Affichage du jeu
 	// -------------------------------------
-	
-	
+
 //_______________VARIABLES___________________________________________________________________________________________________________
-	
+
 	public char[] combiIn = new char[4]; // Pour la longueur du tableau qui receptionne la combi qu'on encode
 	public int easy = 12; // Mode Easy avec 12 chances
 	public int normal = 9; // Mode Normal avec 9 chances
@@ -24,23 +23,21 @@ public class ModelGame {
 	public String level; // Le niveau qu'on desire pour le jeu
 	public int limite; // La difficulte = le nombre de chance / nombre de limite
 	public String mode; // Le mode qu'on desire
-	
+
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
 	public ModelGame() {
 
 	}
 //_________________METHODES____________________________________________________________________________________________________
 
-	
-	
 	// --- Entrez une combi ---
-	/**  
-	 * @return combiIn tableau contenant la combinaison entree
+	/**
+	 * @return combiIn tableau contenant la combinaison entrée
 	 */
 	public char[] enterCombi() {
 
 		String combiStr = "";
-		
+
 		Scanner combiInput = new Scanner(System.in);
 
 		combiStr = combiInput.nextLine();
@@ -53,7 +50,6 @@ public class ModelGame {
 
 	}
 
-	
 	// --- Choisir son level ---
 	/**
 	 * @return difficulty (int) niveau de difficulte (5 ou 9 ou 12)
@@ -93,7 +89,6 @@ public class ModelGame {
 		return difficulty;
 	}
 
-	
 	// --- Choisir un mode ---
 	/**
 	 * @return choiceM (int) mode de jeu (0 ou 1 ou 2 ou 3)
@@ -119,8 +114,7 @@ public class ModelGame {
 			if (mode.equals("s")) {
 				System.out.print("\nMode: Solo\n");
 				choiceM = 1; // 1 = Solo
-			}
-			else if (mode.equals("p")) {
+			} else if (mode.equals("p")) {
 				System.out.print("\nMode: Pc\n");
 				choiceM = 2; // 2 = Pc
 			} else if (mode.equals("m")) {
@@ -135,7 +129,6 @@ public class ModelGame {
 		return choiceM;
 	}
 
-	
 	// --- Affiche une combi ---
 	/**
 	 * @param combi combinaison a affiche
@@ -147,5 +140,61 @@ public class ModelGame {
 		}
 		System.out.print("\n");
 	}
-	
+
+	public char[] getCombiIn() {
+		return combiIn;
+	}
+
+	public void setCombiIn(char[] combiIn) {
+		this.combiIn = combiIn;
+	}
+
+	public int getEasy() {
+		return easy;
+	}
+
+	public void setEasy(int easy) {
+		this.easy = easy;
+	}
+
+	public int getNormal() {
+		return normal;
+	}
+
+	public void setNormal(int normal) {
+		this.normal = normal;
+	}
+
+	public int getHard() {
+		return hard;
+	}
+
+	public void setHard(int hard) {
+		this.hard = hard;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public int getLimite() {
+		return limite;
+	}
+
+	public void setLimite(int limite) {
+		this.limite = limite;
+	}
+
+	public String getMode() {
+		return mode;
+	}
+
+	public void setMode(String mode) {
+		this.mode = mode;
+	}
+
 }
