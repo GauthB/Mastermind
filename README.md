@@ -10,20 +10,6 @@ Membres du groupe
 
 Choix technique 	Client / Serveur
 
-
-
-Application « Number MasterMind »
-Règles de base
-
-Le MasterMind de base se joue par 2. 
-L’un choisit une combinaison de 4 couleurs parmi 6 couleurs possibles (il peut prendre plusieurs fois les mêmes)
-L’autre a un certain nombre de tentatives possibles pour trouver la bonne combinaison
-Après chaque tentatives le joueur qui a choisi la combinaison met un pion blanc pour chaque couleur étant dans la combinaison mais pas à la bonne place, un pion rouge pour chaque couleur étant dans la combinaison et à la bonne place et si une couleur n’y est pas, on laisse un vide à la place du pion.
-La partie se termine donc lorsque le chercheur possède 4 pions rouge, donc la bonne combinaison.
-S’il n’arrive pas à trouver la combinaison au bout de toutes les tentatives, C’est l’autre joueur qui gagne.
-
-
-
 Modes
 
 Solo 
