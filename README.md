@@ -50,4 +50,5 @@ Améliorations possibles
 
 Créer une base de données qui retient les scores (dépend de combien de manche que l’on souhaite faire) (ça peut être un fichier texte) 
 Mettre un temps max entre 2 tentatives
+Mettre des couleurs dans l'interface graphique 
 Il y aura surement des améliorations ou des modifications en fonction de l’avancement du projet...
