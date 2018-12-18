@@ -3,13 +3,15 @@ package main;
 import view.ViewMain;
 
 public class mainMastermind {
-public static void main() {
+
 	
-//ça ne fonctionne pas
+	public static void main() {
 	
-	ViewMain viewMain = new ViewMain();
-	viewMain.setVisible(true);
-}	
+	//ça ne fonctionne pas
+		
+		ViewMain viewMain = new ViewMain();
+		viewMain.setVisible(true);
+	}	
 	
 }
 

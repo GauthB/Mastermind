@@ -13,7 +13,12 @@ public class Correction {
 	private static char noCorrect = 'X';			// si le chiffre n'existe pas dans la combi
 	//private char[] resultat = new char[4];
 	
-
+	/**
+	 * Une méthode qui corrige la combinaison reçue grâce à la combinaison générée
+	 * @param combiIn la combinaison reçue
+	 * @param combiRand la combinaison générée
+	 * @return La correction sous forme de tableau de char
+	 */
 	public char[] correction (char[]combiIn, char[] combiRand) {
 		
 		char[] result = new char[4];	

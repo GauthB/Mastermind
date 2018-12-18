@@ -10,11 +10,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author humbertmeyers
- *
+ * 
+ * @author Bohyn Gauthier
+ * @author Hermand Thibaut
+ * @author Meyers Humbert
+ * Le test concernant la correction de combinaison
  */
 public class CorrectionTest {
-	
 	Correction c1;
 	Correction c2;
 	Correction c3;
@@ -27,7 +29,8 @@ public class CorrectionTest {
 	char [] combiTest4;
 
 	/**
-	 * @throws java.lang.Exception
+	 * L'initialisation des différentes combinaisons.
+	 * @throws Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -50,6 +53,7 @@ public class CorrectionTest {
 
 	/**
 	 * Test method for {@link controller.Correction#correction(char[], char[])}.
+	 * Vérifie si la combinaison reçue n'est pas nulle
 	 */
 	@Test
 	public void testCorrectionNotNull() {
@@ -57,6 +61,9 @@ public class CorrectionTest {
 		assertNotNull(c1);
 	}
 	
+	/**
+	 * Vérifie si la combinaison reçue est correcte
+	 */
 	@Test
 	public void testCorrectionCorrect() {
 		//fail("Not yet implemented");
@@ -71,6 +78,10 @@ public class CorrectionTest {
 		assertEquals(expected[3], result[3]);
 	}
 	
+	
+	/**
+	 * Vérifie si la combinaison reçue est fausse
+	 */
 	@Test
 	public void testCorrectionFaux() {
 		//fail("Not yet implemented");
@@ -85,6 +96,10 @@ public class CorrectionTest {
 		assertEquals(expected[3], result[3]);
 	}
 	
+	
+	/**
+	 * Vérifie si la combinaison est juste mais pas dans le bon ordre
+	 */
 	@Test
 	public void testCorrectionMiCorrect() {
 		//fail("Not yet implemented");
@@ -99,6 +114,10 @@ public class CorrectionTest {
 		assertEquals(expected[3], result[3]);
 	}
 	
+	
+	/**
+	 * Vérifie si la combinaison contient un mix de toutes les possibilités
+	 */
 	@Test
 	public void testCorrectionMix() {
 		//fail("Not yet implemented");
