@@ -16,17 +16,19 @@ public class ModelGame {
 
 //_______________VARIABLES___________________________________________________________________________________________________________
 
-	public char[] combiIn = new char[4]; // Pour la longueur du tableau qui receptionne la combi qu'on encode
-	public int easy = 12; // Mode Easy avec 12 chances
-	public int normal = 9; // Mode Normal avec 9 chances
-	public int hard = 5; // Mode Hard avec 5 chance
-	public String level; // Le niveau qu'on desire pour le jeu
-	public int limite; // La difficulte = le nombre de chance / nombre de limite
-	public String mode; // Le mode qu'on desire
+	private char[] combiIn = new char[4]; // Pour la longueur du tableau qui receptionne la combi qu'on encode
+	private int easy; // Mode Easy avec 12 chances
+	private int normal; // Mode Normal avec 9 chances
+	private int hard; // Mode Hard avec 5 chance
+	private String level; // Le niveau qu'on desire pour le jeu
+	private int limite; // La difficulte = le nombre de chance / nombre de limite
+	private String mode; // Le mode qu'on desire
 
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
 	public ModelGame() {
-
+		this.easy = 12;
+		this.normal = 9;
+		this.hard = 5;
 	}
 //_________________METHODES____________________________________________________________________________________________________
 
