@@ -15,7 +15,7 @@ import controller.RandomCombi;
  * @author Meyers Humbert
  * Une classe qui représente Le modele du jeu en vue GUI
  */
-public class ModelGameGUI {
+public class ModelGameGUI_OLD {
 	
 	public char[] combiIn = new char[4]; 
 	
@@ -23,7 +23,7 @@ public class ModelGameGUI {
 	Correction instCorr = new Correction();
 	RandomCombi instCombiRandom = new RandomCombi();
 
-	public ModelGameGUI() {
+	public ModelGameGUI_OLD() {
 			
 	}
 	/**

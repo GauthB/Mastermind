@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
-import model.ModelGameGUI;
+import model.ModelGame;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -22,7 +22,7 @@ import javax.swing.JTextPane;
 
 public class ViewGamePc extends JFrame implements ActionListener {
 
-	ModelGameGUI gameControllerGui = new ModelGameGUI();
+	ModelGame gameControllerGui = new ModelGame();
 	
 	private JPanel contentPane;
 	private JTextField textField2;

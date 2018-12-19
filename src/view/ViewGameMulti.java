@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import model.ModelGameGUI;
+import model.ModelGame;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -36,7 +36,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	private JLabel label_2;
 	private JLabel label_3;
 	
-	ModelGameGUI gameControllerGui = new ModelGameGUI();
+	ModelGame gameControllerGui = new ModelGame();
 	private JTextPane combiInTout;
 	private JTextPane combiResult;
 	private JTextPane combiCompetitor;
