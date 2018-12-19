@@ -52,8 +52,8 @@ public class ModelGame {
 		combiStr = combiInput.nextLine();
 		//System.out.println("3");
 		//char toto = combiStr.charAt(0);
-		System.out.println(this.combiIn);
-		System.out.println(combiStr);
+		//System.out.println(this.combiIn);
+		//System.out.println(combiStr);
 		for (int i = 0; i < 4; i++) {
 			(this.combiIn)[i] = combiStr.charAt(i);
 			

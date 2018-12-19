@@ -33,13 +33,9 @@ public class ViewConsole {
 
 		int choiceM = gameController.chooseMode();
 		
-	
 		if(choiceM == 1) {
-		
-			gameController.limite = gameController.chooseLevel();
-			
+			gameController.setLimite(gameController.chooseLevel());
 			int j = 1;
-
 			while (j <= gameController.getLimite()) {
 
 				char resultCombi[] = new char[4];
@@ -47,8 +43,7 @@ public class ViewConsole {
 				System.out.println("----------------------------------------------------------");
 				System.out.println("Please enter your numbers:");
 				
-				char[] tmp = gameController.enterCombi();
-				gameController.setCombiIn(tmp);
+				gameController.setCombiIn(gameController.enterCombi());
 
 				System.out.print("\nvotre combi: ");
 
