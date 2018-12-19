@@ -24,7 +24,7 @@ public class ModelGame {
 	private int normal; // Mode Normal avec 9 chances
 	private int hard; // Mode Hard avec 5 chance
 	private String level; // Le niveau qu'on desire pour le jeu
-	public int limite; // La difficulte = le nombre de chance / nombre de limite
+	private int limite; // La difficulte = le nombre de chance / nombre de limite
 	private String mode; // Le mode qu'on desire
 
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
