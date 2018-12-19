@@ -9,8 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author humbertmeyers
- *
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert 
+ * 
  */
 public class ModelGameTest {
 	ModelGame m1;
@@ -19,11 +21,6 @@ public class ModelGameTest {
 	ModelGame m4;
 	ModelGame m5;
 	ModelGame m6;
-	char [] combi;
-	char [] combiTest1;
-	char [] combiTest2;
-	char [] combiTest3;
-	char [] combiTest4;
 	
 	/**
 	 * @throws java.lang.Exception
@@ -36,49 +33,7 @@ public class ModelGameTest {
 		m4 = new ModelGame();
 		m5 = new ModelGame();
 		m6 = new ModelGame();
-		combi[0] = '1'; combi[1] = '7'; combi[2] = '2'; combi[3] = '9';
-		combiTest1 = new char [4];
-		combiTest1[0] = '1'; combiTest1[1] = '7'; combiTest1[2] = '2'; combiTest1[3] = '9';
-		combiTest2 = new char [4];
-		combiTest2[0] = '8'; combiTest2[1] = '4'; combiTest2[2] = '6'; combiTest2[3] = '3';
-		combiTest3 = new char [4];
-		combiTest3[0] = '7'; combiTest3[1] = '1'; combiTest3[2] = '9'; combiTest3[3] = '2';
-		combiTest4 = new char [4];
-		combiTest4[0] = '7'; combiTest4[1] = '5'; combiTest4[2] = '2'; combiTest4[3] = '1';
 		
-		
-	}
-
-	/**
-	 * Test method for {@link model.ModelGame#chooseLevel()}.
-	 */
-	@Test
-	public void testChooseLevel() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link model.ModelGame#convertTab2String(char[])}.
-	 */
-	@Test
-	public void testConvertTab2String() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link model.ModelGame#convertString2Tab(java.lang.String)}.
-	 */
-	@Test
-	public void testConvertString2Tab() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link model.ModelGame#ifCorrect(java.lang.String)}.
-	 */
-	@Test
-	public void testIfCorrect() {
-		fail("Not yet implemented");
 	}
 
 	/**
@@ -86,7 +41,19 @@ public class ModelGameTest {
 	 */
 	@Test
 	public void testLevelSolo() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		int retour1 = m1.levelSolo("h");
+		int retour2 = m2.levelSolo("n");
+		int retour3 = m3.levelSolo("e");
+		int retour4 = m4.levelSolo("H");
+		int retour5 = m5.levelSolo("N");
+		int retour6 = m6.levelSolo("E");
+		assertEquals(5, retour1);
+		assertEquals(9, retour2);
+		assertEquals(12, retour3);
+		assertEquals(5, retour4);
+		assertEquals(9, retour5);
+		assertEquals(12, retour6);
 	}
 
 	/**
@@ -94,7 +61,26 @@ public class ModelGameTest {
 	 */
 	@Test
 	public void testIsLevelCorrect() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		boolean retour1 = m1.isLevelCorrect("h");
+		boolean retour2 = m2.isLevelCorrect("n");
+		boolean retour3 = m3.isLevelCorrect("e");
+		boolean retour4 = m4.isLevelCorrect("H");
+		boolean retour5 = m5.isLevelCorrect("N");
+		boolean retour6 = m6.isLevelCorrect("E");
+		boolean retour7 = m1.isLevelCorrect("");
+		boolean retour8 = m2.isLevelCorrect("BJR");
+		boolean retour9 = m1.isLevelCorrect("A");
+		assertEquals(true, retour1);
+		assertEquals(true, retour2);
+		assertEquals(true, retour3);
+		assertEquals(true, retour4);
+		assertEquals(true, retour5);
+		assertEquals(true, retour6);
+		assertEquals(false, retour7);
+		assertEquals(false, retour8);
+		assertEquals(false, retour9);
+		
 	}
 
 }
