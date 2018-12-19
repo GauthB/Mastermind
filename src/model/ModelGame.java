@@ -13,7 +13,7 @@ import java.lang.*;
  * @author BOHYN Gauthier
  * @author HERMANT Thibaut
  * @author MEYERS Humbert 
- * Une classe qui reprÃ©sente le mastermind
+ * Une classe qui reprÃƒÂ©sente le mastermind
  */
 public class ModelGame {
 
@@ -51,7 +51,7 @@ public class ModelGame {
 
 	// --- Entrez une combi ---
 	/**
-	 * @return combiIn tableau contenant la combinaison entrÃ©e
+	 * @return combiIn tableau contenant la combinaison entrÃƒÂ©e
 	 */
 	public char[] enterCombi() {
 
@@ -166,8 +166,8 @@ public class ModelGame {
 	}
 	
 	/**
-	 * Methode renvoyant la combinaison générée.
-	 * @return la combinaison générée
+	 * Methode renvoyant la combinaison gÃ©nÃ©rÃ©e.
+	 * @return la combinaison gÃ©nÃ©rÃ©e
 	 */
 	public char[] getCombiRandom() {
 		return instCombiRandom.combi;
@@ -222,7 +222,7 @@ public class ModelGame {
 	
 	/**
 	 * Une methode qui renvoie un boolean en fonction de la combinaison.
-	 * @param combi La combinaison reçue par l'utilisateur
+	 * @param combi La combinaison reÃ§ue par l'utilisateur
 	 * @return un boolean
 	 */
 	public boolean ifCorrect(String combi) {
@@ -242,7 +242,7 @@ public class ModelGame {
 	
 	/**
 	 * Une methode qui retourne le niveau choisi
-	 * @param txt la lettre entrée par l'utilisateur
+	 * @param txt la lettre entrÃ©e par l'utilisateur
 	 * @return retourne le niveau choisi
 	 */
 	public int levelSolo(String txt) {
@@ -267,8 +267,8 @@ public class ModelGame {
 	}
 	
 	/**
-	 * Vérifie si le niveau est correct
-	 * @param txt le texte rentré pas l'utilisateur
+	 * VÃ©rifie si le niveau est correct
+	 * @param txt le texte rentrÃ© pas l'utilisateur
 	 * @return un boolean
 	 */
 	public boolean isLevelCorrect(String txt) {
@@ -289,8 +289,8 @@ public class ModelGame {
 	
 	/**
 	 * Une methode qui converti une string contenant des espace en une string sans espaces
-	 * @param txt une chaine de caracterè quelconque
-	 * @return une chaine de caractères sans espaces
+	 * @param txt une chaine de caracterÃ¨ quelconque
+	 * @return une chaine de caractÃ¨res sans espaces
 	 */
 	public String convertWithoutSpaces(String txt) {
 		/*String txt2 = "";
@@ -305,9 +305,9 @@ public class ModelGame {
 	
 	
 	/**
-	 * Une methode générant la combinaison de l'ordinateur
+	 * Une methode gÃ©nÃ©rant la combinaison de l'ordinateur
 	 * @param positionCorrect une partie de combinaison correcte
-	 * @param numeroCorrect un numéro correct mais pas à la bonne place
+	 * @param numeroCorrect un numÃ©ro correct mais pas Ã  la bonne place
 	 * @return la combinaison de l'ordinateur
 	 */
 	public String newCombiPc(char positionCorrect[],char numeroCorrect[]){
@@ -333,11 +333,11 @@ public class ModelGame {
 	
 	
 	/**
-	 * Methode qui adapte la combinaison du pc en fonction des combinaisons corrigées
+	 * Methode qui adapte la combinaison du pc en fonction des combinaisons corrigÃ©es
 	 * @param positionCorrect Un element correct dans la combinaison
-	 * @param numeroCorrect Un numéro correct mais pas à la bonne place
-	 * @param combiPc la précédente combinaison de l'ordinateur
-	 * @param combiUti la précédente combinaison du joueur
+	 * @param numeroCorrect Un numÃ©ro correct mais pas Ã  la bonne place
+	 * @param combiPc la prÃ©cÃ©dente combinaison de l'ordinateur
+	 * @param combiUti la prÃ©cÃ©dente combinaison du joueur
 	 * @return la combinaison de l'ordinateur
 	 */
 	public char[][] corrigePc(char positionCorrect[],char numeroCorrect[],String combiPc,String combiUti) {
