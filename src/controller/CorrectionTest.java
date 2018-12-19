@@ -21,7 +21,7 @@ public class CorrectionTest {
 	Correction c4;
 	Correction c5;
 	char [] combi;
-	char [] combiTest;
+	char [] combiTest1;
 	char [] combiTest2;
 	char [] combiTest3;
 	char [] combiTest4;
@@ -39,8 +39,8 @@ public class CorrectionTest {
 		c5 = new Correction();
 		combi = new char [4];
 		combi[0] = '1'; combi[1] = '7'; combi[2] = '2'; combi[3] = '9';
-		combiTest = new char [4];
-		combiTest[0] = '1'; combiTest[1] = '7'; combiTest[2] = '2'; combiTest[3] = '9';
+		combiTest1 = new char [4];
+		combiTest1[0] = '1'; combiTest1[1] = '7'; combiTest1[2] = '2'; combiTest1[3] = '9';
 		combiTest2 = new char [4];
 		combiTest2[0] = '8'; combiTest2[1] = '4'; combiTest2[2] = '6'; combiTest2[3] = '3';
 		combiTest3 = new char [4];
@@ -68,7 +68,7 @@ public class CorrectionTest {
 		char[] result = new char[4];
 		char[] expected = new char[4];
 		expected[0] = 'V'; expected[1] = 'V'; expected[2] = 'V'; expected[3] = 'V';
-		result = c2.correction(combiTest, combi);
+		result = c2.correction(combiTest1, combi);
 		
 		assertEquals(expected[0], result[0]);
 		assertEquals(expected[1], result[1]);
