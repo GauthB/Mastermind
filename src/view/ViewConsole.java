@@ -1,14 +1,20 @@
 package view;
 
 import java.util.Random;
-
 import controller.Correction;
 import controller.RandomCombi;
 import model.ModelGame;
 
+/**
+ * 
+ * @author Bohyn Gauthier
+ * @author Hermand Thibaut
+ * @author Meyers Humbert
+ * Affiche le mastermind en console
+ */
+
 public class ViewConsole {
 
-	
 	public static void main(String[] args) {
 
 		// Instances
@@ -25,27 +31,29 @@ public class ViewConsole {
 		 */ 
 		 
 
-		int choiceM = gameController.chooseMode();
-		if(choiceM == 1) {
-			gameController.limite = gameController.chooseLevel();
+		int choiceM = gameController.chooseLevel();
+		//if(choiceM == 1) {
+		if(choiceM != 0) {
+			gameController.setLimite(choiceM);
 
 			int j = 1;
-			while (j <= gameController.limite) {
+			while (j <= gameController.getLimite()) {
 
 				char resultCombi[] = new char[4];
-
+				System.out.println(gameController.getLimite());
 				System.out.println("----------------------------------------------------------");
 				System.out.println("Please enter your numbers:");
-
-				gameController.combiIn = gameController.enterCombi();
+				
+				char[] tmp = gameController.enterCombi();
+				gameController.setCombiIn(tmp);
 
 				System.out.print("\nvotre combi: ");
 
-				gameController.afficheCombi(gameController.combiIn);
+				gameController.afficheCombi(gameController.getCombiIn());
 
 				System.out.println("----------------------");
 
-				resultCombi = instCorrection.correction(gameController.combiIn, instGame.combi);
+				resultCombi = instCorrection.correction(gameController.getCombiIn(), instGame.combi);
 
 				// --- Afficher la combi de l'utilisateur ---
 				System.out.print("Resultat:    ");
@@ -55,12 +63,12 @@ public class ViewConsole {
 
 				if (resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') {
 					System.out.print("BRAVO \nVous avez gagne en " + (j-1) + " essais");
-					j = gameController.limite + 1;
+					j = gameController.getLimite() + 1;
 				}
 				// --- Perdu si limite depassee ---
-				else if (j == gameController.limite + 1) {
+				else if (j == gameController.getLimite() + 1) {
 					System.out.println("Vous avez perdu");
-					System.out.print("Vous avez deja utiliser vos " + gameController.limite + " chances...");
+					System.out.print("Vous avez deja utiliser vos " + gameController.getLimite() + " chances...");
 					System.out.print("La combinaison etait : ");
 					gameController.afficheCombi(instGame.combi);
 				}
@@ -71,7 +79,7 @@ public class ViewConsole {
 		else if (choiceM == 2) { // --------------------------------------------------------------------------------------------------------------------------
 
 		
-			gameController.limite = 100;
+			gameController.setLimite(100);
 			
 			boolean positionCorrect[] = {false,false,false,false};
 			char numeroCorrect[] = new char[4] ;
@@ -80,7 +88,7 @@ public class ViewConsole {
 			
 
 			int j = 1;
-			while (j <= gameController.limite) {
+			while (j <= gameController.getLimite()) {
 
 				char resultCombiPc[] = new char[4]; //Resultat de la combi du PC
 				char resultCombi[] = new char[4];   //Resultat de la combi de l utilisateur
@@ -90,7 +98,7 @@ public class ViewConsole {
 				System.out.println("----------------------------------------------------------");
 				System.out.println("Please enter your numbers:");
 
-				gameController.combiIn = gameController.enterCombi(); // l'utilisateur entre sa combi
+				gameController.setCombiIn(gameController.enterCombi()); // l'utilisateur entre sa combi
 
 				// --- Random des 4 chiffres pour le PC ---
 				Random r = new Random();
@@ -107,7 +115,7 @@ public class ViewConsole {
 				
 				
 				// --- Tranforme les String des correction en char ---
-				resultCombi = instCorrection.correction(gameController.combiIn, instGame.combi);
+				resultCombi = instCorrection.correction(gameController.getCombiIn(), instGame.combi);
 				resultCombiPc = instCorrectionPc.correction(combiPc, instGame.combi);
 				
 				// --- Verifie si le pc a trouver des bonnes reponses ---
@@ -118,7 +126,7 @@ public class ViewConsole {
 					}
 					if(resultCombi[i] == 'V'){
 						positionCorrect[i] = true;
-						numeroCorrect[i] = gameController.combiIn[i];
+						numeroCorrect[i] = gameController.getCombiIn()[i];
 					}
 					
 						
@@ -136,7 +144,7 @@ public class ViewConsole {
 
 				// --- Afficher la combi de l'utilisateur ---
 				System.out.print("\nvotre combi: ");
-				gameController.afficheCombi(gameController.combiIn);
+				gameController.afficheCombi(gameController.getCombiIn());
 				System.out.println("----------------------");
 
 				// --- Afficher la correction de l'utilisateur ---
@@ -153,17 +161,17 @@ public class ViewConsole {
 				// --- GAGNER ---
 				if (resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') {
 					System.out.print("BRAVO \nVous avez gagne en " + (j-1) + " essais");
-					j = gameController.limite + 1;
+					j = gameController.getLimite() + 1;
 				}
 				
 				// --- PERDU ---
 				else if(resultCombiPc[0] == 'V' && resultCombiPc[1] == 'V' && resultCombiPc[2] == 'V' && resultCombiPc[3] == 'V') {
 					System.out.print("Le pc a gagne...");
-					j = gameController.limite + 1;
+					j = gameController.getLimite() + 1;
 				}
-				else if (j == gameController.limite + 1) {
+				else if (j == gameController.getLimite() + 1) {
 					System.out.println("Vous avez perdu");
-					System.out.print("Vous avez deja utilise vos " + gameController.limite + " chances...");
+					System.out.print("Vous avez deja utilise vos " + gameController.getLimite() + " chances...");
 					System.out.print("La combinaison etait : ");
 					gameController.afficheCombi(instGame.combi);
 				}
@@ -176,10 +184,5 @@ public class ViewConsole {
 			System.out.println("Coming soon ...");
 			
 		}
-
 	}
-	
-	
-	
-	
 }

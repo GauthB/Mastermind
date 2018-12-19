@@ -2,11 +2,14 @@ package model;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.io.*;
+import java.lang.*;
 
 /**
  * @author BOHYN Gauthier
  * @author HERMANT Thibaut
- * @author MEYERS Humbert Une classe qui représente le mastermind
+ * @author MEYERS Humbert 
+ * Une classe qui représente le mastermind
  */
 public class ModelGame {
 
@@ -25,6 +28,10 @@ public class ModelGame {
 	private String mode; // Le mode qu'on desire
 
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
+	
+	/**
+	 * Un constructeur qui initialise le nombre d'essais pour chaque niveaux
+	 */
 	public ModelGame() {
 		this.easy = 12;
 		this.normal = 9;
@@ -39,16 +46,21 @@ public class ModelGame {
 	public char[] enterCombi() {
 
 		String combiStr = "";
-
+		//System.out.println("1");
 		Scanner combiInput = new Scanner(System.in);
-
+		//System.out.println("entrez votre num");
 		combiStr = combiInput.nextLine();
-
+		//System.out.println("3");
+		//char toto = combiStr.charAt(0);
+		System.out.println(this.combiIn);
+		System.out.println(combiStr);
 		for (int i = 0; i < 4; i++) {
-			combiIn[i] = combiStr.charAt(i);
+			(this.combiIn)[i] = combiStr.charAt(i);
+			
 		}
-
-		return combiIn;
+		
+		combiInput.close();
+		return this.combiIn;
 
 	}
 
@@ -68,26 +80,30 @@ public class ModelGame {
 			System.out.println("Easy = 'E'        12 chances");
 			System.out.println("Please enter your difficulty:");
 
-			level = levelInput.next();
-			level = level.toLowerCase();
+			this.level = levelInput.next();
+			this.level = this.level.toLowerCase();
 
-			if (level.equals("h")) {
+			if (this.level.equals("h")) {
 				System.out.print("\nYour level is : Hard	\n");
-				difficulty = hard;
+				difficulty = this.hard;
 				choiceL = 1;
-			} else if (level.equals("n")) {
+			} else if (this.level.equals("n")) {
 				System.out.print("\nYour level is : normal  \n");
-				difficulty = normal;
+				difficulty = this.normal;
 				choiceL = 1;
-			} else if (level.equals("e")) {
+			} else if (this.level.equals("e")) {
 				System.out.print("\nYour level is : Easy \n");
-				difficulty = easy;
+				difficulty = this.easy;
 				choiceL = 1;
 			} else {
 				System.out.println("\nNo correct \n\n");
+				difficulty = 0;
 				choiceL = 0;
 			}
+			
 		}
+		levelInput.close();
+		//return choiceL;
 		return difficulty;
 	}
 
@@ -106,20 +122,20 @@ public class ModelGame {
 			System.out.println("Pc = 'P'");
 			System.out.println("Muli = 'M'");
 
-			mode = modeInput.next(); // Enregistrer le mode demande
-			mode = mode.toLowerCase(); // Tout transformer en minuscule
+			this.mode = modeInput.next(); // Enregistrer le mode demande
+			this.mode = this.mode.toLowerCase(); // Tout transformer en minuscule
 
 			/**
 			 * l'utilisateur sera oblige d'encoder comme valeur S ou M 0 (Re-)commence la
 			 * boucle 1 Direction mode solo 2 Direction mode Multi
 			 */
-			if (mode.equals("s")) {
+			if (this.mode.equals("s")) {
 				System.out.print("\nMode: Solo\n");
 				choiceM = 1; // 1 = Solo
-			} else if (mode.equals("p")) {
+			} else if (this.mode.equals("p")) {
 				System.out.print("\nMode: Pc\n");
 				choiceM = 2; // 2 = Pc
-			} else if (mode.equals("m")) {
+			} else if (this.mode.equals("m")) {
 				System.out.print("\nMode: Multi \n");
 				choiceM = 3; // 3 = Multi
 			} else {
@@ -127,7 +143,7 @@ public class ModelGame {
 				choiceM = 0; // Recommence la boucle
 			}
 		}
-
+		modeInput.close();
 		return choiceM;
 	}
 
@@ -142,6 +158,11 @@ public class ModelGame {
 		}
 		System.out.print("\n");
 	}
+	
+	
+	/**
+	 * Getters & setters
+	 */
 
 	public char[] getCombiIn() {
 		return combiIn;
