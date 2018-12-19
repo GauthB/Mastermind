@@ -59,7 +59,12 @@ public class ModelGame {
 		boolean breaker = true;
 		Scanner combiInput = new Scanner(System.in);
 		while(breaker) {
-		combiStr = combiInput.nextLine();
+			combiStr = combiInput.nextLine();
+			if(combiStr.length() == 4) 
+				{breaker=false;}
+			else {
+				System.out.println("Veuillez resaisir une combinaison:\n");
+			}
 		}
 		for (int i = 0; i < 4; i++) {
 			(this.combiIn)[i] = combiStr.charAt(i);
