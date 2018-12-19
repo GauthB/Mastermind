@@ -7,9 +7,6 @@ import java.util.Scanner;
 import controller.Correction;
 import controller.RandomCombi;
 
-import java.io.*;
-import java.lang.*;
-
 /**
  * @author BOHYN Gauthier
  * @author HERMANT Thibaut
