@@ -1,6 +1,7 @@
 package main;
 
 import view.ViewMain;
+import model.ModelGame;
 
 /**
  * 
