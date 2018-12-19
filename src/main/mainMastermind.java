@@ -2,8 +2,15 @@ package main;
 
 import view.ViewMain;
 
-public class mainMastermind {
+/**
+ * 
+ * @author Bohyn Gauthier
+ * @author Hermand Thibaut
+ * @author Meyers Humbert
+ * Une classe controlleur.
+ */
 
+public class mainMastermind {
 	
 	public static void main() {
 	
