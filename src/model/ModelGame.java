@@ -13,7 +13,7 @@ import java.lang.*;
  * @author BOHYN Gauthier
  * @author HERMANT Thibaut
  * @author MEYERS Humbert 
- * Une classe qui reprÃ©sente le mastermind
+ * Une classe qui represente le mastermind
  */
 public class ModelGame {
 
