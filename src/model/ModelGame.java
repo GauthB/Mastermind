@@ -333,7 +333,7 @@ public class ModelGame {
 	
 	
 	/**
-	 * Methode qui adaptes la combinaison du pc en fonctions des combinaison corrigées
+	 * Methode qui adapte la combinaison du pc en fonction des combinaisons corrigées
 	 * @param positionCorrect Un element correct dans la combinaison
 	 * @param numeroCorrect Un numéro correct mais pas à la bonne place
 	 * @param combiPc la précédente combinaison de l'ordinateur
