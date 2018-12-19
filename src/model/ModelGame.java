@@ -24,7 +24,7 @@ public class ModelGame {
 	private int normal; // Mode Normal avec 9 chances
 	private int hard; // Mode Hard avec 5 chance
 	private String level; // Le niveau qu'on desire pour le jeu
-	private int limite; // La difficulte = le nombre de chance / nombre de limite
+	public int limite; // La difficulte = le nombre de chance / nombre de limite
 	private String mode; // Le mode qu'on desire
 
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
@@ -46,14 +46,11 @@ public class ModelGame {
 	public char[] enterCombi() {
 
 		String combiStr = "";
-		//System.out.println("1");
+		
 		Scanner combiInput = new Scanner(System.in);
-		//System.out.println("entrez votre num");
+		
 		combiStr = combiInput.nextLine();
-		//System.out.println("3");
-		//char toto = combiStr.charAt(0);
-		//System.out.println(this.combiIn);
-		//System.out.println(combiStr);
+		
 		for (int i = 0; i < 4; i++) {
 			(this.combiIn)[i] = combiStr.charAt(i);
 			
@@ -76,7 +73,7 @@ public class ModelGame {
 		while (choiceL == 0) {
 			System.out.println("Hard = 'H'        5 chances");
 			System.out.println("Normal = 'N'      9 chances");
-			System.out.println("Easy = 'E'        12 chances");
+			System.out.println("Easy = 'E'        12 chances\n");
 			System.out.println("Please enter your difficulty:");
 			
 			
@@ -115,7 +112,7 @@ public class ModelGame {
 		int choiceM = 0;
 
 		while (choiceM == 0) {
-			System.out.println("Choisir votre mode");
+			System.out.println("Choisir votre mode\n");
 			System.out.println("Solo = 'S'");
 			System.out.println("Pc = 'P'");
 			System.out.println("Muli = 'M'");
@@ -128,13 +125,13 @@ public class ModelGame {
 			 * boucle 1 Direction mode solo 2 Direction mode Multi
 			 */
 			if (this.mode.equals("s")) {
-				System.out.print("\nMode: Solo\n");
+				System.out.print("\nMode: Solo\n\n");
 				choiceM = 1; // 1 = Solo
 			} else if (this.mode.equals("p")) {
-				System.out.print("\nMode: Pc\n");
+				System.out.print("\nMode: Pc\n\n");
 				choiceM = 2; // 2 = Pc
 			} else if (this.mode.equals("m")) {
-				System.out.print("\nMode: Multi \n");
+				System.out.print("\nMode: Multi \n\n");
 				choiceM = 3; // 3 = Multi
 			} else {
 				System.out.println("\nNo correct \n\n");
