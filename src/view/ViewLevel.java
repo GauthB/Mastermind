@@ -145,7 +145,7 @@ public class ViewLevel extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) 
+	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
 			case"Enter":
 				ViewGameSolo ViewGameSolo = new ViewGameSolo();
