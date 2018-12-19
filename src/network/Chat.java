@@ -47,7 +47,7 @@ public class Chat {
 	/**
 	 * Attend le message suivant
 	 * @return le message reçu de l'interlocuteur
-	 * @throws IOException
+	 * @throws IOException envoie une erreur si aucun message n'est rentré
 	 */
 	public String waitForMessage() throws IOException{
 		String str = null;

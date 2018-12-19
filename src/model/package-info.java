@@ -2,4 +2,4 @@
  * 
  *
  */
-package mvc;
+package model;

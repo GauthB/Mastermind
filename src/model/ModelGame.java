@@ -49,19 +49,18 @@ public class ModelGame {
 		//System.out.println("1");
 		Scanner combiInput = new Scanner(System.in);
 		//System.out.println("entrez votre num");
-		combiStr = combiInput.nextLine();
+		while(combiInput.hasNextLine()){
+			combiStr = combiInput.nextLine();
+		}
 		//System.out.println("3");
 		//char toto = combiStr.charAt(0);
 		System.out.println(this.combiIn);
 		System.out.println(combiStr);
 		for (int i = 0; i < 4; i++) {
-			(this.combiIn)[i] = combiStr.charAt(i);
-			
+			(this.combiIn)[i] = combiStr.charAt(i);	
 		}
-		
 		combiInput.close();
 		return this.combiIn;
-
 	}
 
 	// --- Choisir son level ---
@@ -100,10 +99,9 @@ public class ModelGame {
 				difficulty = 0;
 				choiceL = 0;
 			}
-			
+
 		}
 		levelInput.close();
-		//return choiceL;
 		return difficulty;
 	}
 
@@ -159,11 +157,6 @@ public class ModelGame {
 		System.out.print("\n");
 	}
 	
-	
-	/**
-	 * Getters & setters
-	 */
-
 	public char[] getCombiIn() {
 		return combiIn;
 	}

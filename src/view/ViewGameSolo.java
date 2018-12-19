@@ -45,6 +45,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	
 	/**
 	 * Launch the application.
+	 * @param args les paramètres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

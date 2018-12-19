@@ -31,11 +31,9 @@ public class ViewConsole {
 		 */ 
 		 
 
-		int choiceM = gameController.chooseLevel();
-		//if(choiceM == 1) {
-		if(choiceM != 0) {
-			gameController.setLimite(choiceM);
-
+		int choiceM = gameController.chooseMode();
+		if(choiceM == 1) {
+			gameController.setLimite(gameController.chooseLevel());
 			int j = 1;
 			while (j <= gameController.getLimite()) {
 
@@ -84,17 +82,13 @@ public class ViewConsole {
 			boolean positionCorrect[] = {false,false,false,false};
 			char numeroCorrect[] = new char[4] ;
 			
-			
-			
-
 			int j = 1;
 			while (j <= gameController.getLimite()) {
 
 				char resultCombiPc[] = new char[4]; //Resultat de la combi du PC
 				char resultCombi[] = new char[4];   //Resultat de la combi de l utilisateur
 				char combiPc[] = new char[4];     //Combi du PC
-				
-				
+					
 				System.out.println("----------------------------------------------------------");
 				System.out.println("Please enter your numbers:");
 
@@ -113,7 +107,6 @@ public class ViewConsole {
 					
 				}
 				
-				
 				// --- Tranforme les String des correction en char ---
 				resultCombi = instCorrection.correction(gameController.getCombiIn(), instGame.combi);
 				resultCombiPc = instCorrectionPc.correction(combiPc, instGame.combi);
@@ -128,8 +121,7 @@ public class ViewConsole {
 						positionCorrect[i] = true;
 						numeroCorrect[i] = gameController.getCombiIn()[i];
 					}
-					
-						
+							
 				}
 			
 				// --- Afficher la combi du PC ---

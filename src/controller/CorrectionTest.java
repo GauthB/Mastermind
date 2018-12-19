@@ -30,7 +30,7 @@ public class CorrectionTest {
 
 	/**
 	 * L'initialisation des différentes combinaisons.
-	 * @throws Exception
+	 * @throws Exception envoie une erreur
 	 */
 	@Before
 	public void setUp() throws Exception {

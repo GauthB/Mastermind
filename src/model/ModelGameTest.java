@@ -18,7 +18,7 @@ import org.junit.Test;
 public class ModelGameTest {
 
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception envoie une erreur
 	 */
 	@Before
 	public void setUp() throws Exception {
