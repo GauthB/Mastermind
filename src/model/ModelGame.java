@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Observable;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import java.lang.*;
  * @author MEYERS Humbert 
  * Une classe qui represente le mastermind
  */
-public class ModelGame {
+public class ModelGame extends Observable{
 
 	// -------------------------------------
 	// Affichage du jeu
