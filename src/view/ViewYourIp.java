@@ -1,5 +1,4 @@
 package view;
-import network.AddressIp;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -15,6 +14,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -27,7 +27,8 @@ import java.awt.Dimension;
 public class ViewYourIp extends JFrame implements ActionListener {
 
 	ModelGame GameController = new ModelGame();
-	AddressIp adressIp = new AddressIp();
+
+	
 	
 	/**
 	 * Variables
@@ -61,7 +62,8 @@ public class ViewYourIp extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public ViewYourIp() {
+	public ViewYourIp()throws UnknownHostException {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 300);
 		contentPane = new JPanel();
@@ -69,8 +71,8 @@ public class ViewYourIp extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 60, 0, 60, 0, 0};
+		gbl_contentPane.columnWidths = new int[]{20, 0, 20};
+		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 60, 0, 60, 0, 0,20};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
@@ -88,16 +90,16 @@ public class ViewYourIp extends JFrame implements ActionListener {
 		lblIpAddress = new JLabel("Your Ip address:");
 		lblIpAddress.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_lblIpAddress = new GridBagConstraints();
-		gbc_lblIpAddress.gridwidth = 2;
 		gbc_lblIpAddress.anchor = GridBagConstraints.SOUTHWEST;
 		gbc_lblIpAddress.insets = new Insets(0, 0, 5, 5);
-		gbc_lblIpAddress.gridx = 0;
+		gbc_lblIpAddress.gridx = 1;
 		gbc_lblIpAddress.gridy = 3;
 		contentPane.add(lblIpAddress, gbc_lblIpAddress);
 		
 		lblIp = new JLabel("");
-		lblIp.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblIp.setFont(new Font("Lucida Grande", Font.BOLD | Font.ITALIC, 20));
 		GridBagConstraints gbc_lblIp = new GridBagConstraints();
+		gbc_lblIp.anchor = GridBagConstraints.WEST;
 		gbc_lblIp.insets = new Insets(0, 0, 5, 5);
 		gbc_lblIp.gridx = 1;
 		gbc_lblIp.gridy = 4;
@@ -117,8 +119,11 @@ public class ViewYourIp extends JFrame implements ActionListener {
 		btnOk.addActionListener(this);
 		setVisible(true);
 		btnOk.requestFocus();
-		//lblIp.setText(adressIp.Transfo());
-		//lblIp.setText(Transfo());
+		
+		// Pour afficher l'adresse IP
+		String ip = InetAddress.getLocalHost().getHostAddress().toString();
+		//System.out.println("Votre IP est : " + ip);
+		lblIp.setText(ip);
 		
 		rootPane = SwingUtilities.getRootPane(btnOk);
 		rootPane.setDefaultButton(btnOk);
