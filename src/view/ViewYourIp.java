@@ -1,5 +1,5 @@
 package view;
-
+import network.AddressIp;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -27,7 +27,7 @@ import java.awt.Dimension;
 public class ViewYourIp extends JFrame implements ActionListener {
 
 	ModelGame GameController = new ModelGame();
-
+AddressIp addressIp = new AddressIp();
 	
 	
 	/**
@@ -61,8 +61,9 @@ public class ViewYourIp extends JFrame implements ActionListener {
 
 	/**
 	 * Create the frame.
+	 * @throws UnknownHostException 
 	 */
-	public ViewYourIp()throws UnknownHostException {
+	public ViewYourIp() /*throws Exception*/{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 300);
@@ -121,15 +122,24 @@ public class ViewYourIp extends JFrame implements ActionListener {
 		btnOk.requestFocus();
 		
 		// Pour afficher l'adresse IP
-		String ip = InetAddress.getLocalHost().getHostAddress().toString();
-		//System.out.println("Votre IP est : " + ip);
-		lblIp.setText(ip);
+		
+		//String ip = InetAddress.getLocalHost().getHostAddress().toString();
+		try {
+			System.out.println("Votre IP est : " + addressIp.giveMyIp());
+			lblIp.setText(addressIp.giveMyIp());
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//lblIp.setText(ip);
 		
 		rootPane = SwingUtilities.getRootPane(btnOk);
 		rootPane.setDefaultButton(btnOk);
 		rootPane.setVisible(true);
 		
 	}
+	
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
