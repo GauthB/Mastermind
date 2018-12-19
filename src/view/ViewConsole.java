@@ -43,12 +43,11 @@ public class ViewConsole {
 			while (j <= gameController.getLimite()) {
 
 				char resultCombi[] = new char[4];
-				System.out.println("Il vous reste " + (gameController.getLimite() - (j+1)) + " chances");
+				System.out.println("Il vous reste " + (gameController.getLimite() - (j+1) +2) + " chances");
 				System.out.println("----------------------------------------------------------");
 				System.out.println("Please enter your numbers:");
 				
-				char[] tmp = gameController.enterCombi();
-				gameController.setCombiIn(tmp);
+				gameController.setCombiIn(gameController.enterCombi());
 
 				System.out.print("\nvotre combi: ");
 
