@@ -9,7 +9,7 @@ import java.lang.*;
  * @author BOHYN Gauthier
  * @author HERMANT Thibaut
  * @author MEYERS Humbert 
- * Une classe qui représente le mastermind
+ * Une classe qui reprÃ©sente le mastermind
  */
 public class ModelGame {
 
@@ -24,7 +24,7 @@ public class ModelGame {
 	private int normal; // Mode Normal avec 9 chances
 	private int hard; // Mode Hard avec 5 chance
 	private String level; // Le niveau qu'on desire pour le jeu
-	private int limite; // La difficulte = le nombre de chance / nombre de limite
+	public int limite; // La difficulte = le nombre de chance / nombre de limite
 	private String mode; // Le mode qu'on desire
 
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
@@ -41,7 +41,7 @@ public class ModelGame {
 
 	// --- Entrez une combi ---
 	/**
-	 * @return combiIn tableau contenant la combinaison entrée
+	 * @return combiIn tableau contenant la combinaison entrÃ©e
 	 */
 	public char[] enterCombi() {
 
@@ -49,18 +49,18 @@ public class ModelGame {
 		//System.out.println("1");
 		Scanner combiInput = new Scanner(System.in);
 		//System.out.println("entrez votre num");
-		while(combiInput.hasNextLine()){
-			combiStr = combiInput.nextLine();
-		}
+		combiStr = combiInput.nextLine();
 		//System.out.println("3");
 		//char toto = combiStr.charAt(0);
 		System.out.println(this.combiIn);
 		System.out.println(combiStr);
 		for (int i = 0; i < 4; i++) {
-			(this.combiIn)[i] = combiStr.charAt(i);	
+			(this.combiIn)[i] = combiStr.charAt(i);
+			
 		}
-		combiInput.close();
+		
 		return this.combiIn;
+
 	}
 
 	// --- Choisir son level ---
@@ -78,8 +78,9 @@ public class ModelGame {
 			System.out.println("Normal = 'N'      9 chances");
 			System.out.println("Easy = 'E'        12 chances");
 			System.out.println("Please enter your difficulty:");
-
-			this.level = levelInput.next();
+			
+			
+			this.level = levelInput.nextLine();
 			this.level = this.level.toLowerCase();
 
 			if (this.level.equals("h")) {
@@ -99,9 +100,8 @@ public class ModelGame {
 				difficulty = 0;
 				choiceL = 0;
 			}
-
+			
 		}
-		levelInput.close();
 		return difficulty;
 	}
 
@@ -141,7 +141,6 @@ public class ModelGame {
 				choiceM = 0; // Recommence la boucle
 			}
 		}
-		modeInput.close();
 		return choiceM;
 	}
 
@@ -157,6 +156,11 @@ public class ModelGame {
 		System.out.print("\n");
 	}
 	
+	
+	/**
+	 * Getters & setters
+	 */
+
 	public char[] getCombiIn() {
 		return combiIn;
 	}
