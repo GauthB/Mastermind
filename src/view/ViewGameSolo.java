@@ -43,9 +43,10 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 	private JButton btMenu,btnEnter,btnReplay,btnExit;
 	private JLabel lbWin,lbResult,lblResult;
 	
+	
 	/**
 	 * Launch the application.
-	 * @param args les paramètres du jeu.
+	 * @param args les paramÃ¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -54,6 +55,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 					ViewGameSolo frame = new ViewGameSolo();
 					frame.setVisible(true);
 					frame.setTitle("Number Mastermind");
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -171,7 +173,8 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		setVisible(true);
 		textField2.requestFocus();
 		
-		lbWin = new JLabel("");
+		
+		lbWin = new JLabel("Bonne chance !");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
 		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
@@ -222,6 +225,11 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		
 		switch(e.getActionCommand()){
 		case"Enter":
+			if(numeroEssai == 0) {
+				lbWin.setText("You have " + levelSolo + " chances");
+				lbWin.setVisible(true);
+			}
+			
 			combiInJframe=textField2.getText();
 			if(combiInJframe.length()!=4) {
 				break;
@@ -229,6 +237,7 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 			
 			temp2 = temp2 + gameControllerGui.corrige(combiInJframe)+"\n";
 			temp = temp+combiInJframe+"\n";
+			
 			
 			
 			if(gameControllerGui.ifCorrect(combiInJframe) == true) {
@@ -260,11 +269,10 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 				else if(numeroEssai < levelSolo) {
 					
 					combiResult.setText(temp2);
-					
 					combiInTout.setText(temp);
-					
 					textField2.setText("");
-					
+					lbWin.setText("You have " + (levelSolo-numeroEssai-1) + " chances");
+					lbWin.setVisible(true);
 					numeroEssai++;
 				}
 				
