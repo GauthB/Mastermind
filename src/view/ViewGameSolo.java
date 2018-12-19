@@ -222,8 +222,10 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 		
 		switch(e.getActionCommand()){
 		case"Enter":
-			
 			combiInJframe=textField2.getText();
+			if(combiInJframe.length()!=4) {
+				break;
+			}
 			
 			temp2 = temp2 + gameControllerGui.corrige(combiInJframe)+"\n";
 			temp = temp+combiInJframe+"\n";
@@ -239,8 +241,6 @@ public class ViewGameSolo extends JFrame implements ActionListener {
 				btnEnter.setEnabled(false);
 				btnReplay.setVisible(true);
 			//	btnReplay.setEnabled(false);
-				
-				
 				
 			}
 			else {

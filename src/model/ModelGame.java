@@ -211,10 +211,8 @@ public class ModelGame {
 		for(int i=0;i < 4;i++) {
 			tab[i] = txt.charAt(i);
 		}
-		
 		char correct[] = new char[4];
 		correct = instCorr.correction(tab,instCombiRandom.combi);
-		
 		txt ="";
 		for(int i=0;i < 4;i++) {
 			txt += correct[i];
@@ -278,20 +276,15 @@ public class ModelGame {
 		if(txt.equals("")) {//Si l'utilisateur ne rentre rien
 			return false;
 		}
-		
 		if(txt.length() >= 2) {//Si l'utilisateur rentre plus que 1 caractere
 			return false;
 		}
-		
 		else if((txt.charAt(0) == 'H') || (txt.charAt(0) == 'h') || (txt.charAt(0) == 'N') || (txt.charAt(0) == 'n') || (txt.charAt(0) == 'E') || (txt.charAt(0) == 'e')) {
 			return true;
 		}
-		
-		
 		else {
 			return false;
 		}
-		
 	}
 	
 	/**
