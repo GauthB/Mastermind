@@ -25,8 +25,11 @@ public class ServeurMulti {
 	
 	public ServeurMulti() throws Exception {
 		
-		ViewGameMulti viewGameMulti = new ViewGameMulti();
-		viewGameMulti.setVisible(true);
+	}
+	
+	public void connect() throws Exception {
+		
+		System.out.println(port);
 		
 		try {
 			System.out.println("Server is started");
