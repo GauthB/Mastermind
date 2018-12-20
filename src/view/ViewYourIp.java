@@ -46,7 +46,7 @@ AddressIp addressIp = new AddressIp();
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÂ¨tres du jeu.
+	 * @param args les paramÃƒÆ’Ã‚Â¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -154,6 +154,7 @@ AddressIp addressIp = new AddressIp();
 			try {
 				serveurMulti = new ServeurMulti();
 				serveurMulti.port = 2021;
+				serveurMulti.connect();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
