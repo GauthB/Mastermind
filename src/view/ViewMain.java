@@ -93,8 +93,9 @@ public class ViewMain extends JFrame implements ActionListener {
 		gbc_btnSolo.gridy = 3;
 		contentPane.add(btnSolo, gbc_btnSolo);
 		btnSolo.addActionListener(this);
-		btnSolo.setMaximumSize(new Dimension(200, 40));
-		btnSolo.setMinimumSize(new Dimension(200, 40));
+		//btnSolo.setMaximumSize(new Dimension(200, 40));
+		//btnSolo.setMinimumSize(new Dimension(200, 40));
+		btnSolo.setSize(200,40);
 	
 		btnSoloPc = new JButton("Solo_Pc");
 		btnSoloPc.setHorizontalAlignment(SwingConstants.LEFT);
