@@ -19,7 +19,7 @@ public class RandomCombi {
 	}
 	
 	/**
-	 * 
+	 * Une methode qui genere une combinaison aléatoire
 	 * @param le nombre de chiffre qu'il faut dans la combinaison
 	 * @return un combinaison aléatoire
 	 */
