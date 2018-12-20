@@ -1,11 +1,13 @@
 package model;
 
+import java.net.UnknownHostException;
 import java.util.Observable;
 import java.util.Random;
 import java.util.Scanner;
 
 import controller.Correction;
 import controller.RandomCombi;
+import network.AddressIp;
 
 /**
  * @author BOHYN Gauthier
@@ -26,10 +28,12 @@ public class ModelGame extends Observable{
 	private int normal; // Mode Normal avec 9 chances
 	private int hard; // Mode Hard avec 5 chance
 	private String level; // Le niveau qu'on desire pour le jeu
+	private String hebergement;
 	public int limite; // La difficulte = le nombre de chance / nombre de limite
 	private String mode; // Le mode qu'on desire
 	private Correction instCorr;
 	private RandomCombi instCombiRandom;
+	private AddressIp instAddressIp;
 
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
 	
@@ -42,6 +46,7 @@ public class ModelGame extends Observable{
 		this.hard = 5;
 		this.instCombiRandom = new RandomCombi();
 		this.instCorr = new Correction();
+		this.instAddressIp= new AddressIp();
 		this.combiIn = new char[4];
 		this.combiIn[0] = 0; this.combiIn[1] = 0; this.combiIn[2] = 0; this.combiIn[3] = 0;
 	}
@@ -111,6 +116,7 @@ public class ModelGame extends Observable{
 		}
 		return difficulty;
 	}
+	
 
 	// --- Choisir un mode ---
 	/**
@@ -150,6 +156,54 @@ public class ModelGame extends Observable{
 		}
 		return choiceM;
 	}
+	/**
+	 * -------------------------------------------------------------------------------------------------------------------
+	 * A RAJOUTER DANS LE RAPPORT
+	 * ------------------------------------------------------------------------------------------------------------------
+	 */
+	
+	public int chooseHost(){
+		Scanner EbergementInput = new Scanner(System.in);
+		Scanner AddressIpInput = new Scanner(System.in);
+		int choiceE = 0;
+		
+
+		while (choiceE == 0) {
+			System.out.println("Do you host?(y/n)");
+
+			
+			this.hebergement = EbergementInput.next();
+
+			if (this.hebergement.equals("y")) {
+				System.out.print("Your address Ip is:	\n");
+				
+				try {
+					System.out.println(instAddressIp.giveMyIp());
+					
+				} catch (UnknownHostException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				choiceE = 1;
+			} else if (this.hebergement.equals("n")) {
+				System.out.print("\nPlease enter the ip address of the opponent:  \n");
+				this.hebergement = AddressIpInput.next();
+				System.out.print("Thanks\n");
+				
+				choiceE = 2;
+			} else {
+				System.out.println("\nNo correct \n\n");
+				
+				choiceE = 0;
+			}
+			
+		}
+		return choiceE;
+	}
+
+
 
 	// --- Affiche une combi ---
 	/**
@@ -450,5 +504,19 @@ public class ModelGame extends Observable{
 	public void setInstCombiRandom(RandomCombi instCombiRandom) {
 		this.instCombiRandom = instCombiRandom;
 	}
+	public String getEbergement() {
+		return ebergement;
+	}
 
+	public void setEbergement(String ebergement) {
+		this.ebergement = ebergement;
+	}
+
+	public AddressIp getInstAddressIp() {
+		return instAddressIp;
+	}
+
+	public void setInstAddressIp(AddressIp instAddressIp) {
+		this.instAddressIp = instAddressIp;
+	}
 }
