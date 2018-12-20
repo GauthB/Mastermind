@@ -8,12 +8,13 @@ package controller;
  */
 public class Correction {
 
+//_______________VARIABLES___________________________________________________________________________________________________________
 	private static char correct = 'V';			// si le chiffre est au bon endroit
 	private static char miCorrect = '/';			// si le chiffre existe mais n'est pas au bon endroit
 	private static char noCorrect = 'X';			// si le chiffre n'existe pas dans la combi
 	
 	
-	
+//_________________METHODES____________________________________________________________________________________________________
 	/**
 	 * Une méthode qui corrige la combinaison reçue grâce à la combinaison générée
 	 * @param combiIn la combinaison reçue
