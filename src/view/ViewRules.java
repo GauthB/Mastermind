@@ -21,7 +21,6 @@ public class ViewRules extends JFrame implements ActionListener {
 
 	
 	ModelGame GameController = new ModelGame();
-	ViewHote viewHote = new ViewHote();
 	/**
 	 * Variable
 	 */
