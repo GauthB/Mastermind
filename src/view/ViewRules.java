@@ -103,7 +103,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_solo1.gridy = 4;
 		contentPane.add(solo1, gbc_solo1);
 		
-		solo2 = new JLabel("- L’ordinateur corrige lui-même le joueur grâce aux résultats qu’il renvoit, il répond par:");
+		solo2 = new JLabel("- L’ordinateur corrige lui-même le joueur grâce aux résultats qu’il renvoie, il répond par:");
 		GridBagConstraints gbc_solo2 = new GridBagConstraints();
 		gbc_solo2.anchor = GridBagConstraints.WEST;
 		gbc_solo2.gridwidth = 10;
@@ -182,7 +182,7 @@ public class ViewRules extends JFrame implements ActionListener {
 		gbc_soloPc2.gridy = 14;
 		contentPane.add(soloPc2, gbc_soloPc2);
 		
-		soloPc3 = new JLabel("   aux résultats qu’il renvoit, il répond par V (Chiffre bonne place), / (Chiffre existant mais pas à ");
+		soloPc3 = new JLabel("   aux résultats qu’il renvoie, il répond par V (Chiffre bonne place), / (Chiffre existant mais pas à ");
 		GridBagConstraints gbc_soloPc3 = new GridBagConstraints();
 		gbc_soloPc3.anchor = GridBagConstraints.WEST;
 		gbc_soloPc3.gridwidth = 10;
