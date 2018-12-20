@@ -1,5 +1,6 @@
 package main;
 
+import view.ViewConsole;
 import view.ViewMain;
 import model.ModelGame;
 
@@ -19,6 +20,8 @@ public class mainMastermind {
 		
 		ViewMain viewMain = new ViewMain();
 		viewMain.setVisible(true);
+		ViewConsole viewCLI = new ViewConsole();
+		viewCLI.main(args);;
 		
 	}	
 	
