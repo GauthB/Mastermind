@@ -213,7 +213,7 @@ public class ViewGamePc extends JFrame implements ActionListener {
 		setVisible(true);
 		textField2.requestFocus();
 		
-		lbWin = new JLabel("you have 12 chances");
+		lbWin = new JLabel("You have 12 chances");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
 		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
