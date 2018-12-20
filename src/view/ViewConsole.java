@@ -188,7 +188,7 @@ public class ViewConsole {
 //--------------------------------------------------------------------------------------------------------------------------
 		else if (choiceM == 3) {
 			
-			int choiceE = gameController.chooseHost();
+			int choiceH = gameController.chooseHost();
 			
 			/**
 			 * MODE MULTIPLAYER
