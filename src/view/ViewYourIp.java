@@ -1,5 +1,8 @@
 package view;
 import network.AddressIp;
+import network.ClientMulti;
+import network.ServeurMulti;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -147,9 +150,14 @@ AddressIp addressIp = new AddressIp();
 		switch(e.getActionCommand()){
 	
 		case"OK":
-			ViewGameMulti viewGameMulti = new ViewGameMulti();
-			viewGameMulti.setVisible(true);
-			viewGameMulti.isHote = "t";
+			ServeurMulti serveurMulti;
+			try {
+				serveurMulti = new ServeurMulti();
+				serveurMulti.port = 2021;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 		case"Exit":	
 			this.dispose();
