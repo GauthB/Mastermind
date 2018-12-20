@@ -8,13 +8,28 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+
+import view.ViewGameMulti;
+
 import java.io.PrintWriter;
 import java.io.IOException;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JTextPane;
 
 
 public class ClientMulti {
-/*	
-	public ClientMulti(String ip, int port) throws Exception {
+	
+	public String ip="";
+	public int port;
+	
+	public ClientMulti() throws Exception {
+		
+		ViewGameMulti viewGameMulti = new ViewGameMulti();
+		viewGameMulti.setVisible(true);
+		
 		try {
 			Socket s = new Socket(ip,port);
 			
@@ -36,22 +51,21 @@ public class ClientMulti {
 			System.out.println(e);
 		}
 	}
-
-*/
+	
 	
 
+
+	
+/*
 	   public static void main(String[] args) {
 	      
 	      final Socket clientSocket;
 	      final BufferedReader in;
 	      final PrintWriter out;
-	      final Scanner sc = new Scanner(System.in);//pour lire à partir du clavier
+	      final Scanner sc = new Scanner(System.in);//pour lire Ã  partir du clavier
 	  
 	      try {
-	         /*
-	         * les informations du serveur ( port et adresse IP ou nom d'hote
-	         * 127.0.0.1 est l'adresse local de la machine
-	         */
+	         
 	         clientSocket = new Socket("127.0.0.1",5000);
 	   
 	         //flux pour envoyer
@@ -82,7 +96,7 @@ public class ClientMulti {
 	                    System.out.println("Serveur : "+msg);
 	                    msg = in.readLine();
 	                 }
-	                 System.out.println("Serveur déconecté");
+	                 System.out.println("Serveur dÃ©conectÃ©");
 	                 out.close();
 	                 clientSocket.close();
 	               } catch (IOException e) {
@@ -95,7 +109,7 @@ public class ClientMulti {
 	      } catch (IOException e) {
 	           e.printStackTrace();
 	      }
-	  }
+	  }*/
 	
 	
 }
