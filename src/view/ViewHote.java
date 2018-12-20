@@ -21,8 +21,6 @@ public class ViewHote extends JFrame implements ActionListener {
 
 	
 	ModelGame GameController = new ModelGame();
-	ViewGameMulti viewGameMulti = new ViewGameMulti();
-	
 	
 	/**
 	 * Variable
