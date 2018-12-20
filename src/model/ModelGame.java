@@ -156,23 +156,21 @@ public class ModelGame extends Observable{
 		}
 		return choiceM;
 	}
+	// --- Choisir si vous etes l hote ---
 	/**
-	 * -------------------------------------------------------------------------------------------------------------------
-	 * A RAJOUTER DANS LE RAPPORT
-	 * ------------------------------------------------------------------------------------------------------------------
+	 * @return choiceH (int) mode de jeu (0 ou 1 ou 2 ou 3)
 	 */
-	
 	public int chooseHost(){
-		Scanner EbergementInput = new Scanner(System.in);
+		Scanner HebergementInput = new Scanner(System.in);
 		Scanner AddressIpInput = new Scanner(System.in);
-		int choiceE = 0;
+		int choiceH = 0;
 		
 
-		while (choiceE == 0) {
+		while (choiceH == 0) {
 			System.out.println("Do you host?(y/n)");
 
 			
-			this.hebergement = EbergementInput.next();
+			this.hebergement = HebergementInput.next();
 
 			if (this.hebergement.equals("y")) {
 				System.out.print("Your address Ip is:	\n");
@@ -186,21 +184,21 @@ public class ModelGame extends Observable{
 				}
 				
 				
-				choiceE = 1;
+				choiceH = 1;
 			} else if (this.hebergement.equals("n")) {
 				System.out.print("\nPlease enter the ip address of the opponent:  \n");
 				this.hebergement = AddressIpInput.next();
 				System.out.print("Thanks\n");
 				
-				choiceE = 2;
+				choiceH = 2;
 			} else {
 				System.out.println("\nNo correct \n\n");
 				
-				choiceE = 0;
+				choiceH = 0;
 			}
 			
 		}
-		return choiceE;
+		return choiceH;
 	}
 
 
@@ -505,11 +503,11 @@ public class ModelGame extends Observable{
 		this.instCombiRandom = instCombiRandom;
 	}
 	public String getEbergement() {
-		return ebergement;
+		return hebergement;
 	}
 
 	public void setEbergement(String ebergement) {
-		this.ebergement = ebergement;
+		this.hebergement = ebergement;
 	}
 
 	public AddressIp getInstAddressIp() {
