@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.ModelGame;
+import network.ClientMulti;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -111,10 +112,16 @@ public class ViewIp extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 	
 		case"Enter":
-			ViewGameMulti viewGameMulti = new ViewGameMulti();
-			viewGameMulti.setVisible(true);
-			viewGameMulti.ip = textField.getText();
-			viewGameMulti.isHote = "f";
+			ClientMulti clientMulti;
+			try {
+				clientMulti = new ClientMulti();
+				clientMulti.ip = textField.getText();
+				clientMulti.port = 2020;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			
 			
 		case"Exit":	
