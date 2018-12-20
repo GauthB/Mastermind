@@ -76,7 +76,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		gbc_title.gridy = 1;
 		contentPane.add(title, gbc_title);
 		
-		btnHote = new JButton("Hote");
+		btnHote = new JButton("Host");
 		btnHote.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		GridBagConstraints gbc_btnHote = new GridBagConstraints();
 		gbc_btnHote.anchor = GridBagConstraints.SOUTHWEST;
