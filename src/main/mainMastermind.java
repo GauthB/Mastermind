@@ -12,7 +12,7 @@ import model.ModelGame;
  * Une classe controlleur.
  */
 
-public class mainMastermind {
+public class MainMastermind {
 	
 	public static void main(String[] args) {
 	
