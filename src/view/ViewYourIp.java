@@ -64,7 +64,6 @@ AddressIp addressIp = new AddressIp();
 
 	/**
 	 * Create the frame.
-	 * @throws UnknownHostException 
 	 */
 	public ViewYourIp() /*throws Exception*/{
 		

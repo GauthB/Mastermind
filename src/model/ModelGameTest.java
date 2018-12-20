@@ -23,7 +23,7 @@ public class ModelGameTest {
 	ModelGame m6;
 	
 	/**
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception renvoie une erreur
 	 */
 	@Before
 	public void setUp() throws Exception {

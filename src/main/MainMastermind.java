@@ -16,7 +16,7 @@ public class MainMastermind {
 	/**
 	 * ue methode qui peut executer la classe ViewMain pour avoit l'interface graphique
 	 * mais qui peut aussi lancer le jeu en console
-	 * @param args
+	 * @param args les arguments de la methode
 	 */
 	public static void main(String[] args) {
 		ViewMain viewMain = new ViewMain();

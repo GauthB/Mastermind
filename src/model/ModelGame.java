@@ -427,9 +427,11 @@ public class ModelGame extends Observable{
 	
 	
 	/**
-	 * Getters & setters
+	 * Getters and setters
 	 */
 
+	
+	
 	public char[] getCombiIn() {
 		return combiIn;
 	}
