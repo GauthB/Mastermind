@@ -76,7 +76,6 @@ public class CorrectionTest {
 		assertEquals(expected[3], result[3]);
 	}
 	
-	
 	/**
 	 * Vérifie si la combinaison reçue est fausse
 	 */
@@ -94,7 +93,6 @@ public class CorrectionTest {
 		assertEquals(expected[3], result[3]);
 	}
 	
-	
 	/**
 	 * Vérifie si la combinaison est juste mais pas dans le bon ordre
 	 */
@@ -111,7 +109,6 @@ public class CorrectionTest {
 		assertEquals(expected[2], result[2]);
 		assertEquals(expected[3], result[3]);
 	}
-	
 	
 	/**
 	 * Vérifie si la combinaison contient un mix de toutes les possibilités
