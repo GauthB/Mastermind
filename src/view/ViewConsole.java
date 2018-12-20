@@ -195,7 +195,7 @@ public class ViewConsole {
 			 */
 			
 			
-			
+				System.out.print("\nMode Multi arrive bientot");
 			
 			
 			
