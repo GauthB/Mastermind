@@ -10,6 +10,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 import view.ViewGameMulti;
+import view.ViewIp;
 
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -25,12 +26,18 @@ public class ClientMulti {
 	public String ip="";
 	public int port;
 	
+	
 	public ClientMulti() throws Exception {
 		
-		ViewGameMulti viewGameMulti = new ViewGameMulti();
-		viewGameMulti.setVisible(true);
+	}
+	
+	public void connect() throws Exception {
+		
+		System.out.println(ip);
+		System.out.println(port);
 		
 		try {
+			
 			Socket s = new Socket(ip,port);
 			
 			DataInputStream din = new DataInputStream(s.getInputStream());
@@ -51,8 +58,6 @@ public class ClientMulti {
 			System.out.println(e);
 		}
 	}
-	
-	
 
 
 	
@@ -62,7 +67,7 @@ public class ClientMulti {
 	      final Socket clientSocket;
 	      final BufferedReader in;
 	      final PrintWriter out;
-	      final Scanner sc = new Scanner(System.in);//pour lire Ã  partir du clavier
+	      final Scanner sc = new Scanner(System.in);//pour lire ÃƒÂ  partir du clavier
 	  
 	      try {
 	         
@@ -96,7 +101,7 @@ public class ClientMulti {
 	                    System.out.println("Serveur : "+msg);
 	                    msg = in.readLine();
 	                 }
-	                 System.out.println("Serveur dÃ©conectÃ©");
+	                 System.out.println("Serveur dÃƒÂ©conectÃƒÂ©");
 	                 out.close();
 	                 clientSocket.close();
 	               } catch (IOException e) {
