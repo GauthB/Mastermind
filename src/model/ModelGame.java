@@ -407,7 +407,6 @@ public class ModelGame extends Observable{
 		
 		correctPc = instCorr.correction(combiPc2,instCombiRandom.combi);
 		correctUti = instCorr.correction(combiUti2,instCombiRandom.combi);
-		
 		for(int i = 0; i < 4; i++) {
 			if(correctPc[i] == 'V'){
 				positionCorrect[i] = 't';
@@ -418,6 +417,7 @@ public class ModelGame extends Observable{
 				numeroCorrect[i] = combiUti2[i];
 			}
 		}
+
 		retour[0] = positionCorrect;
 		retour[1] = numeroCorrect;
 		retour[2] = correctPc;
