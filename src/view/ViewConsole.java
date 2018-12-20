@@ -38,7 +38,7 @@ public class ViewConsole {
 
 		int choiceM = gameController.chooseMode();
 		
- // --------------------------------------------------------------------------------------------------------------------------	
+		// ----- Mode 1 = Mode Solo ---------------------------------------------------------------------------------------------------------------------	
 		if(choiceM == 1) {
 		
 			gameController.limite = gameController.chooseLevel();
@@ -81,7 +81,8 @@ public class ViewConsole {
 				}
 			}
 		}
- // --------------------------------------------------------------------------------------------------------------------------
+		
+		// ----- Mode 2 = Mode Solo with Pc ---------------------------------------------------------------------------------------------------------------------	
 
 		else if (choiceM == 2) { 
 
@@ -91,9 +92,6 @@ public class ViewConsole {
 			boolean positionCorrect[] = {false,false,false,false};
 			char numeroCorrect[] = new char[4] ;
 			
-			
-			
-
 			int j = 1;
 			while (j <= gameController.getLimite()) {
 
@@ -117,7 +115,6 @@ public class ViewConsole {
 					if(positionCorrect[i] == true) {
 						combiPc[i] = numeroCorrect[i];
 					}
-					
 				}
 				
 				
@@ -134,9 +131,7 @@ public class ViewConsole {
 					if(resultCombi[i] == 'V'){
 						positionCorrect[i] = true;
 						numeroCorrect[i] = gameController.getCombiIn()[i];
-					}
-					
-						
+					}	
 				}
 			
 				// --- Afficher la combi du PC ---
@@ -162,7 +157,6 @@ public class ViewConsole {
 				
 				if((resultCombi[0] == 'V' && resultCombi[1] == 'V' && resultCombi[2] == 'V' && resultCombi[3] == 'V') && (resultCombiPc[0] == 'V' && resultCombiPc[1] == 'V' && resultCombiPc[2] == 'V' && resultCombiPc[3] == 'V')) {
 					System.out.print("Egalite");
-
 				}
 				
 				// --- GAGNER ---
@@ -183,11 +177,12 @@ public class ViewConsole {
 					gameController.afficheCombi(instGame.combi);
 				}
 			}
-
 		}
-//--------------------------------------------------------------------------------------------------------------------------
+		
+		// ----- Mode 3 = Mode Multiplayer ---------------------------------------------------------------------------------------------------------------------
+		
 		else if (choiceM == 3) {
-			
+			// --- Choix host/guest ---
 			int choiceH = gameController.chooseHost();
 			
 			/**
@@ -196,9 +191,6 @@ public class ViewConsole {
 			
 			
 				System.out.print("\nMode Multi arrive bientot");
-			
-			
-			
 			
 			
 		}
