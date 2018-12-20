@@ -188,46 +188,8 @@ public class ViewConsole {
 //--------------------------------------------------------------------------------------------------------------------------
 		else if (choiceM == 3) {
 			
+			int choiceE = gameController.chooseHost();
 			
-			Scanner EbergementInput = new Scanner(System.in);
-			Scanner AddressIpInput = new Scanner(System.in);
-			int choiceE = 0;
-			String ebergement;
-
-			while (choiceE == 0) {
-				System.out.println("Do you host?(y/n)");
-
-				
-				ebergement = EbergementInput.nextLine();
-				ebergement = ebergement.toLowerCase();
-
-				if (ebergement.equals("y")) {
-					System.out.print("Your address Ip is:	\n");
-					
-					try {
-						System.out.println(addressIp.giveMyIp());
-						
-					} catch (UnknownHostException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					
-					choiceE = 1;
-				} else if (ebergement.equals("n")) {
-					System.out.print("\nPlease enter the ip address of the opponent:  \n");
-					ebergement = EbergementInput.nextLine();
-					System.out.print("Thanks\n");
-					
-					choiceE = 2;
-				} else {
-					System.out.println("\nNo correct \n\n");
-					
-					choiceE = 0;
-				}
-				
-			}
-		
 			/**
 			 * MODE MULTIPLAYER
 			 */
