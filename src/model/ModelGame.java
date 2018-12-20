@@ -158,7 +158,7 @@ public class ModelGame extends Observable{
 	}
 	// --- Choisir si vous etes l hote ---
 	/**
-	 * @return choiceH (int) mode de jeu (0 ou 1 ou 2 ou 3)
+	 * @return choiceH (int) mode de jeu (0 ou 1 ou 2)
 	 */
 	public int chooseHost(){
 		Scanner HebergementInput = new Scanner(System.in);
@@ -196,7 +196,6 @@ public class ModelGame extends Observable{
 				
 				choiceH = 0;
 			}
-			
 		}
 		return choiceH;
 	}
