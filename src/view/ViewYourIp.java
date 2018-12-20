@@ -43,7 +43,7 @@ AddressIp addressIp = new AddressIp();
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃ¨tres du jeu.
+	 * @param args les paramÃƒÂ¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -149,7 +149,7 @@ AddressIp addressIp = new AddressIp();
 		case"OK":
 			ViewGameMulti viewGameMulti = new ViewGameMulti();
 			viewGameMulti.setVisible(true);
-			viewGameMulti.isHote = true;
+			viewGameMulti.isHote = "t";
 			
 		case"Exit":	
 			this.dispose();
