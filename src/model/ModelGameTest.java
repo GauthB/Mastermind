@@ -32,8 +32,7 @@ public class ModelGameTest {
 		m3 = new ModelGame();
 		m4 = new ModelGame();
 		m5 = new ModelGame();
-		m6 = new ModelGame();
-		
+		m6 = new ModelGame();	
 	}
 
 	/**
@@ -79,8 +78,7 @@ public class ModelGameTest {
 		assertEquals(true, retour6);
 		assertEquals(false, retour7);
 		assertEquals(false, retour8);
-		assertEquals(false, retour9);
-		
+		assertEquals(false, retour9);	
 	}
 
 }
