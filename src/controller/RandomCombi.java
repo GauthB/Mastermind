@@ -3,11 +3,12 @@ package controller;
 import java.util.Random;
 
 public class RandomCombi {
-
+	
+//_______________VARIABLES___________________________________________________________________________________________________________
 	public char combi[];
 	public String combiRandom = "0123456789";
 	
-	
+//_________________METHODES____________________________________________________________________________________________________	
 	public RandomCombi(){	// nombre de chiffre qu'il faut deviner
 		int n = 4;
 	    combi=genererCombi(n);
