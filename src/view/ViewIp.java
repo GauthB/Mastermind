@@ -29,10 +29,13 @@ public class ViewIp extends JFrame implements ActionListener {
 	private JLabel title,lblIpAddress;
 	private JButton btnIp;
 	String temp="";
+	ClientMulti clientMulti;
+	
+	
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÂ¨tres du jeu.
+	 * @param args les paramÃƒÆ’Ã‚Â¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -110,13 +113,15 @@ public class ViewIp extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		switch(e.getActionCommand()){
-	
+		
 		case"Enter":
-			ClientMulti clientMulti;
+			
 			try {
 				clientMulti = new ClientMulti();
+				System.out.println(textField.getText());
 				clientMulti.ip = textField.getText();
 				clientMulti.port = 2020;
+				clientMulti.connect();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
