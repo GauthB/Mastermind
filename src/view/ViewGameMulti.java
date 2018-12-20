@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.ModelGame;
+import network.ClientMulti;
+import network.ServeurMulti;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
@@ -14,6 +16,13 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -25,10 +34,15 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField2;
-	String temp="";
-	String temp2="";
+	private String temp="";
+	private String temp2="";
 	
-	String textOrigine="";
+	private String textOrigine="";
+	public String ip=""; 
+	public boolean isHote = false;
+	public int port = 5000;
+	
+	public String combiAdv="";
 
 
 	private JLabel label_1;
@@ -46,7 +60,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramètres du jeu.
+	 * @param args les paramÃ¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -66,6 +80,8 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ViewGameMulti() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 589);
 		contentPane = new JPanel();
@@ -205,6 +221,130 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		gbc_btnExit.gridy = 17;
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
+		
+		if(isHote) {
+			final ServerSocket serveurSocket  ;
+		    final Socket clientSocket ;
+		    final BufferedReader in;
+		    final PrintWriter out;
+		    final Scanner scanner=new Scanner(System.in);
+		    
+		    
+		  
+		     try {
+		    	 
+		    	 System.out.println("Server is started");
+		    	 serveurSocket = new ServerSocket(port);
+		       
+		    	 System.out.println("Server is waiting for client request");
+		    	 clientSocket = serveurSocket.accept();
+		    	 
+		    	//flux pour envoyer
+		      	 out = new PrintWriter(clientSocket.getOutputStream());
+		      	//flux pour recevoir
+		      	 in = new BufferedReader (new InputStreamReader (clientSocket.getInputStream()));
+		      	 
+		      	 Thread envoi= new Thread(new Runnable() {
+		         String msg;
+		         
+		          @Override
+		          public void run() {
+		             while(true){
+		                msg = scanner.nextLine();
+		                out.println(msg);
+		                out.flush();
+		             }
+		          }
+		       });
+		       envoi.start();
+		   
+		       Thread recevoir= new Thread(new Runnable() {
+		          String msg ;
+		          @Override
+		          public void run() {
+		             try {
+		                msg = in.readLine();
+		                //tant que le client est connecté
+		                while(msg!=null){
+		                	combiCompetitor.setText(msg);
+		                	msg = in.readLine();
+		                }
+		                //sortir de la boucle si le client a déconecté
+		                System.out.println("Client déconecté");
+		                //fermer le socket
+		                out.close();
+		                clientSocket.close();
+		                serveurSocket.close();
+		             } 
+		             catch (IOException e) {
+		                  e.printStackTrace();
+		             }
+		         }
+		      });
+		      recevoir.start();
+		      }
+		     catch (IOException e) {
+		         e.printStackTrace();
+		      }
+		   }
+		
+		else {
+			 final Socket clientSocket;
+		      final BufferedReader in;
+		      final PrintWriter out;
+		      final Scanner scanner = new Scanner(System.in);
+		  
+		      try {
+		         
+		         clientSocket = new Socket(ip,port);
+		   
+		         //flux pour envoyer
+		         out = new PrintWriter(clientSocket.getOutputStream());
+		         //flux pour recevoir
+		         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+		   
+		         Thread envoyer = new Thread(new Runnable() {
+		             String msg;
+		              @Override
+		              public void run() {
+		                while(true){
+		                  msg = scanner.nextLine();
+		                  out.println(msg);
+		                  out.flush();
+		                }
+		             }
+		         });
+		         envoyer.start();
+		   
+		        Thread recevoir = new Thread(new Runnable() {
+		            String msg;
+		            @Override
+		            public void run() {
+		               try {
+		                 msg = in.readLine();
+		                 while(msg!=null){
+			               combiCompetitor.setText(msg);
+		                   msg = in.readLine();
+		                 }
+		                 System.out.println("Serveur déconecté");
+		                 
+		                 //fermer le socket
+		                 out.close();
+		                 clientSocket.close();
+		               } 
+		               catch (IOException e) {
+		                   e.printStackTrace();
+		               }
+		            }
+		        });
+		        recevoir.start();
+		   
+		      } catch (IOException e) {
+		           e.printStackTrace();
+		      }
+		  }
+			
+		
 	}
 
 	@Override
@@ -215,7 +355,7 @@ public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
 		case"Enter":
 			
-textOrigine=textField2.getText();
+			textOrigine=textField2.getText();
 			
 			temp2 = temp2 + gameControllerGui.corrige(textOrigine)+"\n";
 			combiResult.setText(temp2);
