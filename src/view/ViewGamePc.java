@@ -280,9 +280,11 @@ public class ViewGamePc extends JFrame implements ActionListener {
 			char[] combiPcCorrect = new char[4];
 			//------------------
 			
-			numeroEssai++;
 			combiInJframe=textField2.getText();//recupere le texte entre
-			
+			if(combiInJframe.length()!=4) {
+				break;
+			}
+			numeroEssai++;
 			temp2 = temp2 + gameControllerGui.corrige(combiInJframe)+"\n";
 			temp = temp+combiInJframe+"\n";
 			
