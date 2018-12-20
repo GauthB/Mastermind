@@ -17,6 +17,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -40,7 +42,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	private String textOrigine="";
 	public String ip=""; 
 	public String isHote="";
-	public int port = 5000;
+	public int port = 4242;
 	
 	public String combiAdv="";
 
@@ -72,6 +74,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 	}
@@ -222,128 +225,63 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
 		
-		if(isHote.equals("f")) {
-			final ServerSocket serveurSocket  ;
-		    final Socket clientSocket ;
-		    final BufferedReader in;
-		    final PrintWriter out;
-		    final Scanner scanner=new Scanner(System.in);
-		    
-		    
-		  
-		     try {
-		    	 
-		    	 System.out.println("Server is started");
-		    	 serveurSocket = new ServerSocket(port);
-		       
-		    	 System.out.println("Server is waiting for client request");
-		    	 clientSocket = serveurSocket.accept();
-		    	 
-		    	//flux pour envoyer
-		      	 out = new PrintWriter(clientSocket.getOutputStream());
-		      	//flux pour recevoir
-		      	 in = new BufferedReader (new InputStreamReader (clientSocket.getInputStream()));
-		      	 
-		      	 Thread envoi= new Thread(new Runnable() {
-		         String msg;
-		         
-		          @Override
-		          public void run() {
-		             while(true){
-		                msg = textField2.getText();
-		                out.println(msg);
-		                out.flush();
-		             }
-		          }
-		       });
-		       envoi.start();
-		   
-		       Thread recevoir= new Thread(new Runnable() {
-		          String msg ;
-		          @Override
-		          public void run() {
-		             try {
-		                msg = in.readLine();
-		                //tant que le client est connectÃ©
-		                while(msg!=null){
-		                	combiCompetitor.setText(msg);
-		                	msg = in.readLine();
-		                }
-		                //sortir de la boucle si le client a dÃ©conectÃ©
-		                System.out.println("Client dÃ©conectÃ©");
-		                //fermer le socket
-		                out.close();
-		                clientSocket.close();
-		                serveurSocket.close();
-		             } 
-		             catch (IOException e) {
-		                  e.printStackTrace();
-		             }
-		         }
-		      });
-		      recevoir.start();
-		      }
-		     catch (IOException e) {
-		         e.printStackTrace();
-		      }
-		   }
-		
-		else {
-			 final Socket clientSocket;
-		      final BufferedReader in;
-		      final PrintWriter out;
-		      final Scanner scanner = new Scanner(System.in);
-		  
-		      try {
-		         
-		         clientSocket = new Socket(ip,port);
-		   
-		         //flux pour envoyer
-		         out = new PrintWriter(clientSocket.getOutputStream());
-		         //flux pour recevoir
-		         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-		   
-		         Thread envoyer = new Thread(new Runnable() {
-		             String msg;
-		              @Override
-		              public void run() {
-		                while(true){
-		                msg = textField2.getText();
-		                  out.println(msg);
-		                  out.flush();
-		                }
-		             }
-		         });
-		         envoyer.start();
-		   
-		        Thread recevoir = new Thread(new Runnable() {
-		            String msg;
-		            @Override
-		            public void run() {
-		               try {
-		                 msg = in.readLine();
-		                 while(msg!=null){
-			               combiCompetitor.setText(msg);
-		                   msg = in.readLine();
-		                 }
-		                 System.out.println("Serveur dÃ©conectÃ©");
-		                 
-		                 //fermer le socket
-		                 out.close();
-		                 clientSocket.close();
-		               } 
-		               catch (IOException e) {
-		                   e.printStackTrace();
-		               }
-		            }
-		        });
-		        recevoir.start();
-		   
-		      } catch (IOException e) {
-		           e.printStackTrace();
-		      }
-		  }
+		/*
+		if(isHote.equals("t")) {
+			System.out.println("hote");
+			try {
+				System.out.println("Server is started");
+				
+				ServerSocket ss = new ServerSocket(port);
+				
+				System.out.println("Server is waiting for client request");
+				Socket s = ss.accept();
+				
+				DataInputStream din = new DataInputStream(s.getInputStream());
+				DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+				
+				System.out.println("Client connected");
+				
+				BufferedReader br =  new BufferedReader(new InputStreamReader(System.in));
+				
+				String msgin ="", msgout="";
+				
+				while(!msgin.equals("end")) {
+					msgin = din.readUTF();
+					System.out.println(msgin);
+					msgout = br.readLine();
+					dout.writeUTF(msgout);
+					dout.flush();
+				}
+				
+				s.close();
+			}
+			catch(Exception e) {
+				System.out.println(e);
+			}
 			
+		}
+		else {
+			try {
+				Socket s = new Socket(ip,port);
+				
+				DataInputStream din = new DataInputStream(s.getInputStream());
+				DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+				
+				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+				String msgin="", msgout="";
+				while(!msgin.equals("end")) {
+					msgout = br.readLine();
+					dout.writeUTF(msgout);
+					msgin = din.readUTF();
+					System.out.println(msgin);
+					
+				}
+				s.close();
+			}
+			catch (Exception e) {
+				System.out.println(e);
+			}
+		}*/
 		
 	}
 
@@ -379,6 +317,9 @@ public void actionPerformed(ActionEvent e) {
 			break;
 		case"Exit":
 			this.dispose();
+			
 		}
 	}
+
+	
 }
