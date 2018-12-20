@@ -13,12 +13,13 @@ import model.ModelGame;
 
 public class mainMastermind {
 	
-	public static void main() {
+	public static void main(String[] args) {
 	
 	//ça ne fonctionne pas
 		
 		ViewMain viewMain = new ViewMain();
 		viewMain.setVisible(true);
+		
 	}	
 	
 }
