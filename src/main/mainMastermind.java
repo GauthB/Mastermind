@@ -22,6 +22,6 @@ public class MainMastermind {
 		ViewMain viewMain = new ViewMain();
 		viewMain.setVisible(true);
 		ViewConsole viewCLI = new ViewConsole();
-		viewCLI.main(args);;
+		viewCLI.main(args);
 	}	
 }
