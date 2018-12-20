@@ -13,17 +13,15 @@ import model.ModelGame;
  */
 
 public class MainMastermind {
-	
+	/**
+	 * ue methode qui peut executer la classe ViewMain pour avoit l'interface graphique
+	 * mais qui peut aussi lancer le jeu en console
+	 * @param args
+	 */
 	public static void main(String[] args) {
-	
-	//ça ne fonctionne pas
-		
 		ViewMain viewMain = new ViewMain();
 		viewMain.setVisible(true);
 		ViewConsole viewCLI = new ViewConsole();
 		viewCLI.main(args);;
-		
 	}	
-	
 }
-
