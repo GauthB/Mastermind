@@ -21,9 +21,8 @@ public class RandomCombi {
 		for(int i = 0; i<n; i++) {
 			combi[i]= combiRandom.charAt(r.nextInt(SIZE));	
 		}
-	 
-     return combi;
-    }
+     	return combi;
+  	}
 	
 	public char[] getCombi(){
 		return this.combi;
