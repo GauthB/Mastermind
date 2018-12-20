@@ -53,14 +53,14 @@ public class ViewMain extends JFrame implements ActionListener {
 	 */
 	public ViewMain() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 665, 600);
+		setBounds(100, 100, 665, 650);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{50, 100, 80, 80, 80, 35, 80, 80, 80, 0};
-		gbl_contentPane.rowHeights = new int[]{30, 40, 50, 50, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
+		gbl_contentPane.rowHeights = new int[]{30, 70, 50,50, 20, 50, 20, 50, 20, 50, 30, 30, 30, 30, 30, 30, 30};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
