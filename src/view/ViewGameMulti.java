@@ -39,7 +39,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	
 	private String textOrigine="";
 	public String ip=""; 
-	public boolean isHote = false;
+	public String isHote="";
 	public int port = 5000;
 	
 	public String combiAdv="";
@@ -60,7 +60,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃ¨tres du jeu.
+	 * @param args les paramÃƒÂ¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -222,7 +222,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
 		
-		if(isHote) {
+		if(isHote.equals("f")) {
 			final ServerSocket serveurSocket  ;
 		    final Socket clientSocket ;
 		    final BufferedReader in;
@@ -250,7 +250,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		          @Override
 		          public void run() {
 		             while(true){
-		                msg = scanner.nextLine();
+		                msg = textField2.getText();
 		                out.println(msg);
 		                out.flush();
 		             }
@@ -264,13 +264,13 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		          public void run() {
 		             try {
 		                msg = in.readLine();
-		                //tant que le client est connecté
+		                //tant que le client est connectÃ©
 		                while(msg!=null){
 		                	combiCompetitor.setText(msg);
 		                	msg = in.readLine();
 		                }
-		                //sortir de la boucle si le client a déconecté
-		                System.out.println("Client déconecté");
+		                //sortir de la boucle si le client a dÃ©conectÃ©
+		                System.out.println("Client dÃ©conectÃ©");
 		                //fermer le socket
 		                out.close();
 		                clientSocket.close();
@@ -308,7 +308,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		              @Override
 		              public void run() {
 		                while(true){
-		                  msg = scanner.nextLine();
+		                msg = textField2.getText();
 		                  out.println(msg);
 		                  out.flush();
 		                }
@@ -326,7 +326,7 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 			               combiCompetitor.setText(msg);
 		                   msg = in.readLine();
 		                 }
-		                 System.out.println("Serveur déconecté");
+		                 System.out.println("Serveur dÃ©conectÃ©");
 		                 
 		                 //fermer le socket
 		                 out.close();
@@ -354,6 +354,9 @@ public void actionPerformed(ActionEvent e) {
 		
 		switch(e.getActionCommand()){
 		case"Enter":
+			System.out.println(ip);
+			System.out.println(isHote);
+			System.out.println(port);
 			
 			textOrigine=textField2.getText();
 			
