@@ -22,7 +22,7 @@ public class ServeurConnect {
 	    public ServeurConnect(int port){
 	    	this.port = port;
 	    }
-		
+		// Envoyer un message
 	    public void msg_send(String textField2)throws Exception {
 	    	 try{
 	         	String msgout;
@@ -33,7 +33,7 @@ public class ServeurConnect {
 	         	e.printStackTrace();
 	         }
 	    }
-	    
+	    // Recevoir un message
 	    public String msg_Receive() throws Exception {
 	    	String msgin="";
 	    	try {
@@ -44,7 +44,7 @@ public class ServeurConnect {
 			}
 	    	return ("Message no receive");
 	    }
-	     
+	     // Etablir la connection// Couper la connection
 		public void connect() throws Exception {
 			 try {
 				 
@@ -65,7 +65,7 @@ public class ServeurConnect {
 						e.printStackTrace();
 					}
 		}
-		
+		// Couper la connection
 		public void disconnected()throws Exception{
 			 try {
 				ss.close();
