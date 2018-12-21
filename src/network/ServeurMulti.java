@@ -206,16 +206,32 @@ public class ServeurMulti extends JFrame implements ActionListener {
 		JButton btnConnect = new JButton("Connect");
 		GridBagConstraints gbc_btnConnect = new GridBagConstraints();
 		gbc_btnConnect.insets = new Insets(0, 0, 0, 5);
-		gbc_btnConnect.gridx = 2;
-		gbc_btnConnect.gridy = 17;
+		gbc_btnConnect.gridx = 0;
+		gbc_btnConnect.gridy = 18;
 		contentPane.add(btnConnect, gbc_btnConnect);
 		btnConnect.addActionListener(this);
+		
+		JButton btnDisconnect = new JButton("Disconnect");
+		GridBagConstraints gbc_btnDisconnect = new GridBagConstraints();
+		gbc_btnDisconnect.insets = new Insets(0, 0, 0, 5);
+		gbc_btnDisconnect.gridwidth = 2;
+		gbc_btnDisconnect.gridx = 1;
+		gbc_btnDisconnect.gridy = 18;
+		contentPane.add(btnDisconnect, gbc_btnDisconnect);
+		btnDisconnect.addActionListener(this);
 	}
 	  
 	  
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
+		case "Disconnect":
+			try {
+				serveurConnect.disconnected();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			break;
 		case "Connect":
 			try {
 				serveurConnect.connect();
