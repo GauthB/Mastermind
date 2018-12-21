@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class ClientConnect {
 	
-	static Socket s;
+    static Socket s;
     static DataInputStream din;
     static DataOutputStream dout;
     
@@ -28,8 +28,8 @@ public class ClientConnect {
     public void msg_send(String textField2)throws Exception {
         try{
         	String msgout;
-            msgout = textField2;
-            dout.writeUTF(msgout);
+            	msgout = textField2;
+            	dout.writeUTF(msgout);
         }
         catch(Exception e){
         	e.printStackTrace();
@@ -39,29 +39,28 @@ public class ClientConnect {
     public String msg_Receive() throws Exception {
     	String msgin="";
     	try {
-			msgin = din.readUTF();
-			return msgin;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		msgin = din.readUTF();
+		return msgin;
+	} 
+	catch (Exception e) {
+		e.printStackTrace();
+	}
     	return ("Message no receive");
     }
      // Etablir la connection
 	public void connect() throws Exception {
 		 try {
-			 	System.out.println("Start");
+		    System.out.println("Start");
 	            s = new Socket(ip,port);
 	            System.out.println("SocketCreate");
 	            din = new DataInputStream(s.getInputStream());
 	            dout = new DataOutputStream(s.getOutputStream());
 	            System.out.println("Connected !");
 	            JOptionPane.showMessageDialog(null, "Connected ! ");
-	           
-	           
-	           
-				}
-				catch (Exception e) {
-					e.printStackTrace();
+	         
+			}
+		catch (Exception e) {
+			e.printStackTrace();
 				}
 	}
 	// Couper la connection
@@ -69,8 +68,9 @@ public class ClientConnect {
 		 try {
 			s.close();
 			System.out.println("Disconnected ! ");
-	        JOptionPane.showMessageDialog(null, "Disconnected ! ");
-		} catch (Exception e) {
+	        	JOptionPane.showMessageDialog(null, "Disconnected ! ");
+		} 
+		catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
