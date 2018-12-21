@@ -18,12 +18,13 @@ public class ClientConnect {
     public ClientConnect() {
     	
     }
-   
+   // Les transformer en String
     public ClientConnect(String ip,int port){
     	this.ip = ip;
     	this.port = port;
     }
 	
+	// Envoyer un message
     public void msg_send(String textField2)throws Exception {
         try{
         	String msgout;
@@ -34,7 +35,7 @@ public class ClientConnect {
         	e.printStackTrace();
         }
     }
-    
+    // Recevoir un message
     public String msg_Receive() throws Exception {
     	String msgin="";
     	try {
@@ -45,7 +46,7 @@ public class ClientConnect {
 		}
     	return ("Message no receive");
     }
-     
+     // Etablir la connection
 	public void connect() throws Exception {
 		 try {
 			 	System.out.println("Start");
@@ -63,7 +64,7 @@ public class ClientConnect {
 					e.printStackTrace();
 				}
 	}
-	
+	// Couper la connection
 	public void disconnected()throws Exception{
 		 try {
 			s.close();
