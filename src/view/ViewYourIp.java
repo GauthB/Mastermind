@@ -1,7 +1,5 @@
 package view;
 import network.AddressIp;
-import network.ClientMulti;
-import network.ServeurMulti;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;

@@ -1,88 +1,65 @@
 package view;
 
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import model.ModelGame;
-
-import java.awt.GridBagLayout;
-import javax.swing.JButton;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
-
+import java.io.PrintWriter;
+import java.io.IOException;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import network.ServeurConnect;
+
+import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextPane;
 
-public class ViewGameMulti extends JFrame implements ActionListener {
 
-	private JPanel contentPane;
-	private JTextField textField2;
-	private String temp="";
-	private String temp2="";
+public class ServeurMulti extends JFrame implements ActionListener {
 	
-	private String textOrigine="";
-	public String ip=""; 
-	public String isHote="";
-	public int port = 4242;
-	
-	public String combiAdv="";
-
-
+	ServeurConnect serveurConnect = new ServeurConnect(1118);
+	public int port;
+	static ServerSocket ss;
+    static Socket s;
+    static DataInputStream din;
+    static DataOutputStream dout;
+    public JTextPane combiInTout;
+	public JTextPane combiResult;
+	public static JTextPane combiCompetitor;
+	private JLabel lblGameMuli;
+	private JButton btMenu;
+	private JLabel lbWin;
 	private JLabel label_1;
 	private JLabel lblYourResult;
 	private JLabel label_2;
 	private JLabel label_3;
+	private JPanel contentPane;
+	public static JTextField textField2;
 	
-	ModelGame gameControllerGui = new ModelGame();
-	private JTextPane combiInTout;
-	private JTextPane combiResult;
-	private JTextPane combiCompetitor;
-	private JLabel lblGameMuli;
-	private JButton btMenu;
-	private JLabel lbWin;
 	
-	/**
-	 * Launch the application.
-	 * @param args les paramÃƒÂ¨tres du jeu.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewGameMulti frame = new ViewGameMulti();
-					frame.setVisible(true);
-					frame.setTitle("Number Mastermind");
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				
-			}
-		});
+	
+	public ServeurMulti() throws Exception {
+		initComponents();
+		
 	}
-
-	/**
-	 * Create the frame.
-	 */
-	public ViewGameMulti() {
-		
-		
+	public void initComponents() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 589);
 		contentPane = new JPanel();
@@ -223,101 +200,153 @@ public class ViewGameMulti extends JFrame implements ActionListener {
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
 		
-		/*
-		if(isHote.equals("t")) {
-			System.out.println("hote");
-			try {
-				System.out.println("Server is started");
-				
-				ServerSocket ss = new ServerSocket(port);
-				
-				System.out.println("Server is waiting for client request");
-				Socket s = ss.accept();
-				
-				DataInputStream din = new DataInputStream(s.getInputStream());
-				DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-				
-				System.out.println("Client connected");
-				
-				BufferedReader br =  new BufferedReader(new InputStreamReader(System.in));
-				
-				String msgin ="", msgout="";
-				
-				while(!msgin.equals("end")) {
-					msgin = din.readUTF();
-					System.out.println(msgin);
-					msgout = br.readLine();
-					dout.writeUTF(msgout);
-					dout.flush();
-				}
-				
-				s.close();
-			}
-			catch(Exception e) {
-				System.out.println(e);
-			}
-			
-		}
-		else {
-			try {
-				Socket s = new Socket(ip,port);
-				
-				DataInputStream din = new DataInputStream(s.getInputStream());
-				DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-				
-				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-				String msgin="", msgout="";
-				while(!msgin.equals("end")) {
-					msgout = br.readLine();
-					dout.writeUTF(msgout);
-					msgin = din.readUTF();
-					System.out.println(msgin);
-					
-				}
-				s.close();
-			}
-			catch (Exception e) {
-				System.out.println(e);
-			}
-		}*/
+		JButton btnConnect = new JButton("Connect");
+		GridBagConstraints gbc_btnConnect = new GridBagConstraints();
+		gbc_btnConnect.insets = new Insets(0, 0, 0, 5);
+		gbc_btnConnect.gridx = 0;
+		gbc_btnConnect.gridy = 18;
+		contentPane.add(btnConnect, gbc_btnConnect);
+		btnConnect.addActionListener(this);
 		
+		JButton btnDisconnect = new JButton("Disconnect");
+		GridBagConstraints gbc_btnDisconnect = new GridBagConstraints();
+		gbc_btnDisconnect.insets = new Insets(0, 0, 0, 5);
+		gbc_btnDisconnect.gridwidth = 2;
+		gbc_btnDisconnect.gridx = 1;
+		gbc_btnDisconnect.gridy = 18;
+		contentPane.add(btnDisconnect, gbc_btnDisconnect);
+		btnDisconnect.addActionListener(this);
 	}
-
+	  
+	  
 	@Override
-public void actionPerformed(ActionEvent e) {
-		
-		
-		
+	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
-		case"Enter":
-			System.out.println(ip);
-			System.out.println(isHote);
-			System.out.println(port);
-			
-			textOrigine=textField2.getText();
-			
-			temp2 = temp2 + gameControllerGui.corrige(textOrigine)+"\n";
-			combiResult.setText(temp2);
-		
-			String reponseSolutionUtilisateur = gameControllerGui.corrige(textOrigine);
-			
-			
-			temp = temp+textOrigine+"\n";
-			combiInTout.setText(temp);
-			
-			textField2.setText("");
-			
+		case "Disconnect":
+			try {
+				serveurConnect.disconnected();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 			break;
-		case"Menu":
-			ViewMain viewMain = new ViewMain();
-			viewMain.setVisible(true);
+		case "Connect":
+			try {
+				serveurConnect.connect();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			break;
+			
+		case "Enter":
+			try {
+				serveurConnect.msg_send(textField2.getText());
+				combiCompetitor.setText(serveurConnect.msg_Receive());
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			break;
+			
+		case "Exit":
 			this.dispose();
 			break;
-		case"Exit":
-			this.dispose();
-			
 		}
+		
+		
+		
 	}
+	
+
+    
+}   
+	
+
 
 	
-}
+/*
+	   public static void main(String[] args) {
+	      
+	      final Socket clientSocket;
+	      final BufferedReader in;
+	      final PrintWriter out;
+	      final Scanner sc = new Scanner(System.in);//pour lire ÃƒÆ’Ã‚Â  partir du clavier
+	  
+	      try {
+	         
+	         clientSocket = new Socket("127.0.0.1",5000);
+	   
+	         //flux pour envoyer
+	         out = new PrintWriter(clientSocket.getOutputStream());
+	         //flux pour recevoir
+	         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+	   
+	         Thread envoyer = new Thread(new Runnable() {
+	             String msg;
+	              @Override
+	              public void run() {
+	                while(true){
+	                  msg = sc.nextLine();
+	                  out.println(msg);
+	                  out.flush();
+	                }
+	             }
+	         });
+	         envoyer.start();
+	   
+	        Thread recevoir = new Thread(new Runnable() {
+	            String msg;
+	            @Override
+	            public void run() {
+	               try {
+	                 msg = in.readLine();
+	                 while(msg!=null){
+	                    System.out.println("Serveur : "+msg);
+	                    msg = in.readLine();
+	                 }
+	                 System.out.println("Serveur dÃƒÆ’Ã‚Â©conectÃƒÆ’Ã‚Â©");
+	                 out.close();
+	                 clientSocket.close();
+	               } catch (IOException e) {
+	                   e.printStackTrace();
+	               }
+	            }
+	        });
+	        recevoir.start();
+	   
+	      } catch (IOException e) {
+	           e.printStackTrace();
+	      }
+	  }*/
+	/*
+public void connect() throws Exception {
+		
+		System.out.println(ip);
+		System.out.println(port);
+		
+		try {
+			
+			Socket s = new Socket(ip,port);
+			
+			DataInputStream din = new DataInputStream(s.getInputStream());
+			DataOutputStream dout = new DataOutputStream(s.getOutputStream());
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String msgin="", msgout="";
+			while(!msgin.equals("end")) {
+				msgout = br.readLine();
+				dout.writeUTF(msgout);
+				msgin = din.readUTF();
+				System.out.println(msgin);
+				
+			}
+			s.close();
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public void createMulti() {
+		ViewGameMulti viewGameMulti = new ViewGameMulti();
+		viewGameMulti.setVisible(true);
+	}*/
+

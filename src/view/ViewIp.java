@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import model.ModelGame;
-import network.ClientMulti;
 
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
