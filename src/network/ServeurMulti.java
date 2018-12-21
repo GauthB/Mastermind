@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import view.ViewGameMulti;
 import view.ViewIp;
+import view.ViewYourIp;
 
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -23,8 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-
-
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -37,7 +37,7 @@ import javax.swing.JTextPane;
 
 public class ServeurMulti extends JFrame implements ActionListener {
 	
-	
+	ServeurConnect serveurConnect = new ServeurConnect(1118);
 	public int port;
 	static ServerSocket ss;
     static Socket s;
@@ -54,12 +54,13 @@ public class ServeurMulti extends JFrame implements ActionListener {
 	private JLabel label_2;
 	private JLabel label_3;
 	private JPanel contentPane;
-	public JTextField textField2;
+	public static JTextField textField2;
 	
 	
 	
 	public ServeurMulti() throws Exception {
 		initComponents();
+		
 	}
 	public void initComponents() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -201,56 +202,35 @@ public class ServeurMulti extends JFrame implements ActionListener {
 		gbc_btnExit.gridy = 17;
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
+		
+		JButton btnConnect = new JButton("Connect");
+		GridBagConstraints gbc_btnConnect = new GridBagConstraints();
+		gbc_btnConnect.insets = new Insets(0, 0, 0, 5);
+		gbc_btnConnect.gridx = 2;
+		gbc_btnConnect.gridy = 17;
+		contentPane.add(btnConnect, gbc_btnConnect);
+		btnConnect.addActionListener(this);
 	}
-	
-	 private void msg_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msg_sendActionPerformed
-	        try{
-	            String msgout;
-	            msgout = textField2.getText().trim();
-	            dout.writeUTF(msgout);
-	        }catch(Exception ae){}
-	    }
-	 
-	 public static void main(String[] args) throws Exception {
-		 
-		 
-	        java.awt.EventQueue.invokeLater(() -> {
-	        	
-	        	try {
-					new ServeurMulti().setVisible(true);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	        });
-	        
-	        String msgin = "";
-	        try {
-	        	
-	        	System.out.println("Wait for connection");
-	        	ss = new ServerSocket(1516);
-	        	System.out.println("Wait for Client");
-	            s = ss.accept();
 	  
-	            
-	            din = new DataInputStream(s.getInputStream());
-	            dout = new DataOutputStream(s.getOutputStream());
-	            
-	            while(!msgin.equals("exit"))
-	            {
-	            	 msgin = din.readUTF();
-	            	 combiCompetitor.setText(combiCompetitor.getText().trim()+"\n"+msgin);
-	            }
-	            //ss.close();
-	        } catch (Exception e) {}
-	 }
 	  
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
-		
+		case "Connect":
+			try {
+				serveurConnect.connect();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			break;
+			
 		case "Enter":
-			msg_sendActionPerformed(e);
+			try {
+				serveurConnect.msg_send(textField2.getText());
+				combiCompetitor.setText(serveurConnect.msg_Receive());
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 			break;
 			
 		case "Exit":
@@ -275,7 +255,7 @@ public class ServeurMulti extends JFrame implements ActionListener {
 	      final Socket clientSocket;
 	      final BufferedReader in;
 	      final PrintWriter out;
-	      final Scanner sc = new Scanner(System.in);//pour lire ÃƒÂ  partir du clavier
+	      final Scanner sc = new Scanner(System.in);//pour lire ÃƒÆ’Ã‚Â  partir du clavier
 	  
 	      try {
 	         
@@ -309,7 +289,7 @@ public class ServeurMulti extends JFrame implements ActionListener {
 	                    System.out.println("Serveur : "+msg);
 	                    msg = in.readLine();
 	                 }
-	                 System.out.println("Serveur dÃƒÂ©conectÃƒÂ©");
+	                 System.out.println("Serveur dÃƒÆ’Ã‚Â©conectÃƒÆ’Ã‚Â©");
 	                 out.close();
 	                 clientSocket.close();
 	               } catch (IOException e) {
