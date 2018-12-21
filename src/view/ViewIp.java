@@ -29,7 +29,7 @@ public class ViewIp extends JFrame implements ActionListener {
 	private JLabel title,lblIpAddress;
 	private JButton btnIp;
 	String temp="";
-	ClientMulti clientMulti;
+	
 	
 	
 	
@@ -40,9 +40,11 @@ public class ViewIp extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				
 				try {
 					ViewIp frame = new ViewIp();
 					frame.setVisible(true);
+					
 					frame.setTitle("Number Mastermind");
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -117,17 +119,14 @@ public class ViewIp extends JFrame implements ActionListener {
 		case"Enter":
 			
 			try {
-				clientMulti = new ClientMulti();
-				System.out.println(textField.getText());
-				clientMulti.ip = textField.getText();
-				clientMulti.port = 2020;
-				clientMulti.connect();
+				
+				ClientMulti clientMulti = new ClientMulti();
+				clientMulti.setVisible(true); 
+				this.dispose();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
-			
 			
 		case"Exit":	
 			this.dispose();
