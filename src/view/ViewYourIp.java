@@ -44,7 +44,7 @@ AddressIp addressIp = new AddressIp();
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨tres du jeu.
+	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -150,7 +150,7 @@ AddressIp addressIp = new AddressIp();
 		case"OK":
 			 
 			try {
-				ServeurMulti serveurMulti = new ServeurMulti();
+				ServeurMulti serveurMulti = new ServeurMulti(1121);
 				serveurMulti.setVisible(true);
 				this.dispose();
 				
