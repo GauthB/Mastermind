@@ -39,7 +39,8 @@ public class ServeurConnect {
 	    	try {
 				msgin = din.readUTF();
 				return msgin;
-			} catch (Exception e) {
+			} 
+		 catch (Exception e) {
 				e.printStackTrace();
 			}
 	    	return ("Message no receive");
@@ -48,31 +49,31 @@ public class ServeurConnect {
 		public void connect() throws Exception {
 			 try {
 				 
-				 	System.out.println("Wait for connection");
+				System.out.println("Wait for connection");
 		        	ss = new ServerSocket(port);
 		        	System.out.println("Wait for Client");
-		            s = ss.accept();
+		            	s = ss.accept();
 		        	System.out.println("Connected !");
-		            JOptionPane.showMessageDialog(null, "Connected !");
+		            	JOptionPane.showMessageDialog(null, "Connected !");
 
-		            din = new DataInputStream(s.getInputStream());
-		            dout = new DataOutputStream(s.getOutputStream());
+		            	din = new DataInputStream(s.getInputStream());
+		            	dout = new DataOutputStream(s.getOutputStream());
 		           
 		           
 		           
-					}
-					catch (Exception e) {
-						e.printStackTrace();
-					}
+				}
+			catch (Exception e) {
+				e.printStackTrace();
+				}
 		}
 		// Couper la connection
 		public void disconnected()throws Exception{
 			 try {
 				ss.close();
-		        JOptionPane.showMessageDialog(null, "Disonnected !");
-		        System.out.println("Disonnected !");
-			} catch (Exception e) {
-				
+		        	JOptionPane.showMessageDialog(null, "Disonnected !");
+		        	System.out.println("Disonnected !");
+			} 
+			catch (Exception e) {
 				e.printStackTrace();
 			}
 	         
