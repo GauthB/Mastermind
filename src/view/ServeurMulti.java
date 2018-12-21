@@ -34,7 +34,6 @@ import javax.swing.JTextPane;
 
 public class ServeurMulti extends JFrame implements ActionListener {
 	
-	ServeurConnect serveurConnect = new ServeurConnect(1118);
 	public int port;
 	static ServerSocket ss;
     static Socket s;
@@ -55,6 +54,11 @@ public class ServeurMulti extends JFrame implements ActionListener {
 	
 	
 	
+	public ServeurMulti(int port) throws Exception {
+		initComponents();
+		this.port = port;
+		
+	}
 	public ServeurMulti() throws Exception {
 		initComponents();
 		
@@ -224,6 +228,7 @@ public class ServeurMulti extends JFrame implements ActionListener {
 		switch(e.getActionCommand()){
 		case "Disconnect":
 			try {
+				ServeurConnect serveurConnect = new ServeurConnect(port);
 				serveurConnect.disconnected();
 			} catch (Exception e2) {
 				e2.printStackTrace();
@@ -231,6 +236,7 @@ public class ServeurMulti extends JFrame implements ActionListener {
 			break;
 		case "Connect":
 			try {
+				ServeurConnect serveurConnect = new ServeurConnect(port);
 				serveurConnect.connect();
 			} catch (Exception e2) {
 				e2.printStackTrace();
@@ -239,11 +245,17 @@ public class ServeurMulti extends JFrame implements ActionListener {
 			
 		case "Enter":
 			try {
+				ServeurConnect serveurConnect = new ServeurConnect(port);
 				serveurConnect.msg_send(textField2.getText());
 				combiCompetitor.setText(serveurConnect.msg_Receive());
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
+			break;
+		case "Menu":
+			ViewMain viewMain = new ViewMain();
+			viewMain.setVisible(true);
+			this.dispose();
 			break;
 			
 		case "Exit":
@@ -251,102 +263,10 @@ public class ServeurMulti extends JFrame implements ActionListener {
 			break;
 		}
 		
-		
-		
+			
 	}
 	
-
     
 }   
 	
-
-
-	
-/*
-	   public static void main(String[] args) {
-	      
-	      final Socket clientSocket;
-	      final BufferedReader in;
-	      final PrintWriter out;
-	      final Scanner sc = new Scanner(System.in);//pour lire ÃƒÆ’Ã‚Â  partir du clavier
-	  
-	      try {
-	         
-	         clientSocket = new Socket("127.0.0.1",5000);
-	   
-	         //flux pour envoyer
-	         out = new PrintWriter(clientSocket.getOutputStream());
-	         //flux pour recevoir
-	         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-	   
-	         Thread envoyer = new Thread(new Runnable() {
-	             String msg;
-	              @Override
-	              public void run() {
-	                while(true){
-	                  msg = sc.nextLine();
-	                  out.println(msg);
-	                  out.flush();
-	                }
-	             }
-	         });
-	         envoyer.start();
-	   
-	        Thread recevoir = new Thread(new Runnable() {
-	            String msg;
-	            @Override
-	            public void run() {
-	               try {
-	                 msg = in.readLine();
-	                 while(msg!=null){
-	                    System.out.println("Serveur : "+msg);
-	                    msg = in.readLine();
-	                 }
-	                 System.out.println("Serveur dÃƒÆ’Ã‚Â©conectÃƒÆ’Ã‚Â©");
-	                 out.close();
-	                 clientSocket.close();
-	               } catch (IOException e) {
-	                   e.printStackTrace();
-	               }
-	            }
-	        });
-	        recevoir.start();
-	   
-	      } catch (IOException e) {
-	           e.printStackTrace();
-	      }
-	  }*/
-	/*
-public void connect() throws Exception {
-		
-		System.out.println(ip);
-		System.out.println(port);
-		
-		try {
-			
-			Socket s = new Socket(ip,port);
-			
-			DataInputStream din = new DataInputStream(s.getInputStream());
-			DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-			
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			String msgin="", msgout="";
-			while(!msgin.equals("end")) {
-				msgout = br.readLine();
-				dout.writeUTF(msgout);
-				msgin = din.readUTF();
-				System.out.println(msgin);
-				
-			}
-			s.close();
-		}
-		catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-	
-	public void createMulti() {
-		ViewGameMulti viewGameMulti = new ViewGameMulti();
-		viewGameMulti.setVisible(true);
-	}*/
 
