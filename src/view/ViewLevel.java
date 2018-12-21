@@ -20,6 +20,13 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import java.awt.Font;
 
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du jeu en GUI pour le choix du niveau
+ */
+
 public class ViewLevel extends JFrame implements ActionListener {
 
 	ModelGame GameControllerGui = new ModelGame();

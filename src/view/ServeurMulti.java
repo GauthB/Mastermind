@@ -33,7 +33,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextPane;
 
-
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du serveur en GUI
+ */
 public class ServeurMulti extends JFrame implements ActionListener {
 	
 	ModelGame modelGame = new ModelGame();

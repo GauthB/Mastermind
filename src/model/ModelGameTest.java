@@ -12,7 +12,7 @@ import org.junit.Test;
  * @author BOHYN Gauthier
  * @author HERMANT Thibaut
  * @author MEYERS Humbert 
- * 
+ * Un test sur la classe ModelGame
  */
 public class ModelGameTest {
 	ModelGame m1;

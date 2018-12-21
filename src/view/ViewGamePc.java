@@ -20,6 +20,13 @@ import javax.swing.SwingUtilities;
 import java.awt.Font;
 import javax.swing.JTextPane;
 
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du jeu contre l'ordinateur en GUI
+ */
+
 public class ViewGamePc extends JFrame implements ActionListener {
 
 	ModelGame gameControllerGui = new ModelGame();

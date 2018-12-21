@@ -23,6 +23,13 @@ import java.awt.Font;
 
 import javax.swing.JTextPane;
 
+
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du jeu en solo en GUI
+ */
 public class ViewGameSolo extends JFrame implements ActionListener {
 
 

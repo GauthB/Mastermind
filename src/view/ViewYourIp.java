@@ -1,6 +1,5 @@
 package view;
 import network.AddressIp;
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,6 +24,13 @@ import javax.swing.SwingUtilities;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Dimension;
+
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue de l'hote en GUI qui affiche son adresse IP
+ */
 
 public class ViewYourIp extends JFrame implements ActionListener {
 

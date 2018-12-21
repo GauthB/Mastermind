@@ -34,7 +34,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextPane;
 
-
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du client en GUI
+ */
 public class  ClientMulti extends JFrame implements ActionListener {
 	
 	public String ip="";

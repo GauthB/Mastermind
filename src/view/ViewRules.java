@@ -16,7 +16,12 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue des regles en GUI
+ */
 public class ViewRules extends JFrame implements ActionListener {
 
 	

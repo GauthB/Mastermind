@@ -30,6 +30,12 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextPane;
 
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du jeu en multijoueur en GUI
+ */
 public class ViewGameMulti extends JFrame implements ActionListener {
 
 	private JPanel contentPane;

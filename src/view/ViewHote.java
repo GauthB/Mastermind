@@ -17,6 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du jeu en GUI pour le choix entre hote ou client
+ */
+
 public class ViewHote extends JFrame implements ActionListener {
 
 	

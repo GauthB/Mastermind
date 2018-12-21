@@ -17,6 +17,14 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
+
+/**
+ * @author BOHYN Gauthier
+ * @author HERMANT Thibaut
+ * @author MEYERS Humbert
+ * La vue du client en GUI qui permet d'entrer l'adresse ip de l'hote
+ */
+
 public class ViewIp extends JFrame implements ActionListener {
 
 	ModelGame GameController = new ModelGame();
@@ -34,7 +42,7 @@ public class ViewIp extends JFrame implements ActionListener {
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨tres du jeu.
+	 * @param args les parametres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
