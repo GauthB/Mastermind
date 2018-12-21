@@ -34,7 +34,7 @@ public class ViewIp extends JFrame implements ActionListener {
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÆ’Ã‚Â¨tres du jeu.
+	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -119,7 +119,8 @@ public class ViewIp extends JFrame implements ActionListener {
 			
 			try {
 				
-				ClientMulti clientMulti = new ClientMulti();
+				ClientMulti clientMulti = new ClientMulti(textField.getText(),1121);
+				
 				clientMulti.setVisible(true); 
 				this.dispose();
 			} catch (Exception e1) {
