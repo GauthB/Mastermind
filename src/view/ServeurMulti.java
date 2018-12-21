@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controller.Correction;
+import model.ModelGame;
 import network.ServeurConnect;
 
 import java.awt.EventQueue;
@@ -34,6 +36,11 @@ import javax.swing.JTextPane;
 
 public class ServeurMulti extends JFrame implements ActionListener {
 	
+	ModelGame modelGame = new ModelGame();
+	Correction correction = new Correction();
+	public String temp="";
+	public String temp2="";
+	public String temp3="";
 	public int port;
 	static ServerSocket ss;
     static Socket s;
@@ -51,7 +58,9 @@ public class ServeurMulti extends JFrame implements ActionListener {
 	private JLabel label_3;
 	private JPanel contentPane;
 	public static JTextField textField2;
-	
+	public String combiRandom="";
+	public int chances =12;
+	 
 	
 	
 	public ServeurMulti(int port) throws Exception {
@@ -186,7 +195,7 @@ public class ServeurMulti extends JFrame implements ActionListener {
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
 		
-		lbWin = new JLabel("");
+		lbWin = new JLabel("You have 12 chances");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
 		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
@@ -229,7 +238,7 @@ public class ServeurMulti extends JFrame implements ActionListener {
 		case "Disconnect":
 			try {
 				ServeurConnect serveurConnect = new ServeurConnect(port);
-				serveurConnect.disconnected();
+ 				serveurConnect.disconnected();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -238,6 +247,9 @@ public class ServeurMulti extends JFrame implements ActionListener {
 			try {
 				ServeurConnect serveurConnect = new ServeurConnect(port);
 				serveurConnect.connect();
+				combiRandom = serveurConnect.combiRandom; 
+				
+				
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -245,9 +257,44 @@ public class ServeurMulti extends JFrame implements ActionListener {
 			
 		case "Enter":
 			try {
+				System.out.println(combiRandom);
 				ServeurConnect serveurConnect = new ServeurConnect(port);
 				serveurConnect.msg_send(textField2.getText());
-				combiCompetitor.setText(serveurConnect.msg_Receive());
+				
+				char[] txtTab = new char[4];
+				char[] txtTab2 = new char[4];
+				char[] tab = new char[4];
+
+				
+				temp = temp+textField2.getText()+"\n";
+				txtTab = modelGame.convertString2Tab(textField2.getText());
+				txtTab2 = modelGame.convertString2Tab(combiRandom);
+				tab =correction.correction(txtTab,txtTab2); 
+				temp2 = temp2+modelGame.convertTab2String(tab)+"\n";
+				
+				if(( (textField2.getText().equals(combiRandom)))) {
+					combiInTout.setText(temp);
+					combiResult.setText(temp2);
+					combiCompetitor.setText(serveurConnect.msg_Receive());
+					lbWin.setText("You win");
+					textField2.setText("");
+					textField2.setEditable(false);
+				}
+				else if(chances==0) {
+					lbWin.setText("You lose");
+					textField2.setText("");
+					textField2.setEditable(false);
+				}
+				 
+				else {
+					chances--;
+					combiInTout.setText(temp);
+					combiResult.setText(temp2);
+					temp3 = temp3 + serveurConnect.msg_Receive()+"\n";
+					combiCompetitor.setText(temp3);
+					lbWin.setText("You have " + chances + " chances");
+				}
+				
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
