@@ -248,6 +248,13 @@ public class  ClientMulti extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
+		case "Disconnect":
+			try {
+				clientConnect.disconnected();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			break;
 		case"Connect":
 			try {
 				clientConnect.connect();
