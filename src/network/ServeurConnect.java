@@ -14,10 +14,9 @@ public class ServeurConnect {
     static Socket s;
     static DataInputStream din;
     static DataOutputStream dout;
+    
+    public String combiRandom="";
 	    
-	    public ServeurConnect() {
-	    	
-	    }
 	   
 	    public ServeurConnect(int port){
 	    	this.port = port;
@@ -58,6 +57,9 @@ public class ServeurConnect {
 
 		            	din = new DataInputStream(s.getInputStream());
 		            	dout = new DataOutputStream(s.getOutputStream());
+		            	
+						combiRandom = din.readUTF();
+
 		           
 		           
 		           
