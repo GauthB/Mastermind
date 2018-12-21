@@ -1,4 +1,4 @@
-package view;
+  package view;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -32,7 +32,7 @@ public class ViewMain extends JFrame implements ActionListener {
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramètres du jeu.
+	 * @param args les paramÃ¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
