@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import view.ViewGameMulti;
 import view.ViewIp;
+import view.ViewYourIp;
 
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -23,8 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-
-
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -35,14 +35,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextPane;
 
 
-public class ClientMulti extends JFrame implements ActionListener {
+public class  ClientMulti extends JFrame implements ActionListener {
 	
 	public String ip="";
 	public int port;
 	
+	ClientConnect clientConnect = new ClientConnect("192.168.1.33",1117);
+	
 	static Socket s;
     static DataInputStream din;
     static DataOutputStream dout;
+    
+    public boolean flag =false;
     
     public JTextPane combiInTout;
 	public JTextPane combiResult;
@@ -55,14 +59,28 @@ public class ClientMulti extends JFrame implements ActionListener {
 	private JLabel label_2;
 	private JLabel label_3;
 	private JPanel contentPane;
-	public JTextField textField2;
+	public static JTextField textField2;
 	
 	
-	
+	 public static void main(String[] args) throws Exception {
+		 EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						ClientMulti frame = new ClientMulti();
+						frame.setVisible(true);
+						frame.setTitle("Number Mastermind");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+
+	 }
 	public ClientMulti() throws Exception {
 		initComponents();
 	}
-	public void initComponents() {
+	public void initComponents()  {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 580, 589);
 		contentPane = new JPanel();
@@ -202,50 +220,39 @@ public class ClientMulti extends JFrame implements ActionListener {
 		gbc_btnExit.gridy = 17;
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit, gbc_btnExit);
+		
+		JButton btnConnect = new JButton("Connect");
+		GridBagConstraints gbc_btnConnect = new GridBagConstraints();
+		gbc_btnConnect.insets = new Insets(0, 0, 0, 5);
+		gbc_btnConnect.gridx = 2;
+		gbc_btnConnect.gridy = 17;
+		contentPane.add(btnConnect, gbc_btnConnect);
+		btnConnect.addActionListener(this);
+		
+		
 	}
 	
-	 private void msg_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_msg_sendActionPerformed
-	        try{
-	        	String msgout;
-	            msgout = textField2.getText().trim();
-	            dout.writeUTF(msgout);
-	        }catch(Exception ae){}
-	    }
-	 
-	 public static void main(String[] args) throws Exception {
+	public void test() throws Exception {
 		 
-	        java.awt.EventQueue.invokeLater(() -> {
-	        	
-	        	try {
-					new ClientMulti().setVisible(true);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	        });
-	        
-	        try {
-	            s = new Socket("172.0.0.1",1516);
-	            din = new DataInputStream(s.getInputStream());
-	            dout = new DataOutputStream(s.getOutputStream());
-	            System.out.println("Connected !");
-	            String msgin="";
-	            
-	            while(!msgin.equals("exit"))
-	            {
-	                msgin = din.readUTF();
-	                combiCompetitor.setText(combiCompetitor.getText().trim()+"\n"+msgin);
-	            }
-	            //s.close();
-	        } catch (Exception e) {}
-	 }
+	}
 	 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
-		
+		case"Connect":
+			try {
+				clientConnect.connect();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			break;
 		case "Enter":
-			msg_sendActionPerformed(e);
+			try {
+				clientConnect.msg_send(textField2.getText());
+				combiCompetitor.setText(clientConnect.msg_Receive());
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 			break;
 		
 		case "Exit":
