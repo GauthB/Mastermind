@@ -24,7 +24,7 @@ public class ViewIp extends JFrame implements ActionListener {
 	 * Variables
 	 */
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textField,textField2;
 	private JLabel title,lblIpAddress;
 	private JButton btnIp;
 	String temp="";
@@ -34,7 +34,7 @@ public class ViewIp extends JFrame implements ActionListener {
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨tres du jeu.
+	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -79,7 +79,7 @@ public class ViewIp extends JFrame implements ActionListener {
 		gbc_title.gridy = 1;
 		contentPane.add(title, gbc_title);
 		
-		lblIpAddress = new JLabel("Enter the Ip address:");
+		lblIpAddress = new JLabel("Enter the Ip address and port:");
 		lblIpAddress.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_lblIpAddress = new GridBagConstraints();
 		gbc_lblIpAddress.gridwidth = 2;
@@ -108,6 +108,15 @@ public class ViewIp extends JFrame implements ActionListener {
 		gbc_textField.gridy = 4;
 		contentPane.add(textField, gbc_textField);
 		
+		textField2 = new JTextField();
+		textField2.setColumns(10);
+		GridBagConstraints gbc_textField2 = new GridBagConstraints();
+		gbc_textField2.insets = new Insets(0, 0, 5, 5);
+		gbc_textField2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField2.gridx = 1;
+		gbc_textField2.gridy = 5;
+		contentPane.add(textField2, gbc_textField2);
+		
 	}
 
 	@Override
@@ -119,10 +128,10 @@ public class ViewIp extends JFrame implements ActionListener {
 			
 			try {
 				
-				ClientMulti clientMulti = new ClientMulti(textField.getText(),1121);
-				
+				ClientMulti clientMulti = new ClientMulti(textField.getText(),Integer.parseInt(textField2.getText()));
 				clientMulti.setVisible(true); 
 				this.dispose();
+				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
