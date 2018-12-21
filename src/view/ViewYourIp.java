@@ -46,7 +46,7 @@ AddressIp addressIp = new AddressIp();
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÆ’Ã‚Â¨tres du jeu.
+	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -64,6 +64,7 @@ AddressIp addressIp = new AddressIp();
 
 	/**
 	 * Create the frame.
+	 * @throws UnknownHostException 
 	 */
 	public ViewYourIp() /*throws Exception*/{
 		
@@ -149,11 +150,12 @@ AddressIp addressIp = new AddressIp();
 		switch(e.getActionCommand()){
 	
 		case"OK":
-			ServeurMulti serveurMulti;
+			 
 			try {
-				serveurMulti = new ServeurMulti();
-				serveurMulti.port = 2021;
-				serveurMulti.connect();
+				ServeurMulti serveurMulti = new ServeurMulti();
+				serveurMulti.setVisible(true);
+				this.dispose();
+				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
