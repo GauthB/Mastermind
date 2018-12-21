@@ -40,7 +40,7 @@ public class  ClientMulti extends JFrame implements ActionListener {
 	public String ip="";
 	public int port;
 	
-	ClientConnect clientConnect = new ClientConnect("192.168.1.33",1117);
+	ClientConnect clientConnect = new ClientConnect("192.168.1.33",1118);
 	
 	static Socket s;
     static DataInputStream din;
@@ -82,14 +82,14 @@ public class  ClientMulti extends JFrame implements ActionListener {
 	public void initComponents()  {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 580, 589);
+		setBounds(100, 100, 580, 630);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{70, 70, 70, 20, 70, 70, 70, 70, 70};
-		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
+		gbl_contentPane.rowHeights = new int[]{29, 37, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 29, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		contentPane.setLayout(gbl_contentPane);
@@ -224,10 +224,19 @@ public class  ClientMulti extends JFrame implements ActionListener {
 		JButton btnConnect = new JButton("Connect");
 		GridBagConstraints gbc_btnConnect = new GridBagConstraints();
 		gbc_btnConnect.insets = new Insets(0, 0, 0, 5);
-		gbc_btnConnect.gridx = 2;
-		gbc_btnConnect.gridy = 17;
+		gbc_btnConnect.gridx = 0;
+		gbc_btnConnect.gridy = 18;
 		contentPane.add(btnConnect, gbc_btnConnect);
 		btnConnect.addActionListener(this);
+		
+		JButton btnDisconnect = new JButton("Disconnect");
+		GridBagConstraints gbc_btnDisconnect = new GridBagConstraints();
+		gbc_btnDisconnect.insets = new Insets(0, 0, 0, 5);
+		gbc_btnDisconnect.gridwidth = 2;
+		gbc_btnDisconnect.gridx = 1;
+		gbc_btnDisconnect.gridy = 18;
+		contentPane.add(btnDisconnect, gbc_btnDisconnect);
+		btnDisconnect.addActionListener(this);
 		
 		
 	}
