@@ -11,7 +11,7 @@ public class RandomCombi {
 	
 	//_________________METHODES____________________________________________________________________________________________________	
 	/**
-	 * Definit le nombre qu'il faut de chiffre dans la combi
+	 * Defini le nombre qu'il faut de chiffre dans la combi
 	 */
 	public RandomCombi(){	// nombre de chiffre qu'il faut deviner
 		int n = 4;

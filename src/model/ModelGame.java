@@ -38,7 +38,7 @@ public class ModelGame extends Observable{
 //________________CONSTRUCTEURS__________________________________________________________________________________________________
 	
 	/**
-	 * Un constructeur qui initialise le nombre d'essais pour chaque niveaux
+	 * Un constructeur qui initialise le nombre d'essais pour chaque niveau
 	 */
 	public ModelGame() {
 		this.easy = 12;
@@ -54,7 +54,7 @@ public class ModelGame extends Observable{
 
 	// --- Entrez une combi ---
 	/**
-	 * @return combiIn tableau contenant la combinaison entrÃ©e
+	 * @return combiIn tableau contenant la combinaison entrée
 	 */
 	public char[] enterCombi() {
 
@@ -272,7 +272,7 @@ public class ModelGame extends Observable{
 	/**
 	 * Une methode qui renvoie un boolean en fonction de la combinaison.
 	 * @param combi La combinaison reçue par l'utilisateur
-	 * @return un boolean
+	 * @return boolean en fonction de la combi entrée
 	 */
 	public boolean ifCorrect(String combi) {
 		
