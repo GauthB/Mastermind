@@ -19,6 +19,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controller.Correction;
+import controller.RandomCombi;
+import model.ModelGame;
 import network.ClientConnect;
 
 import java.awt.EventQueue;
@@ -36,14 +39,21 @@ public class  ClientMulti extends JFrame implements ActionListener {
 	
 	public String ip="";
 	public int port;
+	public char[] combiRandom = new char[4];
+	public int chances = 12;
+	public String temp="";
+	public String temp2="";
+	public String temp3="";
 	
-	
+	ModelGame modelGame = new ModelGame();
+	Correction correction = new Correction();
 	
 	static Socket s;
     static DataInputStream din;
     static DataOutputStream dout;
     
     public boolean flag =false;
+
     
     public JTextPane combiInTout;
 	public JTextPane combiResult;
@@ -82,6 +92,9 @@ public class  ClientMulti extends JFrame implements ActionListener {
 		this.ip = ip;
 		this.port = port;
 		initComponents();
+		RandomCombi randomCombi =  new RandomCombi();
+		combiRandom = randomCombi.combi;		
+		
 	}
 	public void initComponents()  {
 		
@@ -207,7 +220,7 @@ public class  ClientMulti extends JFrame implements ActionListener {
 		contentPane.add(textField2, gbc_textField2);
 		textField2.setColumns(10);
 		
-		lbWin = new JLabel("");
+		lbWin = new JLabel("You have 12 chances");
 		lbWin.setHorizontalAlignment(SwingConstants.LEFT);
 		lbWin.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		GridBagConstraints gbc_lbWin = new GridBagConstraints();
@@ -261,19 +274,50 @@ public class  ClientMulti extends JFrame implements ActionListener {
 			break;
 		case"Connect":
 			try {
-				ClientConnect clientConnect = new ClientConnect(ip,port);
+				ClientConnect clientConnect = new ClientConnect(ip,port,modelGame.convertTab2String(combiRandom));
 
 				clientConnect.connect();
+				System.out.println(combiRandom);
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 			break;
 		case "Enter":
 			try {
+				System.out.println(combiRandom);
 				ClientConnect clientConnect = new ClientConnect(ip,port);
-
 				clientConnect.msg_send(textField2.getText());
-				combiCompetitor.setText(clientConnect.msg_Receive());
+				char[] txtTab = new char[4];
+
+				
+				temp = temp+textField2.getText()+"\n";
+				txtTab = modelGame.convertString2Tab(textField2.getText()) ;
+				char tab[] =correction.correction(txtTab,combiRandom); 
+				temp2 = temp2+modelGame.convertTab2String(tab)+"\n";
+				
+				
+				if( (textField2.getText().equals(modelGame.convertTab2String(combiRandom)))) {
+					combiInTout.setText(temp);
+					combiResult.setText(temp2);
+					lbWin.setText("You win");
+					textField2.setText("");
+					textField2.setEditable(false);
+				}
+				else if(chances == 0) {
+					lbWin.setText("You lose");
+					textField2.setText("");
+					textField2.setEditable(false);
+				}
+				else {
+					chances--;
+					combiInTout.setText(temp);
+					combiResult.setText(temp2);
+					temp3 = temp3+clientConnect.msg_Receive()+"\n";
+					combiCompetitor.setText(temp3);
+					lbWin.setText("You have " + chances + " chances");
+				}
+				
+				
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
