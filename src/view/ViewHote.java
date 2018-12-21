@@ -115,7 +115,7 @@ public class ViewHote extends JFrame implements ActionListener {
 		
 		switch(e.getActionCommand()){
 		
-		case"Hote":
+		case"Host":
 			ViewYourIp viewYourIp = new ViewYourIp();
 			viewYourIp.setVisible(true);
 			this.dispose();
