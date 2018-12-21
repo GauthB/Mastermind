@@ -14,6 +14,7 @@ public class ClientConnect {
     
     public String ip="";
     public int port;
+    public String combiRandom="";
     
     public ClientConnect() {
     	
@@ -22,6 +23,11 @@ public class ClientConnect {
     public ClientConnect(String ip,int port){
     	this.ip = ip;
     	this.port = port;
+    }
+    public ClientConnect(String ip,int port,String combiRandom){
+    	this.ip = ip;
+    	this.port = port;
+    	this.combiRandom = combiRandom;
     }
 	
 	// Envoyer un message
@@ -57,7 +63,7 @@ public class ClientConnect {
 	            dout = new DataOutputStream(s.getOutputStream());
 	            System.out.println("Connected !");
 	            JOptionPane.showMessageDialog(null, "Connected ! ");
-	         
+	            dout.writeUTF(combiRandom);
 			}
 		catch (Exception e) {
 			e.printStackTrace();
