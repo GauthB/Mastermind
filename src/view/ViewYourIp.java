@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.ModelGame;
@@ -41,10 +42,11 @@ AddressIp addressIp = new AddressIp();
 	public  InetAddress LocaleAdresse ;
 	private JButton btnOk;
 	private JRootPane rootPane;
+	private JTextField lblPort;
 	
 	/**
 	 * Launch the application.
-	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨tres du jeu.
+	 * @param args les paramÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¨tres du jeu.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -89,7 +91,7 @@ AddressIp addressIp = new AddressIp();
 		gbc_title.gridy = 1;
 		contentPane.add(title, gbc_title);
 		
-		lblIpAddress = new JLabel("Your Ip address:");
+		lblIpAddress = new JLabel("Your Ip address and port:");
 		lblIpAddress.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		GridBagConstraints gbc_lblIpAddress = new GridBagConstraints();
 		gbc_lblIpAddress.anchor = GridBagConstraints.SOUTHWEST;
@@ -106,6 +108,15 @@ AddressIp addressIp = new AddressIp();
 		gbc_lblIp.gridx = 1;
 		gbc_lblIp.gridy = 4;
 		contentPane.add(lblIp, gbc_lblIp);
+		
+		lblPort = new JTextField("");
+		lblPort.setColumns(10);
+		GridBagConstraints gbc_lblPort = new GridBagConstraints();
+		gbc_lblPort.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblPort.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPort.gridx = 1;
+		gbc_lblPort.gridy = 5;
+		contentPane.add(lblPort, gbc_lblPort);
 		
 		btnOk = new JButton("OK");
 		btnOk.setMinimumSize(new Dimension(100, 40));
@@ -126,7 +137,7 @@ AddressIp addressIp = new AddressIp();
 		
 		//String ip = InetAddress.getLocalHost().getHostAddress().toString();
 		try {
-			System.out.println("Votre IP est : " + addressIp.giveMyIp());
+			System.out.println("Votre IP est : " + addressIp.giveMyIp() );
 			lblIp.setText(addressIp.giveMyIp());
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -150,7 +161,7 @@ AddressIp addressIp = new AddressIp();
 		case"OK":
 			 
 			try {
-				ServeurMulti serveurMulti = new ServeurMulti(1121);
+				ServeurMulti serveurMulti = new ServeurMulti(Integer.parseInt(lblPort.getText()));
 				serveurMulti.setVisible(true);
 				this.dispose();
 				
